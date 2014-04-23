@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Drool</title>
+	<script type="text/javascript" src="jquery-1.11.0.js"></script>
+	<script type="text/javascript" src="javascript.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="style.css">
 
@@ -30,24 +32,50 @@
 		</nav>
 	</header>
 	<main>
-		<div id="convetor">
-			<input type="text" name="val1">
-			<select id="select1">
-				<option value="volvo">Volvo</option>
-				<option value="saab">Saab</option>
-				<option value="opel">Opel</option>
-				<option value="audi">Audi</option>
-			</select>
+		<div id="convertor">
+			<input placeholder="test" id="input1" type="text" name="val1" size="3">
+			<div class="dropdown">
+			  	<label id="search1">BitCoin</label>
+			    <ul class="menuSearch1">
+			        <li>
+			              <span>BitCoin</span>
+			        </li>
+			        <li>
+			              <span>left3</span>
+			        </li>
+			        <li>
+			              <span>left4</span>
+			        </li>
+			    </ul>
+			 </div>
 			<span>=</span>
-			<input type="text" name="val2">
-			<select id="select2">
-				<option value="volvo">Volvo</option>
-				<option value="saab">Saab</option>
-				<option value="opel">Opel</option>
-				<option value="audi">Audi</option>
-			</select>
+			<input id="input2" type="text" name="val2" size="3">
+			<div class="dropdown">
+			  	<label id="search2">Dolar</label>
+			    <ul class="menuSearch2">
+			        <li>
+			        	<input type="text" id="textField2" placeholder="Search">
+			        </li>
+			        <li>
+
+			              <span>left2</span>
+			            
+			        </li>
+			        <li>
+
+			              <span>left3</span>
+
+			        </li>
+			        <li>
+
+			              <span>left4</span>
+
+			        </li>
+			    </ul>
+			 </div>
+ 			<div class="clear"></div>
 		</div>
 	</main>
-	<footer>Footer</footer>
+	<footer><p>Footer</p></footer>
 </body>
 </html>

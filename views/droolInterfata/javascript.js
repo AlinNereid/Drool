@@ -1,0 +1,98 @@
+	var lastValue1 = "",
+		    timerCheckCount1 = 0,
+		    checkInputChange1 = function() {
+		    	if($timer1.val()==""){
+		    		$timer1.attr({width: 'auto', size: 3});
+		    	}
+		    	else
+		        if (lastValue1 !== $timer1.val()) {
+		       		$timer2.val($timer1.val()*3);
+		        	//convertor
+		            if($timer1.val().length<100)
+					{		
+						if($timer1.val().length>3)
+				  			$timer1.attr({width: 'auto', size: $timer1.val().length});
+				  		else
+				  			$timer1.attr({width: 'auto', size: 3});
+			  		}
+		            lastValue1 = $timer1.val();
+		        }
+		    },
+		    timer1 = undefined,
+		    startTimer1 = function() {
+		        timer1 = setInterval(checkInputChange1,50); // check input field every 200 ms (1/5 sec)
+		    },
+		    endTimer1 = function() {
+		        clearInterval(timer1);
+		    };
+	var lastValue2 = "",
+		    timerCheckCount2 = 0,
+		    checkInputChange2 = function() {
+		    	if($timer2.val()==""){
+		    		$timer2.attr({width: 'auto', size: 3});
+		    	}
+		    	else
+		        if (lastValue2 !== $timer2.val()) {
+
+		            if($timer2.val().length<200)
+					{		
+						//convertor
+						if($timer2.val().length>3)
+				  			$timer2.attr({width: 'auto', size: $timer2.val().length});
+				  		else
+				  			$timer2.attr({width: 'auto', size: 3});
+			  		}
+		            lastValue = $timer2.val();
+		        }
+		    },
+		    timer2 = undefined,
+		    startTimer2 = function() {
+		        timer2 = setInterval(checkInputChange2, 100); // check input field every 200 ms (1/5 sec)
+		    },
+		    endTimer2 = function() {
+		        clearInterval(timer2);
+		    };
+
+	$(document).ready(function(){
+		var documentHeight = $(document).height();
+		var percentageHeight = documentHeight * .1;
+		if(documentHeight>500){
+			$("#convertor").css("margin-top",percentageHeight );
+		}
+		/*$("main").css("padding-bottom",percentageHeight*4 );*/
+		$timer1 = $('#input1')
+		$timer2 = $('#input2')
+
+		startTimer1();
+		startTimer2();
+	$(document).click(function(e) {
+          var target = e.target;
+          console.log($(target));
+          if($(target).is('label#search1') ){
+            $('.menuSearch1').stop().slideDown(200);
+          }
+          else{
+                if ($(target).is('ul.menuSearch1 li *')) {
+                	console.log("da");
+                    $("#search1").text(target.parentNode.textContent);
+                }
+                if($(target).is('ul.menuSearch1 li')){
+                	$("#search1").text(target.textContent);
+                }
+            $('.menuSearch1').stop().slideUp(200);
+        }
+        if($(target).is('label#search2') || $(target).is('#textField2')){
+            $('.menuSearch2').stop().slideDown(200);
+          }
+          else{
+                if ($(target).is('ul.menuSearch2 li *')) {
+                	console.log("da");
+                    $("#search2").text(target.parentNode.textContent);
+                }
+                if($(target).is('ul.menuSearch2 li')){
+                	$("#search2").text(target.textContent);
+                }
+            $('.menuSearch2').stop().slideUp(200);
+        }
+      });
+	});

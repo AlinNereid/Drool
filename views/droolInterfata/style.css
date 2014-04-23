@@ -20,13 +20,23 @@ body{
 }
 header{
   text-align: center;
-  font-size: 2.3em;
+  font-size: 2.3em; 
+  height: 20%;
+  min-height: 180px;
+}
+main{
+    height: 55%;
+    min-height: 200px;
+}
+footer{
+  /*height: 10%;
+  max-height: 100px;*/
 }
 #title{
   font-size: 1.1em;
   display: inline;
   line-height: 2.1em;
-  color:#black;
+  color:#000000;
   padding-bottom: 0.09em;
   text-shadow: 0 1px 0 #ccc,
   0 2px 0 #c9c9c9,
@@ -44,9 +54,10 @@ header{
 header nav ul{
   text-align: center;
   background: rgba(200,200,200,1);
-  display: flex;
+  display: inline-flex;
   flex-flow: row wrap;
   justify-content: flex-end;
+  width: 100%
 }
 header nav ul li a p{
   display: inline;
@@ -64,7 +75,12 @@ a{
   color: black;
 }
 header nav ul li {
-  display: inline;
+  display: inline;  
+  margin-right: 15%;
+}
+header nav ul li:last-child {
+  display: inline;  
+  margin-right: 0%;
 }
 header nav ul a p:hover{
  -webkit-box-shadow: 0px 0px 20px 8px rgba(255,251,240,1);
@@ -73,22 +89,136 @@ header nav ul a p:hover{
 }
 
 main{
+  display: block;
   text-align: center;
 }
-main div{
-  display: inline;
+#convertor{
+  display: inline-block;
+  min-height: 150px;
+  height: 55%;
 }
+#convertor > *{
+  float: left;
+ /* position: relative;*/
+}
+#convertor > select{
+  padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    cursor:pointer;
+    width: 130px;
+    font-size: 2.3em;
+    margin-top: 10px;
+}
+#convertor > input[type="text"]{
+  font-size: 3.2em;
+  font-family: monospace,Times,serif;
+  width: auto;
+  margin-top: 10px;
+  height: 55px;
+  }
+#convertor > span{
+  font-family: monospace,Times,serif;
+  font-weight: bold;
+  font-size: 2.5em;
+  padding:3px;
+}
+
+
+div.dropdown label{
+    color: #fff;
+    background: #83857E;
+    width: 150px;
+    display: inline-block;
+    height: 56px;
+    margin-top: 10px;
+    line-height: 54px;
+    border-radius: 7px;
+}
+div.dropdown {
+  font-size: 28px;
+  display: inline-block;
+}
+div.dropdown ul{
+    padding:0;
+    margin: 0;
+    /*width: 150px*/;
+    font-size: 0;
+
+}
+ul#menu li, div.dropdown * li {
+    list-style-type: none;
+    display: block;
+    margin: 0px;
+}
+ul#menu li, div.dropdown * li{
+    text-decoration: none;
+    color: #fff;
+    background: #83857E;
+    width: 150px;
+    display:inline-block; 
+    height: 40px;
+    margin-bottom: 0px;
+    line-height: 40px;
+    font-size: 20px;
+    margin-top: 4px;
+    border-radius: 7px;
+}
+#textField2{
+  height: 40px;
+  width: 150px; 
+  font-size: 24px;
+  border-radius: 7px;
+}
+div.clear{
+  clear: both;
+}
+ul li span{
+  padding-right:10px;
+}
+#convertor .dropdown{
+  margin-left: 10px;
+}
+#convertor span{
+  margin-top: 10px;
+}
+
+
+
 /* Huge screens or >*/
 @media all{
   header nav ul {
     justify-content: space-around;
   }
+  .dropdown ul{
+    width: 150px;
+  }
 }
 
 /* medium screens */
-@media all and (max-width: 600px) and (min-width: 370px){
+@media all and (max-width: 600px) and (min-width: 390px){
   header nav ul  {
     flex-direction: column;
+  }
+  #convertor{
+    font-size: 0.6em;
+    height: 60%;
+  }
+  #convertor span{
+    display: block;
+  }
+  #convertor > input[type="text"]{
+    height: 32px;
   }
   header nav ul li a p{
     display: block;
@@ -96,16 +226,56 @@ main div{
     line-height: 1.2em;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1%;
+    margin-bottom: 1.5%;
   }
   header{
     font-size: 1.6em;
   }
+  header nav ul li{
+  display: inline;  
+  margin-right: 0%;
+  }
+  /*dropdown*/
+  .dropdown ul{
+    width: 100px;
+  }
+  .dropdown ul li, #textField2{
+    font-size: 14px;
+    height: 28px;
+    line-height: 14px;
+  }
+  .dropdown,.menuSearch1,.menuSearch2, div.dropdown * li, .dropdown ul, #textField2{
+    width: 100px;
+  }
+   #search1,#search2 {
+    height: 32px;
+    font-size: 16px;
+    line-height: 32px;
+    width: 100px;
+  }
+  ul#menu li, div.dropdown * li{
+    margin-top: 2px;
+  }
 }
+
 /*small screens*/
-@media all and (max-width: 370px) {
+@media all and (max-width: 390px) {
   header nav ul  {
     flex-direction: column;
+  }
+  header{
+    min-height: 130px;
+  }
+  #convertor{
+    font-size: 0.4em;
+    height: 55%;
+  }
+  #convertor span{
+    display: block;
+
+  }
+  #convertor > input[type="text"]{
+    height: 26px;
   }
   header nav ul li a p{
     display: block;
@@ -113,12 +283,37 @@ main div{
     line-height: 1.2em;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1%;
+    margin-bottom: 1.5%;
   }
   header{
     font-size: 2ex;
   }
   #title{
     font-size: 1.3ex;
+  }
+  header nav ul li{
+    display: inline;  
+    margin-right: 0%;
+  }
+   /*dropdown*/
+  .dropdown ul{
+    width: 80px;
+  }
+  .dropdown ul li, #textField2{
+    font-size: 11px;
+    height: 22px;
+    line-height: 8px;
+  }
+  .dropdown,.menuSearch1,.menuSearch2, div.dropdown * li, .dropdown ul, #textField2{
+    width: 80px;
+  }
+   #search1,#search2 {
+    height: 26px;
+    font-size: 12px;
+    line-height: 32px;
+    width: 80px;
+  }
+  ul#menu li, div.dropdown * li{
+    margin-top: 1px;
   }
 }
