@@ -5,7 +5,7 @@
     <script type="text/javascript" src="/javascript/jquery-1.11.0.js"></script>
     <script type="text/javascript" src="/javascript/javascript.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/stylemedia.css">
 </head>
 <body>
 <header>
@@ -32,19 +32,13 @@
 </header>
 <main>
     <div id="convertor">
-        <input placeholder="test" id="input1" type="text" name="val1" size="3">
+        <input placeholder="VAL" id="input1" type="text" name="val1" size="3">
         <div class="dropdown">
-            <label id="search1">BitCoin</label>
+            <label id="search1"><%= digitalCoins[0] %></label>
             <ul class="menuSearch1">
-                <li>
-                    <span>BitCoin</span>
-                </li>
-                <li>
-                    <span>left3</span>
-                </li>
-                <li>
-                    <span>left4</span>
-                </li>
+                <% for(var i=0; i<digitalCoins.length; i++) {%>
+                <li><span><%= digitalCoins[i] %></span></li>
+                <% } %>
             </ul>
         </div>
         <span>=</span>
@@ -55,21 +49,9 @@
                 <li>
                     <input type="text" id="textField2" placeholder="Search">
                 </li>
-                <li>
-
-                    <span>left2</span>
-
-                </li>
-                <li>
-
-                    <span>left3</span>
-
-                </li>
-                <li>
-
-                    <span>left4</span>
-
-                </li>
+                <% for(var i=0; i<realCoins.length; i++) {%>
+                <li><span><%= realCoins[i] %></span></li>
+                <% } %>
             </ul>
         </div>
         <div class="clear"></div>

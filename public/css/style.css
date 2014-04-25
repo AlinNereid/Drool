@@ -1,108 +1,110 @@
 *{
-  font-family: 'Open Sans',Times,serif;
-  margin: 0; padding: 0; border: 0;
+    font-family: 'Open Sans',Times,serif;
+    margin: 0; padding: 0; border: 0;
 }
 html{
-  height:100%;
+    height:100%;
 }
 body{
-  height: 100%;
-  min-height: 100%;
- /* min-width:  700px;*/
-  background: rgb(224,224,224); /* Old browsers */
-  background: -webkit-linear-gradient(rgba(224,224,224,1), rgba(186,186,186,1)); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(rgba(224,224,224,1), rgba(186,186,186,1)); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(rgba(224,224,224,1), rgba(186,186,186,1)); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(rgba(224,224,224,1), rgba(186,186,186,1));
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  /*background-size: cover;*/
+    height: 100%;
+    min-height: 100%;
+    /* min-width:  700px;*/
+    background: rgb(224,224,224); /* Old browsers */
+    background: -webkit-linear-gradient(rgba(224,224,224,1), rgba(186,186,186,1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgba(224,224,224,1), rgba(186,186,186,1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgba(224,224,224,1), rgba(186,186,186,1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgba(224,224,224,1), rgba(186,186,186,1));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /*background-size: cover;*/
 }
 header{
-  text-align: center;
-  font-size: 2.3em; 
-  height: 20%;
-  min-height: 180px;
+    text-align: center;
+    font-size: 2.3em;
+    height: 20%;
+    min-height: 180px;
+    min-width: 880px;
 }
 main{
-    height: 55%;
+    /*height: 55%;*/
     min-height: 200px;
 }
 footer{
-  /*height: 10%;
-  max-height: 100px;*/
+    /*height: 10%;
+    max-height: 100px;*/
 }
 #title{
-  font-size: 1.1em;
-  display: inline;
-  line-height: 2.1em;
-  color:#000000;
-  padding-bottom: 0.09em;
-  text-shadow: 0 1px 0 #ccc,
-  0 2px 0 #c9c9c9,
-  0 3px 0 #bbb,
-  0 4px 0 #b9b9b9,
-  0 5px 0 #aaa,
-  0 6px 1px rgba(0,0,0,.1),
-  0 0 5px rgba(0,0,0,.1),
-  0 1px 3px rgba(0,0,0,.3),
-  0 3px 5px rgba(0,0,0,.2),
-  0 5px 10px rgba(0,0,0,.25),
-  0 10px 10px rgba(0,0,0,.2),
-  0 20px 20px rgba(0,0,0,.15);
+    font-size: 1.1em;
+    display: inline;
+    line-height: 2.1em;
+    color:#000000;
+    padding-bottom: 0.09em;
+    text-shadow: 0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 20px 20px rgba(0,0,0,.15);
 }
 header nav ul{
-  text-align: center;
-  background: rgba(200,200,200,1);
-  display: inline-flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  width: 100%
+    text-align: center;
+    background: rgba(200,200,200,1);
+    display: inline-flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: space-around;
+    min-width: 880px
 }
 header nav ul li a p{
-  display: inline;
-  font-size: 0.5em;
-  border-radius: 10px 10px 10px 10px;
-  -moz-border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border: 1px solid #000000;
-  background-color: #caccc4;
-  line-height: 3.4em;
-  padding: 0.5em;
+    display: inline;
+    font-size: 0.5em;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #000000;
+    background-color: #caccc4;
+    line-height: 3.4em;
+    padding: 0.5em;
 }
 a{
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 header nav ul li {
-  display: inline;  
-  margin-right: 15%;
+    display: inline;
+    margin-right: 15%;
 }
 header nav ul li:last-child {
-  display: inline;  
-  margin-right: 0%;
+    display: inline;
+    margin-right: 0%;
 }
 header nav ul a p:hover{
- -webkit-box-shadow: 0px 0px 20px 8px rgba(255,251,240,1);
- -moz-box-shadow: 0px 0px 20px 8px rgba(255,251,240,1);
- box-shadow: 0px 0px 20px 8px rgba(255,251,240,1);
+    -webkit-box-shadow: 0px 0px 20px 8px rgba(255,251,240,1);
+    -moz-box-shadow: 0px 0px 20px 8px rgba(255,251,240,1);
+    box-shadow: 0px 0px 20px 8px rgba(255,251,240,1);
 }
 
 main{
-  display: block;
-  text-align: center;
+    display: block;
+    text-align: center;
 }
 #convertor{
-  display: inline-block;
-  min-height: 150px;
-  height: 55%;
+    display: inline-block;
+    min-height: 150px;
+    height: 55%;
 }
 #convertor > *{
-  float: left;
- /* position: relative;*/
+    float: left;
+    /* position: relative;*/
 }
 #convertor > select{
-  padding:3px;
+    padding:3px;
     margin: 0;
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
@@ -121,17 +123,17 @@ main{
     margin-top: 10px;
 }
 #convertor > input[type="text"]{
-  font-size: 3.2em;
-  font-family: monospace,Times,serif;
-  width: auto;
-  margin-top: 10px;
-  height: 55px;
-  }
+    font-size: 3.2em;
+    font-family: monospace,Times,serif;
+    width: auto;
+    margin-top: 10px;
+    height: 55px;
+}
 #convertor > span{
-  font-family: monospace,Times,serif;
-  font-weight: bold;
-  font-size: 2.5em;
-  padding:3px;
+    font-family: monospace,Times,serif;
+    font-weight: bold;
+    font-size: 2.5em;
+    padding:3px;
 }
 
 
@@ -146,15 +148,15 @@ div.dropdown label{
     border-radius: 7px;
 }
 div.dropdown {
-  font-size: 28px;
-  display: inline-block;
+    font-size: 28px;
+    display: inline-block;
 }
 div.dropdown ul{
     padding:0;
     margin: 0;
-    /*width: 150px*/;
     font-size: 0;
-
+    display: none;
+    width: 150px;
 }
 ul#menu li, div.dropdown * li {
     list-style-type: none;
@@ -166,7 +168,7 @@ ul#menu li, div.dropdown * li{
     color: #fff;
     background: #83857E;
     width: 150px;
-    display:inline-block; 
+    display:inline-block;
     height: 40px;
     margin-bottom: 0px;
     line-height: 40px;
@@ -175,173 +177,46 @@ ul#menu li, div.dropdown * li{
     border-radius: 7px;
 }
 #textField2{
-  height: 40px;
-  width: 150px; 
-  font-size: 24px;
-  border-radius: 7px;
+    height: 40px;
+    width: 150px;
+    font-size: 24px;
+    border-radius: 7px;
 }
 div.clear{
-  clear: both;
+    clear: both;
 }
 ul li span{
-  padding-right:10px;
+    padding-right:10px;
 }
 #convertor .dropdown{
-  margin-left: 10px;
+    margin-left: 10px;
 }
 #convertor span{
-  margin-top: 10px;
+    margin-top: 10px;
 }
-
-
-
-/* Huge screens or >*/
-@media all{
-  header nav ul {
-    justify-content: space-around;
-  }
-  .dropdown ul{
-    width: 150px;
-  }
-}
-
-/* medium screens */
-@media all and (max-width: 600px) and (min-width: 390px){
-  header nav ul  {
-    flex-direction: column;
-  }
-  #convertor{
-    font-size: 0.6em;
-    height: 60%;
-  }
-  #convertor span{
-    display: block;
-  }
-  #convertor > input[type="text"]{
-    height: 32px;
-  }
-  header nav ul li a p{
-    display: block;
-    width: 90%;
-    line-height: 1.2em;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1.5%;
-  }
-  header{
-    font-size: 1.6em;
-  }
-  header nav ul li{
-  display: inline;  
-  margin-right: 0%;
-  }
-  /*dropdown*/
-  .dropdown ul{
-    width: 100px;
-  }
-  .dropdown ul li, #textField2{
-    font-size: 14px;
-    height: 28px;
-    line-height: 14px;
-  }
-  .dropdown,.menuSearch1,.menuSearch2, div.dropdown * li, .dropdown ul, #textField2{
-    width: 100px;
-  }
-   #search1,#search2 {
-    height: 32px;
-    font-size: 16px;
-    line-height: 32px;
-    width: 100px;
-  }
-  ul#menu li, div.dropdown * li{
-    margin-top: 2px;
-  }
-}
-
-/*small screens*/
-@media all and (max-width: 390px) {
-  header nav ul  {
-    flex-direction: column;
-  }
-  header{
-    min-height: 130px;
-  }
-  #convertor{
-    font-size: 0.4em;
-    height: 55%;
-  }
-  #convertor span{
-    display: block;
-
-  }
-  #convertor > input[type="text"]{
-    height: 26px;
-  }
-  header nav ul li a p{
-    display: block;
-    width: 90%;
-    line-height: 1.2em;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1.5%;
-  }
-  header{
-    font-size: 2ex;
-  }
-  #title{
-    font-size: 1.3ex;
-  }
-  header nav ul li{
-    display: inline;  
-    margin-right: 0%;
-  }
-   /*dropdown*/
-  .dropdown ul{
-    width: 80px;
-  }
-  .dropdown ul li, #textField2{
-    font-size: 11px;
-    height: 22px;
-    line-height: 8px;
-  }
-  .dropdown,.menuSearch1,.menuSearch2, div.dropdown * li, .dropdown ul, #textField2{
-    width: 80px;
-  }
-   #search1,#search2 {
-    height: 26px;
-    font-size: 12px;
-    line-height: 32px;
-    width: 80px;
-  }
-  ul#menu li, div.dropdown * li{
-    margin-top: 1px;
-  }
-}
-
-
 .demo-container {
-  box-sizing: border-box;
-  width: 850px;
-  height: 450px;
-  padding: 20px 15px 15px 15px;
-  margin: 15px auto 30px auto;
-  border: 1px solid #ddd;
-  background: #fff;
-  background: linear-gradient(#f6f6f6 0, #fff 50px);
-  background: -o-linear-gradient(#f6f6f6 0, #fff 50px);
-  background: -ms-linear-gradient(#f6f6f6 0, #fff 50px);
-  background: -moz-linear-gradient(#f6f6f6 0, #fff 50px);
-  background: -webkit-linear-gradient(#f6f6f6 0, #fff 50px);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-  -o-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  -ms-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  -moz-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    width: 850px;
+    height: 450px;
+    padding: 20px 15px 15px 15px;
+    margin: 15px auto 30px auto;
+    border: 1px solid #ddd;
+    background: #fff;
+    background: linear-gradient(#f6f6f6 0, #fff 50px);
+    background: -o-linear-gradient(#f6f6f6 0, #fff 50px);
+    background: -ms-linear-gradient(#f6f6f6 0, #fff 50px);
+    background: -moz-linear-gradient(#f6f6f6 0, #fff 50px);
+    background: -webkit-linear-gradient(#f6f6f6 0, #fff 50px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    -o-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    -ms-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .demo-placeholder {
-  width: 100%;
-  height: 100%;
-  font-size: 14px;
-  line-height: 1.2em;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    line-height: 1.2em;
 }

@@ -44,7 +44,7 @@
 				randomDate = data[i];
 				res.push([i, data[i],{url: randomDate}])
 			}
-			console.log(res);
+			//console.log(res);
 			return res;
 		}
 
@@ -118,12 +118,22 @@
 	    }
 		function update() {
 
-			plot.setData([getRandomData()]);
-
+			//plot.setData([getRandomData()]);
+            $.ajax({
+                url: "http://localhost:3000/api/bitstampUSD/4",
+                type: "GET",
+                dataType: "json",
+                success: function(rasp){
+                    console.log("yey");
+                },
+                error:function(){
+                    console.log("error");
+                }
+            });
 			// Since the axes don't change, we don't need to call plot.setupGrid()
-			plot.setupGrid();
-			plot.draw();
-			setTimeout(update, updateInterval);
+			//plot.setupGrid();
+			//plot.draw();
+			//setTimeout(update, updateInterval);
 		}
 
 		update();
