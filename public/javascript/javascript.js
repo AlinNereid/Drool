@@ -1,5 +1,7 @@
 var valoarecurenta;
+var allcurrency;
 var lastValCurenta;
+var updateInterval = 30000;
 var lastValue1 = "",
 		    timerCheckCount1 = 0,
 		    checkInputChange1 = function() {
@@ -60,6 +62,17 @@ var lastValue1 = "",
 
 	$(document).ready(function(){
         var updateTimeOut;
+        function getAllCurrencyReal(){
+            $.ajax({
+                url: "../api/currency/ALLCURRENCYREAL",
+                type: "GET",
+                dataType: "json",
+                success: function(data){
+                    allcurrency = data.allcurrencyreal;
+                    console.log(allcurrency);
+                }
+            });
+        }
         function update() {
             valoarecurenta=0;
             $.ajax({
@@ -82,13 +95,51 @@ var lastValue1 = "",
 			$("#convertor").css("margin-top",percentageHeight );
 		}
 		/*$("main").css("padding-bottom",percentageHeight*4 );*/
-		$timer1 = $('#input1')
-		$timer2 = $('#input2')
+		$timer1 = $('#input1');
+		$timer2 = $('#input2');
+        getAllCurrencyReal();
         update();
-        updateTimeOut=setInterval(update,10000);
+        updateTimeOut=setInterval(update,updateInterval);
 		startTimer1();
 		startTimer2();
-	$(document).click(function(e) {
+
+        $('#textField2').on('input', function() {
+            if($('#textField2').val()==""){
+                $('ul.menuSearch2 li:nth-child('+2+') span').text("USD");
+                $('ul.menuSearch2 li:nth-child('+3+') span').text("EUR");
+                $('ul.menuSearch2 li:nth-child('+4+') span').text("RON");
+                for(i=0;i<3;i++){
+                    var indexli=i+2;;
+                    $('ul.menuSearch2 li:nth-child('+indexli+')').show();
+                }
+            }
+            else{
+                for(i=0;i<3;i++){
+                    var indexli=i+2;;
+                    $('ul.menuSearch2 li:nth-child('+indexli+')').show();
+                }
+                var currencyStartWithTextField=[];
+                for(i=0;i<allcurrency.length;i++){
+                    if(allcurrency[i].indexOf($('#textField2').val().toUpperCase())==0){
+                        currencyStartWithTextField.push(allcurrency[i]);
+                        //console.log(allcurrency[i]);
+                    }
+                }
+                for(i=0;i<currencyStartWithTextField.length;i++){
+                    if(i>2){
+                        break;
+                    }
+                    console.log(currencyStartWithTextField[i]);
+                    var indexli=i+2;;
+                    $('ul.menuSearch2 li:nth-child('+indexli+') span').text(currencyStartWithTextField[i]);
+                }
+                for(;i<3;i++){
+                    var indexli=i+2;;
+                    $('ul.menuSearch2 li:nth-child('+indexli+')').hide();
+                }
+            }
+        });
+        $(document).click(function(e) {
           var target = e.target;
           console.log($(target));
           if($(target).is('label#search1') ){
@@ -101,13 +152,13 @@ var lastValue1 = "",
 
                     clearInterval(updateTimeOut);
                     update();
-                    updateTimeOut=setInterval(update,10000);
+                    updateTimeOut=setInterval(update,updateInterval);
                 }
                 if($(target).is('ul.menuSearch1 li')){
                 	$("#search1").text(target.textContent);
                     clearInterval(updateTimeOut);
                     update();
-                    updateTimeOut=setInterval(update,10000);
+                    updateTimeOut=setInterval(update,updateInterval);
                 }
               $('.menuSearch1').stop().slideUp(200);
         }
@@ -121,13 +172,13 @@ var lastValue1 = "",
 
                     clearInterval(updateTimeOut);
                     update();
-                    updateTimeOut=setInterval(update,10000);
+                    updateTimeOut=setInterval(update,updateInterval);
                 }
                 if($(target).is('ul.menuSearch2 li')){
                 	$("#search2").text(target.textContent);
                     clearInterval(updateTimeOut);
                     update();
-                    updateTimeOut=setInterval(update,10000);
+                    updateTimeOut=setInterval(update,updateInterval);
                 }
             $('.menuSearch2').stop().slideUp(200);
 

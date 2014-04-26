@@ -100,7 +100,7 @@ app.get('/api/currency/:m1/:m2',function(req,res){
                         send_json["val "+m1]=val1;
                         send_json["val "+m2]=val2;
                         send_json.price=val1*val2;
-                        if(val2===undefined){
+                        if((val2===undefined&&results>0)||m2=="USD"){
                             send_json.price=val1;
                         }
                         res.contentType('application/json');

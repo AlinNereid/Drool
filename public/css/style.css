@@ -23,7 +23,7 @@ header{
     font-size: 2.3em;
     height: 20%;
     min-height: 180px;
-    min-width: 880px;
+    min-width: 900px;
 }
 main{
     /*height: 55%;*/
@@ -196,7 +196,7 @@ ul li span{
 }
 .demo-container {
     box-sizing: border-box;
-    width: 850px;
+    width: 900px;
     height: 450px;
     padding: 20px 15px 15px 15px;
     margin: 15px auto 30px auto;
