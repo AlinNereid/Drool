@@ -1,67 +1,32 @@
 var valoarecurenta;
 var allcurrency;
-var lastValCurenta;
-var updateInterval = 30000;
-var lastValue1 = "",
-		    timerCheckCount1 = 0,
-		    checkInputChange1 = function() {
-		    	if($timer1.val()==""){
-		    		$timer1.attr({width: 'auto', size: 3});
-                    $timer2.val("");
-                    lastValue1 = $timer1.val();
-		    	}
-		    	else
-		        if (lastValue1 !== $timer1.val()||lastValCurenta!==valoarecurenta) {
-		       		$timer2.val(($timer1.val()*valoarecurenta).toFixed(3));
-		        	//convertor
-		            if($timer1.val().length<100)
-					{		
-						if($timer1.val().length>3)
-				  			$timer1.attr({width: 'auto', size: $timer1.val().length});
-				  		else
-				  			$timer1.attr({width: 'auto', size: 3});
-			  		}
-		            lastValue1 = $timer1.val();
-                    lastValCurenta=valoarecurenta;
-		        }
-		    },
-		    timer1 = undefined,
-		    startTimer1 = function() {
-		        timer1 = setInterval(checkInputChange1,50); // check input field every 200 ms (1/5 sec)
-		    },
-		    endTimer1 = function() {
-		        clearInterval(timer1);
-		    };
-	var lastValue2 = "",
-		    timerCheckCount2 = 0,
-		    checkInputChange2 = function() {
-		    	if($timer2.val()==""){
-		    		$timer2.attr({width: 'auto', size: 3});
-		    	}
-		    	else
-		        if (lastValue2 !== $timer2.val()) {
-
-		            if($timer2.val().length<200)
-					{		
-						//convertor
-						if($timer2.val().length>3)
-				  			$timer2.attr({width: 'auto', size: $timer2.val().length});
-				  		else
-				  			$timer2.attr({width: 'auto', size: 3});
-			  		}
-		            lastValue = $timer2.val();
-		        }
-		    },
-		    timer2 = undefined,
-		    startTimer2 = function() {
-		        timer2 = setInterval(checkInputChange2, 100); // check input field every 200 ms (1/5 sec)
-		    },
-		    endTimer2 = function() {
-		        clearInterval(timer2);
-		    };
-
-	$(document).ready(function(){
+var resize=function(){
+    if($timer1.val().length<30)
+    {       
+        if($timer1.val().length>minimalSize)
+        {
+            $timer1.attr({width: 'auto', size: $timer1.val().length});
+        }
+        else
+            $timer1.attr({width: 'auto', size: minimalSize});
+    }
+    if($timer2.val().length<30)
+    {  
+        if($timer2.val().length>minimalSize)
+            {
+                $timer2.attr({width: 'auto', size: $timer2.val().length});
+            }
+            else
+                $timer2.attr({width: 'auto', size: minimalSize});
+    }
+}
+$(document).ready(function(){
         var updateTimeOut;
+        var text1=$('ul.menuSearch2 li:nth-child('+2+') span').text();
+        var text2=$('ul.menuSearch2 li:nth-child('+3+') span').text();
+        var text3=$('ul.menuSearch2 li:nth-child('+4+') span').text();
+        $('#input1').attr({width: 'auto', size: minimalSize});
+        $('#input2').attr({width: 'auto', size: minimalSize});
         function getAllCurrencyReal(){
             $.ajax({
                 url: "../api/currency/ALLCURRENCYREAL",
@@ -80,10 +45,8 @@ var lastValue1 = "",
                 type: "GET",
                 dataType: "json",
                 success: function(data){
-                   valoarecurenta = data.price.toFixed(3);
+                   valoarecurenta = data.price.toFixed(numberDecimal);
                     console.log(valoarecurenta);
-                    lastValue1="NAN";
-                    lastValue2="NAN";
                 }
             });
 
@@ -95,19 +58,41 @@ var lastValue1 = "",
 			$("#convertor").css("margin-top",percentageHeight );
 		}
 		/*$("main").css("padding-bottom",percentageHeight*4 );*/
-		$timer1 = $('#input1');
-		$timer2 = $('#input2');
+		
+		
         getAllCurrencyReal();
         update();
         updateTimeOut=setInterval(update,updateInterval);
-		startTimer1();
-		startTimer2();
+		
+        //startTimer1();
+        $timer1 = $('#input1');
+        $('#input1').on('input', function() {
+           if($timer1.val()==""){
+                    $timer1.attr({width: 'auto', size: minimalSize});
+                    $timer2.val("");
+                }
+                else
+                    $timer2.val(($timer1.val()*valoarecurenta).toFixed(numberDecimal));
+                    resize()
+        });
 
+		//startTimer2();
+        $timer2 = $('#input2');
+        $('#input2').on('input', function() {
+           if($timer2.val()==""){
+                    $timer1.attr({width: 'auto', size: minimalSize});
+                    $timer2.attr({width: 'auto', size: minimalSize});
+                    $timer1.val("");
+                }
+                else
+                    $timer1.val(($timer2.val()/valoarecurenta).toFixed(numberDecimal));
+                    resize();
+        });
         $('#textField2').on('input', function() {
             if($('#textField2').val()==""){
-                $('ul.menuSearch2 li:nth-child('+2+') span').text("USD");
-                $('ul.menuSearch2 li:nth-child('+3+') span').text("EUR");
-                $('ul.menuSearch2 li:nth-child('+4+') span').text("RON");
+                $('ul.menuSearch2 li:nth-child('+2+') span').text(text1);
+                $('ul.menuSearch2 li:nth-child('+3+') span').text(text2);
+                $('ul.menuSearch2 li:nth-child('+4+') span').text(text3);
                 for(i=0;i<3;i++){
                     var indexli=i+2;;
                     $('ul.menuSearch2 li:nth-child('+indexli+')').show();

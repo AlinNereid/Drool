@@ -3,6 +3,6 @@
  */
 
 
-exports.analysis = function(req, res){
+exports.get = function(req, res){
     res.render('analysis', { title: 'Drool' });
 };
