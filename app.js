@@ -8,8 +8,15 @@ var index = require('./routes/index');
 var http = require('http');
 var path = require('path');
 var analysis = require('./routes/analysis');
-var admin = require('./routes/admin');
+var adminRoute = require('./routes/admin');
 var database = require('./models/database');
+var apiRoute = require('./routes/apiTicker');
+var digitalCoinRoute=require('./routes/digitalCoin');
+var dbDigitalCoins= require('./models/dbDigitalCoins');
+var dbRealCoins= require('./models/dbRealCoins');
+var parser=require('./parser+requestAPI/parse');
+var realCoins=require('./parser+requestAPI/realCoins');
+var digitalCoins=require('./parser+requestAPI/digitalCoins');
 var app = express();
 var request = require('request');
 // all environments
@@ -29,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-app.get('/admin',admin.get);
+app.get('/admin',adminRoute.getLoginPage);
 
 app.get('/admin/controlpanel',function(req,res){
     if(req.session.name == "admin"){
@@ -37,9 +44,39 @@ app.get('/admin/controlpanel',function(req,res){
     }else{
         res.redirect('/');
     }
-
 });
-app.post('/admin',admin.post);
+app.get('/api/parse',function(req,res){
+   var url=req.param('url',null);
+    console.log(url);
+    if(url !== null && url!==""){
+        var dateParsate = parser.parseUrl(url,function(dateParsate){
+            res.contentType('application/json');
+            console.log("appks" + dateParsate);
+            res.send(dateParsate)
+        });
+
+    }
+});
+app.get('/api/digital',function(req,res){
+    dbDigitalCoins.getAllDigitalCoins(function(coins){
+        res.contentType('application/json');
+        console.log("app/digital" + coins);
+        res.send(coins)
+    })
+});
+app.get('/api/real',function(req,res){
+    dbRealCoins.getAllRealSymbolPriceCoins(function(coins){
+        res.contentType('application/json');
+        console.log("app/real" + coins);
+        res.send(coins)
+    })
+});
+app.get('/admin/controlpanel/showDigitalCoins',digitalCoinRoute.getPageShowDigital);
+app.post('/admin/controlpanel/addDigitalCoin',digitalCoinRoute.postPageDigital);
+app.get('/admin/controlpanel/addDigitalCoin',digitalCoinRoute.getPageAddDigital);
+app.get('/admin/controlpanel/addApi',apiRoute.getAddApiPage);
+app.post('/admin/controlpanel/addApi',apiRoute.postPageDigital);
+app.post('/admin',adminRoute.postLoginPage);
 app.get('/adminout',function(req,res){
     req.session.name=null;
     res.send("yee")
@@ -61,8 +98,8 @@ app.get('/api/bitcoin/:numeAPI/:numar',function(req,res){
         send_json={"date":array};
         res.json(send_json);
     });
-
 });
+
 app.get('/api/currency/:m1',function(req,res){
     var m1=req.params.m1;
     console.log(m1);
@@ -178,7 +215,7 @@ var getCurrencyBitcoin=function(url,numeApi,callback){
         }
     });
 };
-var getCurrencyReal=function(url,numeApi,callback){
+/*var getCurrencyReal=function(url,numeApi,callback){
     request(url,function(err, resp, body){
         if (err && resp.statusCode!=200) return console.error(err)
         else{
@@ -191,8 +228,7 @@ var getCurrencyReal=function(url,numeApi,callback){
                         "nameApi":numeApi,
                         "dataServer":Date.now()
                     }
-                    database.getDatabase().collection("collectionYahooApi").drop(function(){
-                        console.log("drop");
+                        console.log("Update yahooFinance")
                         for(i=0;i<date.length;i++){
                             var obiectMongo={};
                             var obj=date[i];
@@ -200,13 +236,11 @@ var getCurrencyReal=function(url,numeApi,callback){
                             obiectMongo.symbol=obiectMongo.symbol.substring(0,obiectMongo.symbol.length-2);
                             obiectMongo.price=obj.resource.fields.price;
                             obiectMongo.utctime=obj.resource.fields.utctime;
-                            database.getDatabase().collection("collectionYahooApi").insert(obiectMongo, function (err, inserted) {
+                            database.getDatabase().collection("collectionYahooApi").update({"symbol":obiectMongo.symbol},obiectMongo,{"upsert":true}, function (err, inserted) {
                                 if(err)
                                     console.error(numeApi+"  ----   DB error:", err);
                             });
                         }
-                    });
-
                 }
                 catch (e) {
                     console.error(numeApi+"  ----   Parsing error:", e);
@@ -214,7 +248,7 @@ var getCurrencyReal=function(url,numeApi,callback){
             }
         }
     });
-};
+};*/
 var timeRequest=60000;
 // Connect to the db
 database.connect(function(err, db) {
@@ -226,10 +260,13 @@ database.connect(function(err, db) {
         http.createServer(app).listen(app.get('port'), function(){
             console.log('Express server DROOL listening on port ' + app.get('port'));
         });
+        realCoins.getRealCurrency("http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");
+       /* getCurrencyReal("http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");*/
+        digitalCoins.getCurrency("BTC");
         setInterval(getCurrencyBitcoin,timeRequest,"https://api.bitcoinaverage.com/ticker/global/USD/","bitcoinaverageUSD");
         setInterval(getCurrencyBitcoin,timeRequest,"https://www.bitstamp.net/api/ticker/","bitstampUSD");
         setInterval(getCurrencyBitcoin,timeRequest,"https://btc-e.com/api/2/btc_usd/ticker","btc-eUSD");
-        setInterval(getCurrencyReal,timeRequest*3,"http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");
+        //setInterval(getCurrencyReal,timeRequest*3,"http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");
     }
 });
 /*

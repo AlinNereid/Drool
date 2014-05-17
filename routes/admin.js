@@ -1,13 +1,13 @@
 /**
  * Created by alin on 5/3/14.
  */
-exports.get = function(req,res){
+exports.getLoginPage = function(req,res){
     if(req.session.error=="true"){
         res.render('admin', { title: 'Drool', error:'User or password incorrect!' });
     }else
         res.render('admin', { title: 'Drool', error:'' });
 };
-exports.post = function(req,res){
+exports.postLoginPage = function(req,res){
     var user = req.param('user', null);
     var password = req.param('password', null);
     var databaseAdmin=require('../models/databaseAdmins');
