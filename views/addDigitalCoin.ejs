@@ -1,34 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title><%= title %></title>
-    <script type="text/javascript" src="/javascript/jquery-1.11.0.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="/css/stylemedia.css">
-</head>
+<%- include layouts/head.ejs%>
 <body>
-<header>
-    <p id="title">Drool - Admin Control Panel</p>
-    <nav>
-        <ul>
-            <li>
-                <a href="./addDigitalCoin">
-                    <p>Add Digital Coin</p>
-                </a>
-            </li>
-            <li>
-                <a href="./showDigitalCoins">
-                    <p>Show Digital Coins</p>
-                </a>
-            </li>
-            <li>
-                <a href="/analysis">
-                    <p>Analysis</p>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
+<%- include layouts/headerControlPanel.ejs%>
 <main>
     <p>Add Digital Coin</p>
     <form action="./addDigitalCoin" autocomplete="on"  method="post">
@@ -41,6 +15,6 @@
         <input type="submit">
     </form>
 </main>
-<footer><p>Footer</p></footer>
+    <%- include layouts/footer.ejs%>
 </body>
 </html>

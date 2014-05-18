@@ -22,6 +22,7 @@ var request = require('request');
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
+
 app.set('view engine', 'ejs');
 app.use(express.logger('dev'));
 app.use(express.json());
@@ -76,6 +77,7 @@ app.post('/admin/controlpanel/addDigitalCoin',digitalCoinRoute.postPageDigital);
 app.get('/admin/controlpanel/addDigitalCoin',digitalCoinRoute.getPageAddDigital);
 app.get('/admin/controlpanel/addApi',apiRoute.getAddApiPage);
 app.post('/admin/controlpanel/addApi',apiRoute.postPageDigital);
+app.get('/admin/controlpanel/showApis',apiRoute.getPageShowApis);
 app.post('/admin',adminRoute.postLoginPage);
 app.get('/adminout',function(req,res){
     req.session.name=null;

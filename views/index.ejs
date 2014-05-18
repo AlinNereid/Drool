@@ -1,36 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title><%= title %></title>
-    <script type="text/javascript" src="/javascript/jquery-1.11.0.js"></script>
-    <script type="text/javascript" src="/javascript/datejs.js"></script>
-    <script type="text/javascript" src="/javascript/javascript.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="/css/stylemedia.css">
-</head>
+    <%- include layouts/head.ejs%>
 <body>
-<header>
-    <p id="title"><a href="/">Drool (Digital Currency Tool)</a></p>
-    <nav>
-        <ul>
-            <li>
-                <a href="/convertor">
-                    <p>Convertor</p>
-                </a>
-            </li>
-            <li>
-                <a href="/rates">
-                    <p>Rates</p>
-                </a>
-            </li>
-            <li>
-                <a href="/analysis">
-                    <p>Analysis</p>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
+    <%- include layouts/headerUser.ejs%>
 <main>
     <div id="convertor">
         <input placeholder="VAL" id="input1" type="text" name="val1" size="3">
@@ -58,6 +30,6 @@
         <div class="clear"></div>
     </div>
 </main>
-<footer><p>Footer</p></footer>
+    <%- include layouts/footer.ejs%>
 </body>
 </html>

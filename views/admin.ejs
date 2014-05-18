@@ -1,34 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title><%= title %></title>
-    <script type="text/javascript" src="/javascript/jquery-1.11.0.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="/css/stylemedia.css">
-</head>
+<%- include layouts/head.ejs%>
 <body>
-<header>
-    <p id="title">Drool (Digital Currency Tool)</p>
-    <nav>
-        <ul>
-            <li>
-                <a href="/convertor">
-                    <p>Convertor</p>
-                </a>
-            </li>
-            <li>
-                <a href="/rates">
-                    <p>Rates</p>
-                </a>
-            </li>
-            <li>
-                <a href="/analysis">
-                    <p>Analysis</p>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
+<%- include layouts/headerUser.ejs%>
 <main>
     <form action="/admin" method="post">
         <p style="color: red"><%= error %></p>
@@ -37,6 +11,6 @@
         <input type="submit" value="Submit">
     </form>
 </main>
-<footer><p>Footer</p></footer>
+<%- include layouts/footer.ejs%>
 </body>
 </html>

@@ -76,7 +76,7 @@ a{
 }
 header nav ul li {
   display: inline;  
-  margin-right: 15%;
+  /*margin-right: 15%;*/
 }
 header nav ul li:last-child {
   display: inline;  

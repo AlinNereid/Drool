@@ -6,17 +6,6 @@ var dbAPITicker = require('../models/dbAPITicker');
 var dbDigitalCoins = require('../models/dbDigitalCoins');
 var dbRealCoins = require('../models/dbRealCoins');
 var digitalCoins = require('../parser+requestAPI/digitalCoins');
-exports.getAddApiPage = function (req, res) {
-    dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
-        dbRealCoins.getAllRealSymbolCoins(function (symbols) {
-            res.render('addApi', {error: "", title: 'Drool Admin', sname: "", urlTicker: "",
-                digsname: "", realsname: "", last: "", requestTime: "", bid: "", avg_24h: "", volume: "",
-                snames: snames, symbols: symbols
-            });
-        })
-    });
-
-};
 
 var  existsDigitalCoin=function(digsname,callback){
     dbDigitalCoins.getAllDigitalSNameCoins(function (snames){
@@ -172,4 +161,23 @@ exports.postPageDigital = function (req, res) {
         show(res,"Required fields are not filled", digsname, sname, realsname, urlTicker,last, bid, volume, avg_24h, requestTime);
 
     }
+};
+
+exports.getAddApiPage = function (req, res) {
+    dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
+        dbRealCoins.getAllRealSymbolCoins(function (symbols) {
+            res.render('addApi', {error: "", title: 'Drool Admin', sname: "", urlTicker: "",
+                digsname: "", realsname: "", last: "", requestTime: "", bid: "", avg_24h: "", volume: "",
+                snames: snames, symbols: symbols
+            });
+        })
+    });
+
+};
+
+
+exports.getPageShowApis=function(req,res){
+    dbAPITicker.getAllApis(function(apis){
+        res.render('showApis',{title : 'Apis ',apis:apis});
+    });
 };

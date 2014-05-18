@@ -33,11 +33,11 @@ exports.getDigitalCoins = function(sname,callback){
         callback(docs);
     });
 }
-exports.getAllDigitalCoins = function(callback){
-    database.getDatabase().collection(nameCollection).find().toArray(function(err, docs){
+exports.getAllApis = function(callback){
+    database.getDatabase().collection(nameCollection).find({},{_id:0}).toArray(function(err, apis){
         console.log("retrieved records:");
-        console.log(docs);
-        callback(docs);
+        console.log(apis);
+        callback(apis);
     });
 }
 

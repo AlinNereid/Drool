@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<%- include layouts/head.ejs%>
+<body>
+<%- include layouts/headerControlPanel.ejs%>
+<main>
+    <p>Apis</p>
+    <% for(var i=0; i<apis.length; i++) {%>
+    <li><span><%= apis[i]["sname"] %></span>
+        <span><%= apis[i]["urlTicker"] %></span>
+        <span><%= apis[i]["digsname"] %></span>
+    </li>
+    <% } %>
+</main>
+<%- include layouts/footer.ejs%>
+</body>
+</html>
