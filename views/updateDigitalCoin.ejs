@@ -2,17 +2,25 @@
 <html>
 <%- include layouts/head.ejs%>
 <body>
-    <%- include layouts/headerControlPanelElements2.ejs%>
+<%- include layouts/headerControlPanelElements2.ejs%>
 <main>
-    <p>Update Digital Coin</p>
-    <form action="./<%= sname %>" autocomplete="on"  method="post">
-        Short Name: <input type="text" name="sname" value="<%= sname %>" readonly><br>
-        Long Name: <input type="text" name="lname" value="<%= lname %>"><br>
-        Page: <input type="url" name="page" value="<%= page %>"><br>
+    <p id="subTitle">Edit Digital Coin</p>
+    <form id="formAddDigital" action="./addDigitalCoin" autocomplete="on"  method="post">
+        <p>
+            <label class="labelAddDigital" for="sname">Short Name:</label>
+            <input class="addDigitalInputs"type="text" name="sname" id="sname" value="<%= sname %>">
+        </p>
+        <p>
+            <label class="labelAddDigital" for="lname">Long Name:</label>
+            <input class="addDigitalInputs" type="text" name="lname" id="lname" value="<%= lname %>">
+        <p>
+            <label class="labelAddDigital" for="page">URL:</label>
+            <input class="addDigitalInputs" type="url" name="page" id="page" value="<%= page %>">
+        </p>
+        <input id="submit" type="submit" name="submit" value="Submit">
         <p style="color:red">
             <%= error %>
         </p>
-        <input type="submit">
     </form>
 </main>
 <%- include layouts/footer.ejs%>

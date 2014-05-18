@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
-<%- include layouts/head.ejs%>
+<head>
+    <%- include layouts/head.ejs%>
+</head>
 <body>
-<%- include layouts/headerControlPanel.ejs%>
+    <%- include layouts/headerControlPanelElements.ejs%>
 <main>
-    <p id="addDigitalTitle">Add Digital Coin</p>
+    <p id="subTitle">Add Digital Coin</p>
     <form id="formAddDigital" action="./addDigitalCoin" autocomplete="on"  method="post">
        <p>
         <label class="labelAddDigital" for="sname">Short Name:</label>
@@ -12,10 +14,10 @@
        </p> 
        <p>
         <label class="labelAddDigital" for="lname">Long Name:</label>
-        <input lass="addDigitalInputs" type="text" name="lname" id="lname" value="<%= lname %>">
+        <input class="addDigitalInputs" type="text" name="lname" id="lname" value="<%= lname %>">
        <p> 
         <label class="labelAddDigital" for="page">URL:</label>
-        <input lass="addDigitalInputs" type="url" name="page" id="page" value="<%= page %>">
+        <input class="addDigitalInputs" type="url" name="page" id="page" value="<%= page %>">
        </p> 
        <input id="submit" type="submit" name="submit" value="Submit">
        <p style="color:red">

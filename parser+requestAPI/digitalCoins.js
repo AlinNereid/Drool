@@ -29,7 +29,7 @@ var getCurrencyDigitalCoin = function (sname, callback) {
                                 isNumberArray=true;
                             }
                             if(isNumberArray==true){
-                                var last = date[array[0].substring(10,array[0].length)];
+                                var ladst = date[array[0].substring(10,array[0].length)];
                             }else{
                                 var last = date[array[0]];
                             }

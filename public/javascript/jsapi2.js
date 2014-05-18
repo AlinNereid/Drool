@@ -12,16 +12,7 @@ $(document).ready(function(){
             dataType: "json",
             success: function(data){
                 var str = JSON.stringify(data, undefined, 4);
-                $("#JSONParser").text(str);
-            }
-        });
-        $.ajax({
-            url: $("input[name='urlTicker']").val(),
-            type: "GET",
-            dataType: "json",
-            success: function(data){
-                var str = JSON.stringify(data, undefined, 4);
-                $("#JSONURL").text(str);
+                $("#prejSON").text(str);
             }
         });
     });

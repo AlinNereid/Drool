@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
+<head>
     <%- include layouts/head.ejs%>
+    <script type="text/javascript" src="/javascript/jsapi.js"></script>
+</head>
 <body>
-    <%- include layouts/headerControlPanel.ejs%>
+    <%- include layouts/headerControlPanelElements.ejs%>
 <main>
-    <p id="addApiTitle">Add Api (Ticker)</p>
+    <p id="subTitle">Add Api (Ticker)</p>
     <div id="allAdiAppi">
         <div id="divAddApiForm">
             <form id="formAddApi" action="./addApi" autocomplete="on"  method="post">
