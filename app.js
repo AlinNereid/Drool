@@ -119,7 +119,7 @@ var getDate = function(send_json,lastDate,numar,delay,callback){
 }
 app.get('/api/bitcoin/:numeAPI/:numar',function(req,res){
         if(req.params.numeAPI == "test"){
-            var delay=72000*3;
+            var delay=72000;
             var send_json={};
             var numar=parseInt(req.params.numar);
             var lastDate;
