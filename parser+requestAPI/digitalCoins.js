@@ -9,6 +9,14 @@ if (typeof String.prototype.startsWith != 'function') {
         return this.indexOf(str) == 0;
     };
 }
+var myParseFloat=function(string){
+  var x = parseFloat(string);
+  if(isNaN(x)){
+      return "";
+  }else{
+      return x;
+  }
+};
 var getCurrencyDigitalCoin = function (sname, callback) {
     dbAPITicker.getApiTicker(sname, function (apiTickerValue) {
         try {
@@ -142,13 +150,16 @@ var getCurrencyDigitalCoin = function (sname, callback) {
                             if(isNaN(volume)){
                                 volume="";
                             }
+
                             var dateDinApi = {
-                                last: last,
-                                bid: bid,
-                                avg_24: avg_24h,
-                                volume: volume,
+                                last: myParseFloat(last),
+                                bid: myParseFloat(bid),
+                                avg_24: myParseFloat(avg_24h),
+                                volume: myParseFloat(volume),
                                 date: Date.now()
                             }
+
+                            console.log("LAST" + dateDinApi);
                             if(last!=""){
                                 dbAPITicker.addDateApi(sname, dateDinApi, function (checkInserted) {
 

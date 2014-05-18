@@ -14,7 +14,7 @@ var removeInterval = function(sname){
     if(refreshIntervalID.hasOwnProperty(sname)){
         clearInterval(refreshIntervalID[sname]);
         delete refreshIntervalID[sname];
-        console.log("Am sters requestulInterval");
+        console.log("Am sters requestul Interval");
     }
 }
 exports.addInterval=addInInterval;

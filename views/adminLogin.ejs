@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%- include layouts/head.ejs%>
+    <%- include layouts/head.ejs %>
 </head>
 <body>
-    <%- include layouts/headerUser.ejs%>
+    <%- include layouts/headerUser.ejs %>
 <main>
-    <form action="/admin" method="post">
+    <p id="subTitle"> Connect as Admin</p>
+
+    <form id="formAdmin" action="/admin" method="post">
+        <p>
+            <label class="adminLabel">User:</label>
+            <input class="adminInputs" type="text" name="user">
+        </p>
+
+        <p>
+            <label class="adminLabel">Password:</label>
+            <input class="adminInputs" type="password" name="password">
+        </p>
+        <input id="submit" type="submit" value="Submit">
+
         <p style="color: red"><%= error %></p>
-        User: <input type="text" name="user"><br>
-        Password: <input type="password" name="password"><br>
-        <input type="submit" value="Submit">
     </form>
 </main>
-<%- include layouts/footer.ejs%>
+<%- include layouts/footer.ejs %>
 </body>
 </html>

@@ -21,7 +21,7 @@
                 var data = [],
                         totalPoints = 50;
                 var updateInterval = 30000;
-                var apiselectat="bitcoinaverageUSD";
+                var apiselectat="test";
                 var options= {
                     series: {
                         shadowSize: 0
@@ -48,7 +48,7 @@
                         data=[];
                         var date=rasp["date"];
                         for(i=0;i<date.length;i++){
-                            data.push([new Date(date[i]["drooltime"] + 3*3600*1000).getTime(),date[i]["last"],{url: date[i]["last"]+"  Date: "+ new Date(date[i]["drooltime"]).toString()}]);
+                            data.push([new Date(date[i]["date"] + 3*3600*1000).getTime(),date[i]["last"],{url: date[i]["last"]+"  Date: "+ new Date(date[i]["date"]).toString()}]);
                         }
                         $.plot("#placeholder",[{ label: apiselectat, data: data}], options);
                     }
@@ -132,6 +132,7 @@
             <div class="demo-container">
                 <div id="placeholder" class="demo-placeholder" style="float:left;width: 700px"></div>
                 <select style="float:right;width:150px">
+                    <option value="test">test</option>
                     <option value="bitcoinaverageUSD">bitcoinaverageUSD</option>
                     <option value="bitstampUSD">bitstampUSD</option>
                     <option value="btc-eUSD">btc-eUSD</option>

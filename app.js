@@ -17,6 +17,7 @@ var dbRealCoins= require('./models/dbRealCoins');
 var parser=require('./parser+requestAPI/parse');
 var realCoins=require('./parser+requestAPI/realCoins');
 var digitalCoins=require('./parser+requestAPI/digitalCoins');
+var intervalRequests = require('./parser+requestAPI/intervalRequests');
 var app = express();
 var request = require('request');
 // all environments
@@ -94,20 +95,66 @@ app.get('/adminout',function(req,res){
 app.get('/', index.get);
 app.get('/convertor', index.get);
 app.get('/analysis', analysis.get);
+var getDate = function(send_json,lastDate,numar,delay,callback){
+    if(numar!=0){
+        database.getDatabase().collection("bitstamp").find({date:{$lt :lastDate - delay}},{_id:0}).sort({date:-1}).limit(1).toArray(function(err, results) {
+            if(results!=null){
+                try{
+                lastDate=results[0].date;
+                send_json["date"].push(results[0]);
+                numar=numar-1;
+                getDate(send_json,lastDate,numar,delay,callback);
+                }
+                catch(e){
+                    console.log("Error "+ e)
+                    callback(send_json);
+                }
+            }else{
+                callback(send_json);
+            }
+        });
+    }else{
+        callback(send_json)
+    }
+}
 app.get('/api/bitcoin/:numeAPI/:numar',function(req,res){
-    var numar=parseInt(req.params.numar);
-    var collection = database.getDatabase().collection("collectionDateApi").find({"nameApi":req.params.numeAPI}).sort({dataServer:-1}).limit(numar).toArray(function(err, results) {
-        var send_json;
-        var array=[];
-        for(i=0;i<results.length;i++){
-            var obj=results[i];
-            array.push({"last":obj["date"]["last"],"bid":obj["date"]["bid"],"timestamp":obj["date"]["timestamp"],"drooltime":obj["dataServer"]});
+        if(req.params.numeAPI == "test"){
+            var delay=72000*3;
+            var send_json={};
+            var numar=parseInt(req.params.numar);
+            var lastDate;
+            database.getDatabase().collection("bitstamp").find({},{_id:0}).sort({date:-1}).limit(1).toArray(function(err, results) {
+                numar=numar-1;
+                send_json["date"]=[];
+                send_json["date"].push(results[0]);
+                lastDate=results[0].date;
+                if(numar>0){
+                    getDate(send_json,lastDate,numar,delay,function(send_json){
+                        res.contentType('application/json');
+                        res.json(send_json);
+                    })
+                }else{
+                    res.contentType('application/json');
+                    res.json(send_json);
+                }
 
+            })
         }
-        res.contentType('application/json');
-        send_json={"date":array};
-        res.json(send_json);
-    });
+    else{
+        var numar=parseInt(req.params.numar);
+        var collection = database.getDatabase().collection("collectionDateApi").find({"nameApi":req.params.numeAPI}).sort({dataServer:-1}).limit(numar).toArray(function(err, results) {
+            var send_json;
+            var array=[];
+            for(i=0;i<results.length;i++){
+                var obj=results[i];
+                array.push({"last":obj["date"]["last"],"bid":obj["date"]["bid"],"timestamp":obj["date"]["timestamp"],"drooltime":obj["dataServer"]});
+
+            }
+            res.contentType('application/json');
+            send_json={"date":array};
+            res.json(send_json);
+        });
+    }
 });
 
 app.get('/api/currency/:m1',function(req,res){
@@ -272,10 +319,12 @@ database.connect(function(err, db) {
         });
         realCoins.getRealCurrency("http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");
        /* getCurrencyReal("http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");*/
-        digitalCoins.getCurrency("BTC");
-        setInterval(getCurrencyBitcoin,timeRequest,"https://api.bitcoinaverage.com/ticker/global/USD/","bitcoinaverageUSD");
+        intervalRequests.addInterval("bitstamp",30000);
+        digitalCoins.getCurrency("bitstamp");
+
+       /* setInterval(getCurrencyBitcoin,timeRequest,"https://api.bitcoinaverage.com/ticker/global/USD/","bitcoinaverageUSD");
         setInterval(getCurrencyBitcoin,timeRequest,"https://www.bitstamp.net/api/ticker/","bitstampUSD");
-        setInterval(getCurrencyBitcoin,timeRequest,"https://btc-e.com/api/2/btc_usd/ticker","btc-eUSD");
+        setInterval(getCurrencyBitcoin,timeRequest,"https://btc-e.com/api/2/btc_usd/ticker","btc-eUSD");*/
         //setInterval(getCurrencyReal,timeRequest*3,"http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");
     }
 });

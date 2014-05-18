@@ -6,12 +6,27 @@
 <body>
 <%- include layouts/headerControlPanelElements.ejs%>
 <main>
-    <p>Digital coins</p>
-    <% for(var i=0; i<digitalCoins.length; i++) {%>
-    <li><span><%= digitalCoins[i]["sname"] %></span><span><%= digitalCoins[i]["lname"] %></span>
-        <span><%= digitalCoins[i]["page"] %></span>
-    </li>
-    <% } %>
+    <p id="subTitle">Show Digital Coins</p>
+    <table>
+        <tr>
+            <th>Short Name</th>
+            <th>Long Name</th>
+            <th>URL</th>
+            <th>Actions</th>
+        </tr>
+        <% for(var i=0; i<digitalCoins.length; i++) {%>
+        <tr>
+            <td><%= digitalCoins[i]["sname"]%></td>
+            <td><%= digitalCoins[i]["lname"]%></td>
+            <td> <a href="<%= digitalCoins[i]["page"]%>"><%= digitalCoins[i]["page"]%></a></td>
+            <td>
+                <a href="./editDigitalCoin/<%= digitalCoins[i]["sname"]%>"><div title="Edit" class="pencil"></div></a>
+                <a href="2"><div title="Delete" class="delete" onclick="return confirm('Are you sure you want to delete this item?');"></div></a>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+
 </main>
     <%- include layouts/footer.ejs%>
 </body>

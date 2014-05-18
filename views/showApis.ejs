@@ -6,13 +6,31 @@
 <body>
 <%- include layouts/headerControlPanelElements.ejs%>
 <main>
-    <p>Apis</p>
-    <% for(var i=0; i<apis.length; i++) {%>
-    <li><span><%= apis[i]["sname"] %></span>
-        <span><%= apis[i]["urlTicker"] %></span>
-        <span><%= apis[i]["digsname"] %></span>
-    </li>
-    <% } %>
+    <p id="subTitle">Show Apis</p>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>URL</th>
+            <th>Digital Coin</th>
+            <th>Real Coin</th>
+            <th>Request Time</th>
+            <th>Actions</th>
+        </tr>
+        <% for(var i=0; i<apis.length; i++) {%>
+        <tr>
+            <td><%= apis[i]["sname"]%></td>
+            <td> <a href="<%= apis[i]["urlTicker"]%>"><%= apis[i]["urlTicker"]%></a></td>
+            <td><%= apis[i]["digsname"]%></td>
+            <td><%= apis[i]["realsname"]%></td>
+            <td><%= apis[i]["requestTime"]%></td>
+            <td>
+                <a href="./editApi/<%= apis[i]["sname"]%>"><div title="Edit" class="pencil"></div></a>
+                <a href="2"><div title="Delete" class="delete" onclick="return confirm('Are you sure you want to delete this item?');"></div></a>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+
 </main>
 <%- include layouts/footer.ejs%>
 </body>
