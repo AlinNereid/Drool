@@ -3,9 +3,9 @@
  */
 exports.getLoginPage = function(req,res){
     if(req.session.error=="true"){
-        res.render('admin', { title: 'Drool', error:'User or password incorrect!' });
+        res.render('adminLogin', { title: 'Drool', error:'User or password incorrect!' });
     }else
-        res.render('admin', { title: 'Drool', error:'' });
+        res.render('adminLogin', { title: 'Drool', error:'' });
 };
 exports.postLoginPage = function(req,res){
     var user = req.param('user', null);

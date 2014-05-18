@@ -2,13 +2,13 @@
 <html>
 <head>
     <%- include layouts/head.ejs%>
-    <script type="text/javascript" src="/javascript/jsapi.js"></script>
+    <script type="text/javascript" src="/javascript/jsapi2.js"></script>
 </head>
 <body>
-    <%- include layouts/headerControlPanelElements.ejs%>
+    <%- include layouts/headerControlPanelElements2.ejs%>
 <main>
-    <p>Add Api(Ticker)</p>
-    <form action="./addApi" autocomplete="on"  method="post">
+    <p>Update Api(Ticker)</p>
+    <form action="./<%= sname %>" autocomplete="on"  method="post">
         Name: <input type="text" name="sname" value="<%= sname %>"><br>
         URL: <input type="url" name="urlTicker" value="<%= urlTicker %>">
         <button name="parse" id="parse" >Parse Api</button>
@@ -23,7 +23,7 @@
         <datalist id="realsname">
             <% for(var i=0; i<symbols.length; i++) {%>
             <option value="<%= symbols[i].symbol %>">
-            <% } %>
+                <% } %>
         </datalist><br>
         Request Time(ms): <input type="number" name="requestTime" value="<%= requestTime %>"><br>
         Last : <input type="text" name="last" value="<%= last %>"><br>
@@ -39,6 +39,6 @@
         JSONParser
     </pre>
 </main>
-    <%- include layouts/footer.ejs%>
+<%- include layouts/footer.ejs%>
 </body>
 </html>

@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <%- include layouts/head.ejs%>
-</head>
-
+<%- include layouts/head.ejs%>
 <body>
-<%- include layouts/headerControlPanelElements.ejs%>
+    <%- include layouts/headerControlPanelElements2.ejs%>
 <main>
-    <p>Add Digital Coin</p>
-    <form action="./addDigitalCoin" autocomplete="on"  method="post">
-        Short Name: <input type="text" name="sname" value="<%= sname %>"><br>
+    <p>Update Digital Coin</p>
+    <form action="./<%= sname %>" autocomplete="on"  method="post">
+        Short Name: <input type="text" name="sname" value="<%= sname %>" readonly><br>
         Long Name: <input type="text" name="lname" value="<%= lname %>"><br>
         Page: <input type="url" name="page" value="<%= page %>"><br>
         <p style="color:red">
@@ -18,6 +15,6 @@
         <input type="submit">
     </form>
 </main>
-    <%- include layouts/footer.ejs%>
+<%- include layouts/footer.ejs%>
 </body>
 </html>

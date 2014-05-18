@@ -33,7 +33,7 @@ exports.parseUrl=function(url,callback){
         else{
             try {
                 date=JSON.parse(body);
-                console.log(date);
+                //console.log(date);
                 callback(parse(date));
             }
             catch (e) {

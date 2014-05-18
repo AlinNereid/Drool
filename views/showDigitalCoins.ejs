@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
-<%- include layouts/head.ejs%>
+<head>
+    <%- include layouts/head.ejs%>
+</head>
 <body>
-<%- include layouts/headerControlPanel.ejs%>
+<%- include layouts/headerControlPanelElements.ejs%>
 <main>
     <p>Digital coins</p>
     <% for(var i=0; i<digitalCoins.length; i++) {%>

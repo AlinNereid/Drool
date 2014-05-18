@@ -75,9 +75,17 @@ app.get('/api/real',function(req,res){
 app.get('/admin/controlpanel/showDigitalCoins',digitalCoinRoute.getPageShowDigital);
 app.post('/admin/controlpanel/addDigitalCoin',digitalCoinRoute.postPageDigital);
 app.get('/admin/controlpanel/addDigitalCoin',digitalCoinRoute.getPageAddDigital);
+app.get('/admin/controlpanel/editDigitalCoin/:name',digitalCoinRoute.getPageUpdateDigital);
+app.post('/admin/controlpanel/editDigitalCoin/:name',digitalCoinRoute.postPageUpdateDigital);
+app.get('/admin/controlpanel/deleteDigitalCoin/:name',digitalCoinRoute.postDeletePage);//de modificat
+
 app.get('/admin/controlpanel/addApi',apiRoute.getAddApiPage);
+app.get('/admin/controlpanel/editApi/:name',apiRoute.getUpdateApiPage);
+app.post('/admin/controlpanel/editApi/:name',apiRoute.postUpdatePage);
+
 app.post('/admin/controlpanel/addApi',apiRoute.postPageDigital);
 app.get('/admin/controlpanel/showApis',apiRoute.getPageShowApis);
+app.get('/admin/controlpanel/deleteApi/:name',apiRoute.postDeleteApiPage);
 app.post('/admin',adminRoute.postLoginPage);
 app.get('/adminout',function(req,res){
     req.session.name=null;

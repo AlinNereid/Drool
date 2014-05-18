@@ -26,21 +26,30 @@ exports.addApiTicker= function(apiTicker,callback){
                 callback(true);
         });
 };
-exports.getDigitalCoins = function(sname,callback){
-    database.getDatabase().collection(nameCollection).find({sname:sname},{_id:0}).toArray(function(err, docs){
-        console.log("retrieved records:");
-        console.log(docs);
-        callback(docs);
+exports.getApiTicker = function(sname,callback){
+    database.getDatabase().collection(nameCollection).findOne({sname:sname},{_id:0},function(err, api){
+     /*   console.log("retrieved records:");
+        console.log(api);*/
+        callback(api);
     });
 }
 exports.getAllApis = function(callback){
     database.getDatabase().collection(nameCollection).find({},{_id:0}).toArray(function(err, apis){
-        console.log("retrieved records:");
-        console.log(apis);
+        /*console.log("retrieved records:");
+        console.log(apis);*/
         callback(apis);
     });
 }
-
+exports.updateApi = function(apiTicker,callback){
+    console.log(apiTicker);
+    database.getDatabase().collection(nameCollection).update({sname:apiTicker.sname},apiTicker,function (err, inserted) {
+            console.log(err);
+            if(err)
+                callback(false);
+            else
+                callback(true);
+        });
+}
 exports.addDateApi=function(sname,dataApi,callback){
     database.getDatabase().collection(sname).insert(dataApi,function (err, inserted) {
             if(err)
@@ -48,4 +57,24 @@ exports.addDateApi=function(sname,dataApi,callback){
             else
                 callback(true);
         });
+}
+exports.deleteApi= function(sname,callback){
+    console.log("Delete " + sname);
+    database.getDatabase().collection(nameCollection).remove({sname:sname},function (err, numDeleted) {
+        if(numDeleted == 0 || err){
+            callback(false);
+        }
+        else
+            callback(true);
+    });
+}
+exports.deleteAllApiWithDigital = function(digsname,callback){
+    console.log("Delete all api with " + digsname);
+    database.getDatabase().collection(nameCollection).remove({digsname:digsname},function (err, numDeleted) {
+        if(numDeleted == 0 || err){
+            callback(false);
+        }
+        else
+            callback(true);
+    });
 }
