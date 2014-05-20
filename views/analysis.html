@@ -9,7 +9,20 @@
 	<script type="text/javascript">
 
 		$(function() {
-
+            var testPUT =function(){
+                $.ajax({
+                url: "../../api/test",
+                type: "PUT",
+                dataType: "json",
+                success: function(rasp){
+                    console.log("yey");
+                },
+                error:function(){
+                    console.log("error");
+                }
+            });
+         };
+            testPUT();
 		// We use an inline data source in the example, usually data would
 		// be fetched from a server
 

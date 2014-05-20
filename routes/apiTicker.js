@@ -272,6 +272,7 @@ exports.getPageShowApis = function (req, res) {
 exports.postDeleteApiPage = function (req, res) {
     var sname = req.params.name;
     if (sname !== "" && sname !== null) {
+        intervalRequests.removeInterval(sname);
         dbAPITicker.deleteApi(sname, function (api) {
             if (api !== "" && api !== null)
                 res.send(api);

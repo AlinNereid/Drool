@@ -30,17 +30,21 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 
+
 app.use(express.cookieParser());
-app.use(express.session({secret: '1234567890QWERTY'}));
+
+var session = express.session({
+    secret: '1234567890QWERTY'
+});
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-app.get('/admin',adminRoute.getLoginPage);
+app.get('/admin',session,adminRoute.getLoginPage);
 
-app.get('/admin/controlpanel',function(req,res){
+app.get('/admin/controlpanel',session,function(req,res){
     if(req.session.name == "admin"){
         res.render('adminControlPanel', { title: 'Drool' });
     }else{
@@ -86,8 +90,17 @@ app.post('/admin/controlpanel/editApi/:name',apiRoute.postUpdatePage);
 
 app.post('/admin/controlpanel/addApi',apiRoute.postPageDigital);
 app.get('/admin/controlpanel/showApis',apiRoute.getPageShowApis);
+
+/*
+app.put('/api/test',function(req,res){
+    console.log("put");
+    res.contentType('application/json');
+    res.send({test:"123"});
+});
+*/
+
 app.get('/admin/controlpanel/deleteApi/:name',apiRoute.postDeleteApiPage);
-app.post('/admin',adminRoute.postLoginPage);
+app.post('/admin',session,adminRoute.postLoginPage);
 app.get('/adminout',function(req,res){
     req.session.name=null;
     res.send("yee")
@@ -119,7 +132,7 @@ var getDate = function(send_json,lastDate,numar,delay,callback){
 }
 app.get('/api/bitcoin/:numeAPI/:numar',function(req,res){
         if(req.params.numeAPI == "test"){
-            var delay=72000;
+            var delay=72000*12;
             var send_json={};
             var numar=parseInt(req.params.numar);
             var lastDate;

@@ -5,7 +5,7 @@ var dbRealCoins = require('../models/dbRealCoins');
 var request = require('request');
 var getCurrencyReal=function(url,numeApi,callback){
     request(url,function(err, resp, body){
-        if (err && resp.statusCode!=200) return console.error(err)
+        if (err) return console.error(err)
         else{
             if(numeApi=="yahooFinance"){
                 try {
