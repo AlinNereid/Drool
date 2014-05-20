@@ -21,7 +21,7 @@
             <td> <a href="<%= digitalCoins[i]["page"]%>"><%= digitalCoins[i]["page"]%></a></td>
             <td>
                 <a href="./editDigitalCoin/<%= digitalCoins[i]["sname"]%>"><div title="Edit" class="pencil"></div></a>
-                <a href="2"><div title="Delete" class="delete" onclick="return confirm('Are you sure you want to delete this item?');"></div></a>
+                <a href="./deleteDigitalCoin/<%= digitalCoins[i]["sname"]%>"><div title="Delete" class="delete" onclick="return confirm('Are you sure you want to delete this item?');"></div></a>
             </td>
         </tr>
         <% } %>

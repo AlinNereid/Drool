@@ -37,7 +37,7 @@ var getCurrencyDigitalCoin = function (sname, callback) {
                                 isNumberArray=true;
                             }
                             if(isNumberArray==true){
-                                var ladst = date[array[0].substring(10,array[0].length)];
+                                var last = date[array[0].substring(10,array[0].length)];
                             }else{
                                 var last = date[array[0]];
                             }
@@ -178,6 +178,8 @@ var getCurrencyDigitalCoin = function (sname, callback) {
                         }
                     }
                 });
+            }else{
+                console.log("Nu api ticker " + sname);
             }
         } catch (e) {
             console.error(sname + "  ----   date error:", e);

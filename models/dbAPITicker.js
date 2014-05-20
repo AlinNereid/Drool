@@ -3,6 +3,7 @@
  */
 var nameCollection="ApiTickers"
 var database=require('./database.js');
+var intervalRequests = require('../parser+requestAPI/intervalRequests');
 exports.ApiTicker = function ApiTicker(sname,urlTicker,digsname,realsname,last,requestTime,bid,avg_24h,volume){
     this.sname=sname;
     this.urlTicker=urlTicker;
@@ -64,17 +65,31 @@ exports.deleteApi= function(sname,callback){
         if(numDeleted == 0 || err){
             callback(false);
         }
-        else
+        else{
+            database.getDatabase().collection(sname).drop(function(err,deleted){
+                console.log("Drop " +sname +  " "+deleted);
+            });
             callback(true);
+        }
     });
 }
 exports.deleteAllApiWithDigital = function(digsname,callback){
     console.log("Delete all api with " + digsname);
-    database.getDatabase().collection(nameCollection).remove({digsname:digsname},function (err, numDeleted) {
-        if(numDeleted == 0 || err){
-            callback(false);
-        }
-        else
-            callback(true);
-    });
+    database.getDatabase().collection(nameCollection).find({digsname:digsname},{_id:0,sname:1}).toArray(function(err,snames){
+        database.getDatabase().collection(nameCollection).remove({digsname:digsname},function (err, numDeleted) {
+            snames.forEach(function(snameObj){
+                intervalRequests.removeInterval(snameObj.sname);
+                database.getDatabase().collection(snameObj.sname).drop(function(err,deleted){
+                    console.log("Drop " + snameObj.sname );
+                });
+            });
+            if(numDeleted == 0 || err){
+                callback(false);
+            }
+            else
+                callback(true);
+        });
+
+    })
+
 }

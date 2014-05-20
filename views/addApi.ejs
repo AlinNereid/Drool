@@ -17,7 +17,7 @@
                         <label class="labelAddApi">URL:</label>
                         <label class="labelAddApi">Digital Coin:</label>
                         <label class="labelAddApi">Real Reference Coin:</label>
-                        <label class="labelAddApi">Request Time(ms):</label>
+                        <label class="labelAddApi">Request Time(s):</label>
                         <label class="labelAddApi">Last:</label>
                         <label class="labelAddApi">Bid:</label> 
                         <label class="labelAddApi">Avg 24h:</label>
@@ -39,7 +39,7 @@
                                 <option value="<%= symbols[i].symbol %>">
                             <% } %>
                         </datalist>
-                        <input class="addApiInputs" type="number" name="requestTime" value="<%= requestTime %>">
+                        <input class="addApiInputs" type="number" step="any" name="requestTime" value="<%= requestTime %>">
                         <input class="addApiInputs" type="text" name="last" value="<%= last %>">
                         <input class="addApiInputs" type="text" name="bid" value="<%= bid %>">
                         <input class="addApiInputs" type="text" name="avg_24h" value="<%= avg_24h %>">

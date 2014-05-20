@@ -20,8 +20,6 @@ var existsDigitalCoin = function (digsname, callback) {
         if (i == snames.length) {
             callback(false);
         }
-
-
     });
 }
 
@@ -130,7 +128,7 @@ exports.postPageDigital = function (req, res) {
         realsname !== "" && realsname !== null &&
         last !== "" && last !== null &&
         requestTime !== "" && requestTime !== null) {
-        if (requestTime > 150) {
+        if (requestTime >= 3) {
             existsDigitalCoin(digsname, function (existsDigital) {
                 if (existsDigital == true) {
                     existsRealCoin(realsname, function (existsReal) {
@@ -141,7 +139,7 @@ exports.postPageDigital = function (req, res) {
                                         if (okData == true) {
                                             res.send("Add in bd");
                                             digitalCoins.getCurrency(sname);
-                                            intervalRequests.addInterval(sname,requestTime);
+                                            intervalRequests.addInterval(sname, requestTime);
                                         }
                                         else {
                                             show(res, "Name already in database", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
@@ -208,7 +206,7 @@ exports.postUpdatePage = function (req, res) {
         realsname !== "" && realsname !== null &&
         last !== "" && last !== null &&
         requestTime !== "" && requestTime !== null) {
-        if (requestTime > 150) {
+        if (requestTime >= 3) {
             existsDigitalCoin(digsname, function (existsDigital) {
                 if (existsDigital == true) {
                     existsRealCoin(realsname, function (existsReal) {
@@ -220,7 +218,7 @@ exports.postUpdatePage = function (req, res) {
                                             res.send("Update in bd");
                                             digitalCoins.getCurrency(sname);
                                             intervalRequests.removeInterval(sname);
-                                            intervalRequests.addInterval(sname,requestTime);
+                                            intervalRequests.addInterval(sname, requestTime);
                                         }
                                         else {
                                             showUpdate(res, "Error update", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
