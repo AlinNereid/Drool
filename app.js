@@ -80,8 +80,11 @@ app.get('/api/real',function(req,res){
 app.get('/admin/controlpanel/showDigitalCoins',digitalCoinRoute.getPageShowDigital);
 app.post('/admin/controlpanel/addDigitalCoin',digitalCoinRoute.postPageDigital);
 app.get('/admin/controlpanel/addDigitalCoin',digitalCoinRoute.getPageAddDigital);
+app.post('/admin/controlpanel/editDigitalCoin',digitalCoinRoute.postPageUpdateDigital);
+
 app.get('/admin/controlpanel/editDigitalCoin/:name',digitalCoinRoute.getPageUpdateDigital);
 app.post('/admin/controlpanel/editDigitalCoin/:name',digitalCoinRoute.postPageUpdateDigital);
+
 app.get('/admin/controlpanel/deleteDigitalCoin/:name',digitalCoinRoute.postDeletePage);//de modificat
 
 app.get('/admin/controlpanel/addApi',apiRoute.getAddApiPage);

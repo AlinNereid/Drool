@@ -26,10 +26,25 @@ exports.getPageUpdateDigital = function (req, res) {
     }
 
 };
+var existsDigitalCoin = function (digsname, callback) {
+    dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
+        for (i = 0; i < snames.length; i++) {
+            if (digsname == snames[i].sname) {
+                console.log(snames[i] + " " + digsname);
+
+                callback(true);
+                break;
+            }
+        }
+        if (i == snames.length) {
+            callback(false);
+        }
+    });
+}
 var existsRealCoinSname = function (digsname, callback) {
     dbRealCoins.getAllRealSymbolCoins(function (dname) {
         for (i = 0; i < dname.length; i++) {
-            console.log(dname[i].symbol)
+            //console.log(dname[i].symbol)
             if (digsname == dname[i].symbol) {
                 console.log(dname[i] + " " + digsname);
                 callback(true)
@@ -69,13 +84,29 @@ exports.postPageUpdateDigital = function (req, res) {
     var sname = req.param('sname', null);
     var lname = req.param('lname', null);
     var page = req.param('page', null);
-    if (sname !== "" && sname !== null)
-        dbDigitalCoins.updateDigitalCoin(new dbDigitalCoins.DigitalCoin(sname, lname, page), function (exista) {
-            if (exista == true)
-                res.send("Update in bd");
-            else
-                res.render('updateDigitalCoin', {error: "Moneda exista in baza de date", title: 'Drool Admin', sname: sname, lname: lname, page: page});
-        })
+    if (sname !== "" && sname !== null){
+        sname = sname.toUpperCase();
+        existsDigitalCoin(sname,function(exits){
+            if(exits==true){
+                existsRealCoinSname(sname, function (existaRealSname) {
+                    if (existaRealSname == false)
+                        dbDigitalCoins.updateDigitalCoin(new dbDigitalCoins.DigitalCoin(sname, lname, page), function (exista) {
+                            if (exista == true) {
+                                res.send("Update in bd");
+                            }
+                            else
+                                res.render('updateDigitalCoin', {error: "Moneda exista in baza de date", title: 'Drool Admin', sname: sname, lname: lname, page: page});
+                        })
+                    else {
+                        res.render('updateDigitalCoin', {error: "Exista moneda reala cu acest nume", title: 'Drool Admin', sname: sname, lname: lname, page: page});
+                    }
+                });
+            }
+            else{
+                res.send("Nu exista sname");
+            }
+        });
+    }
     else {
         res.render('updateDigitalCoin', {error: "Date invalide", title: 'Drool Admin', sname: sname, lname: lname, page: page});
     }
