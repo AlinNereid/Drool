@@ -14,10 +14,11 @@ var apiRoute = require('./routes/apiTicker');
 var digitalCoinRoute=require('./routes/digitalCoin');
 var dbDigitalCoins= require('./models/dbDigitalCoins');
 var dbRealCoins= require('./models/dbRealCoins');
-var parser=require('./parser+requestAPI/parse');
-var realCoins=require('./parser+requestAPI/realCoins');
-var digitalCoins=require('./parser+requestAPI/digitalCoins');
-var intervalRequests = require('./parser+requestAPI/intervalRequests');
+var parser=require('./parser+requestAPI+convertor/parse');
+var realCoins=require('./parser+requestAPI+convertor/realCoins');
+var digitalCoins=require('./parser+requestAPI+convertor/digitalCoins');
+var intervalRequests = require('./parser+requestAPI+convertor/intervalRequests');
+var api = require('./parser+requestAPI+convertor/convertor');
 var app = express();
 var request = require('request');
 // all environments
@@ -337,13 +338,28 @@ database.connect(function(err, db) {
        /* getCurrencyReal("http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");*/
         intervalRequests.addInterval("bitstamp",30000);
         digitalCoins.getCurrency("bitstamp");
-
-       /* setInterval(getCurrencyBitcoin,timeRequest,"https://api.bitcoinaverage.com/ticker/global/USD/","bitcoinaverageUSD");
+//        api.getLowerValueInUSD(2,"TESTCOIN",function(lowerValue){
+//            console.log("1_lowerValue" + lowerValue);
+//        });
+//        api.getValueInUSD(2,"BTC","BTC123",function(lowerValue){
+//            console.log("lowerValue" + lowerValue);
+//        });
+//        api.getValueInUSDReal("EU1R",function(value){
+//            console.log("EUR " +value);
+//        });
+        //
+        api.convert(3,"LTC",null,"RON",null,function(value){
+            console.log("VALOARE          " + value);
+        });
+       /* setInterva(getCurrencyBitcoin,timeRequest,"https://api.bitcoinaverage.com/ticker/global/USD/","bitcoinaverageUSD");
         setInterval(getCurrencyBitcoin,timeRequest,"https://www.bitstamp.net/api/ticker/","bitstampUSD");
         setInterval(getCurrencyBitcoin,timeRequest,"https://btc-e.com/api/2/btc_usd/ticker","btc-eUSD");*/
         //setInterval(getCurrencyReal,timeRequest*3,"http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");
     }
 });
+
+
+
 /*
 MongoClient.connect("mongodb://localhost:27017/dbDrool", function(err, db) {
     if(err) throw err;

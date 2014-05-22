@@ -17,6 +17,13 @@ exports.addRealCoin= function(realCoin){
                 console.log(nameCollection + " erroare")
         });
 };
+exports.getValue=function(realName,callback){
+    database.getDatabase().collection(nameCollection).findOne({"symbol":realName},{_id:0,price:1},function(err, price){
+//        console.log("retrieved records:");
+//        console.log(coins);
+        callback(price);
+    });
+}
 exports.getAllRealSymbolPriceCoins = function(callback){
     database.getDatabase().collection(nameCollection).find({},{_id:0,symbol:1,price:1}).toArray(function(err, coins){
 //        console.log("retrieved records:");

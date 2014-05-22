@@ -1,12 +1,12 @@
 /**
  * Created by alin on 5/17/14.
  */
-var parser = require('../parser+requestAPI/parse');
+var parser = require('../parser+requestAPI+convertor/parse');
 var dbAPITicker = require('../models/dbAPITicker');
 var dbDigitalCoins = require('../models/dbDigitalCoins');
 var dbRealCoins = require('../models/dbRealCoins');
-var digitalCoins = require('../parser+requestAPI/digitalCoins');
-var intervalRequests = require('../parser+requestAPI/intervalRequests');
+var digitalCoins = require('../parser+requestAPI+convertor/digitalCoins');
+var intervalRequests = require('../parser+requestAPI+convertor/intervalRequests');
 var existsDigitalCoin = function (digsname, callback) {
     dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
         for (i = 0; i < snames.length; i++) {

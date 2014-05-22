@@ -3,7 +3,7 @@
  */
 var nameCollection="ApiTickers"
 var database=require('./database.js');
-var intervalRequests = require('../parser+requestAPI/intervalRequests');
+var intervalRequests = require('../parser+requestAPI+convertor/intervalRequests');
 exports.ApiTicker = function ApiTicker(sname,urlTicker,digsname,realsname,last,requestTime,bid,avg_24h,volume){
     this.sname=sname;
     this.urlTicker=urlTicker;
@@ -41,6 +41,13 @@ exports.getAllApis = function(callback){
         callback(apis);
     });
 }
+exports.getAllApisWithDigSname = function(dname,callback){
+    database.getDatabase().collection(nameCollection).find({digsname:dname},{_id:0}).toArray(function(err, apis){
+        /*console.log("retrieved records:");
+         console.log(apis);*/
+        callback(apis);
+    });
+}
 exports.updateApi = function(apiTicker,callback){
     console.log(apiTicker);
     database.getDatabase().collection(nameCollection).update({sname:apiTicker.sname},apiTicker,function (err, inserted) {
@@ -58,6 +65,11 @@ exports.addDateApi=function(sname,dataApi,callback){
             else
                 callback(true);
         });
+}
+exports.getLastValue=function(sname,callback){
+    database.getDatabase().collection(sname).find({},{_id:0}).sort({date:-1}).limit(1).toArray(function(err, results) {
+        callback(results[0]);
+    });
 }
 exports.deleteApi= function(sname,callback){
     console.log("Delete " + sname);
