@@ -10,7 +10,7 @@ var val1 = 2;
 var currency2 = "RON";
 
 var getLowerValueInUSD = function (val, currency, callback) {
-    console.log("getLowerValue");
+    //console.log("getLowerValue");
     dbAPITicker.getAllApisWithDigSname(currency, function (apis) {
         var numApis = apis.length;
         var apiCurentID = 0;
@@ -102,7 +102,7 @@ var convert = function (val1, currency1, api1, currency2, api2, callback) {
         tip1 = type;
         getTypeCurrency(currency2, function (type) {
             tip2 = type;
-            console.log(tip1 + "    " + tip2);
+            //console.log(tip1 + "    " + tip2);
             if (tip1 == "" || tip2 == "") {
                 callback("ERROR");
             } else if (api1 == null && api2 == null) //nu se specifica niciun API
@@ -202,10 +202,5 @@ var convert = function (val1, currency1, api1, currency2, api2, callback) {
             }
         })
     });
-    getLowerValueInUSD(val1, currency1, function (lowerInUsdVal1) {
-        getLowerValueInUSD(val2, currency2, function (lowerInUsdVal2) {
-            console.log(lowerInUsdVal1 / lowerInUsdVal2);
-        });
-    })
 };
 exports.convert = convert;

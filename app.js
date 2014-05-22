@@ -18,7 +18,11 @@ var parser=require('./parser+requestAPI+convertor/parse');
 var realCoins=require('./parser+requestAPI+convertor/realCoins');
 var digitalCoins=require('./parser+requestAPI+convertor/digitalCoins');
 var intervalRequests = require('./parser+requestAPI+convertor/intervalRequests');
-var api = require('./parser+requestAPI+convertor/convertor');
+var convertorEngine = require('./parser+requestAPI+convertor/convertor');
+var apiConvertor = require('./api/convertor');
+var apiRealCoins = require('./api/realAPI');
+var apiDigitalCoin = require('./api/digitalCoinApi');
+var apiTIcker = require('./api/apiTIcker');
 var app = express();
 var request = require('request');
 // all environments
@@ -71,13 +75,13 @@ app.get('/api/digital',function(req,res){
         res.send(coins)
     })
 });
-app.get('/api/real',function(req,res){
+/*app.get('/api/real',function(req,res){
     dbRealCoins.getAllRealSymbolPriceCoins(function(coins){
         res.contentType('application/json');
         console.log("app/real" + coins);
         res.send(coins)
     })
-});
+});*/
 app.get('/admin/controlpanel/showDigitalCoins',digitalCoinRoute.getPageShowDigital);
 app.post('/admin/controlpanel/addDigitalCoin',digitalCoinRoute.postPageDigital);
 app.get('/admin/controlpanel/addDigitalCoin',digitalCoinRoute.getPageAddDigital);
@@ -95,13 +99,33 @@ app.post('/admin/controlpanel/editApi/:name',apiRoute.postUpdatePage);
 app.post('/admin/controlpanel/addApi',apiRoute.postPageDigital);
 app.get('/admin/controlpanel/showApis',apiRoute.getPageShowApis);
 
-/*
+//api
+app.get('/api/real',apiRealCoins.GETall);
+app.get('/api/real/:name',apiRealCoins.GETByName);
+
+
+app.get('/api/digital',apiDigitalCoin.GETall);
+app.post('/api/digital',apiDigitalCoin.POSTinROOT);
+
+app.get('/api/digital/:nameDigital',apiDigitalCoin.GETByNameDigital);
+app.put('/api/digital/:nameDigital',apiDigitalCoin.PUTByNameDigital);
+app.delete('/api/digital/:nameDigital',apiDigitalCoin.DELETEByName);
+
+app.get('/api/digital/:nameDigital/apiTickers',apiTIcker.GETallApiWithDigital);
+app.post('/api/digital/:nameDigital/apiTickers',apiTIcker.POSTinROOT);
+
+app.get('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.GETApiWithDigital);
+app.put('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.PUTByDigNameApiName);
+app.delete('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.DELETEApi);
+
+app.post('/api/convert',apiConvertor.convertAPI);
 app.put('/api/test',function(req,res){
-    console.log("put");
+
+    var p1 = req.param("p1",null);
+    console.log("put "+p1);
     res.contentType('application/json');
     res.send({test:"123"});
 });
-*/
 
 app.get('/admin/controlpanel/deleteApi/:name',apiRoute.postDeleteApiPage);
 app.post('/admin',session,adminRoute.postLoginPage);
@@ -348,7 +372,7 @@ database.connect(function(err, db) {
 //            console.log("EUR " +value);
 //        });
         //
-        api.convert(3,"LTC",null,"RON",null,function(value){
+        convertorEngine.convert(3,"LTC",null,"RON",null,function(value){
             console.log("VALOARE          " + value);
         });
        /* setInterva(getCurrencyBitcoin,timeRequest,"https://api.bitcoinaverage.com/ticker/global/USD/","bitcoinaverageUSD");

@@ -60,7 +60,7 @@ exports.postPageDigital = function (req, res) {
     var lname = req.param('lname', null);
     var page = req.param('page', null);
 
-    if (sname !== "" && sname !== null){
+    if (sname !== "" && sname !== null) {
         sname = sname.toUpperCase();
         existsRealCoinSname(sname, function (existaRealSname) {
             if (existaRealSname == false)
@@ -84,10 +84,10 @@ exports.postPageUpdateDigital = function (req, res) {
     var sname = req.param('sname', null);
     var lname = req.param('lname', null);
     var page = req.param('page', null);
-    if (sname !== "" && sname !== null){
+    if (sname !== "" && sname !== null) {
         sname = sname.toUpperCase();
-        existsDigitalCoin(sname,function(exits){
-            if(exits==true){
+        existsDigitalCoin(sname, function (exits) {
+            if (exits == true) {
                 existsRealCoinSname(sname, function (existaRealSname) {
                     if (existaRealSname == false)
                         dbDigitalCoins.updateDigitalCoin(new dbDigitalCoins.DigitalCoin(sname, lname, page), function (exista) {
@@ -102,7 +102,7 @@ exports.postPageUpdateDigital = function (req, res) {
                     }
                 });
             }
-            else{
+            else {
                 res.send("Nu exista sname");
             }
         });

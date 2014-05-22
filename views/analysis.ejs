@@ -17,20 +17,126 @@
                     clearInterval(updateTimeOut);
                     update();
                 });
-//                var testPUT =function(){
-//                    $.ajax({
-//                        url: "../../api/test",
-//                        type: "PUT",
-//                        dataType: "json",
-//                        success: function(rasp){
-//                            console.log("yey");
-//                        },
-//                        error:function(){
-//                            console.log("error");
-//                        }
-//                    });
-//                };
-//                testPUT();
+                var testPost = function(){
+                    $.ajax({
+                    url:"../../api/convert",
+                    type : "POST",
+                    data : {value:1.421,api1:"btceBTC",api2:"testLTC",currency1:"BTC",currency2:"LTC"},
+                    dataType : "json",
+                    success: function(rasp){
+                       console.log("yey");
+                    },
+                    error:function(){
+                       console.log("error");
+                    }
+                    });
+                }
+                testPost();
+                var testPost2 = function(){
+                    $.ajax({
+                        url:"../../api/digital",
+                        type : "POST",
+                        data : {sname:"DIGNOU",page:"Pag mea roz"},
+                        dataType : "json",
+                        success: function(rasp){
+                            console.log("yey");
+                        },
+                        error:function(){
+                            console.log("error");
+                        }
+                    });
+                }
+                testPost2();
+                var testPUT =function(){
+                    $.ajax({
+                        url: "../../api/digital/DIGNOU",
+                        type: "PUT",
+                        data : {sname:"DIGNOU",page:"pagina"},
+                        dataType: "json",
+                        success: function(rasp){
+                            console.log("yey");
+                        },
+                        error:function(){
+                            console.log("error");
+                        }
+                    });
+                };
+                testPUT();
+                var testdele =function(){
+                    $.ajax({
+                        url: "../../api/digital/DIGNOU",
+                        type: "DELETE",
+                        dataType: "json",
+                        success: function(rasp){
+                            console.log("yey");
+                        },
+                        error:function(){
+                            console.log("error");
+                        }
+                    });
+                };
+                testdele();
+                /*var testpostAPI =function(){
+                    $.ajax({
+                        url: "../../api/digital/TESTCOIN/apiTickers",
+                        type: "POST",
+                        data :
+                        {
+                            sname:'addApiAPI',
+                            urlTicker:'https://api.bitcoinaverage.com/ticker/global/USD/',
+                            digsname : 'TESTCOIN',
+                            realsname : 'USD',
+                            requestTime : 1000,
+                            last : 'last'
+                        },
+                        dataType: "json",
+                        success: function(rasp){
+                            console.log("yey");
+                        },
+                        error:function(){
+                            console.log("error");
+                        }
+                    });
+                };
+                testpostAPI();*/
+                var testputAPI =function(){
+                 $.ajax({
+                     url: "../../api/digital/TESTCOIN/apiTickers/addApiAPI",
+                     type: "PUT",
+                     data :
+                     {
+                         sname:'addApiAPI',
+                         urlTicker:'https://api.bitcoinaverage.com/ticker/global/USD/',
+                         digsname : 'TESTCOIN',
+                         realsname : 'USD',
+                         requestTime : 30000,
+                         last : 'last'
+                     },
+                     dataType: "json",
+                     success: function(rasp){
+                     console.log("yey");
+                     },
+                     error:function(){
+                     console.log("error");
+                     }
+                     });
+                 };
+                testputAPI();
+
+                var testdeleAPI =function(){
+                    $.ajax({
+                        url: "../../api/digital/TESTCOIN/apiTickers/addApiAPI",
+                        type: "DELETE",
+                        dataType: "json",
+                        success: function(rasp){
+                            console.log("yey");
+                        },
+                        error:function(){
+                            console.log("error");
+                        }
+                    });
+                };
+                testdeleAPI();
                 var updateTimeOut;
                 var data = [],
                         totalPoints = 50;

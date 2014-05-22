@@ -1,5 +1,5 @@
 /**
- * Created by alin on 5/17/14.
+ * Created by alin on 5/22/14.
  */
 var parser = require('../parser+requestAPI+convertor/parse');
 var dbAPITicker = require('../models/dbAPITicker');
@@ -7,6 +7,7 @@ var dbDigitalCoins = require('../models/dbDigitalCoins');
 var dbRealCoins = require('../models/dbRealCoins');
 var digitalCoins = require('../parser+requestAPI+convertor/digitalCoins');
 var intervalRequests = require('../parser+requestAPI+convertor/intervalRequests');
+
 var existsDigitalCoin = function (digsname, callback) {
     dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
         for (i = 0; i < snames.length; i++) {
@@ -89,40 +90,49 @@ var verificaParsareSiCampuriURL = function (urlTicker, last, bid, avg_24h, volum
     });
 
 }
-
-var show = function (res, err, digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime) {
-    dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
-        dbRealCoins.getAllRealSymbolCoins(function (symbols) {
-            res.render('addApi', {error: err, title: 'Drool Admin', sname: sname, urlTicker: urlTicker,
-                digsname: digsname, realsname: realsname, last: last, requestTime: requestTime, bid: bid, avg_24h: avg_24h, volume: volume,
-                snames: snames, symbols: symbols
-            });
-        })
+var GETallApiWithDigital = function (req, res) {
+    res.contentType('application/json');
+    dbAPITicker.getAllApisWithDigSname(req.params.nameDigital, function (apis) {
+        var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+        for (i = 0; i < apis.length; i++) {
+            apis[i].url = fullUrl + '/' + apis[i].sname;
+        }
+        res.send(apis);
     });
 }
-var showUpdate = function (res, err, digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime) {
-    dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
-        dbRealCoins.getAllRealSymbolCoins(function (symbols) {
-            res.render('updateApi', {error: err, title: 'Drool Admin', sname: sname, urlTicker: urlTicker,
-                digsname: digsname, realsname: realsname, last: last, requestTime: requestTime, bid: bid, avg_24h: avg_24h, volume: volume,
-                snames: snames, symbols: symbols
-            });
-        })
-    });
+var GETApiWithDigital = function (req, res) {
+    res.contentType('application/json');
+    dbAPITicker.getApiTicker(req.params.nameApi, function (api) {
+        if (api) {
+            if (api.digsname == req.params.nameDigital) {
+                if (api != null) {
+                    res.send(api);
+                } else {
+                    res.send({error: "api invalid "});
+                }
+            } else {
+                res.send({error: "api invalid "});
+            }
+        } else {
+            res.send({error: "api invalid "});
+        }
+    })
 }
+var POSTinROOT = function (req, res) {
+    res.contentType('application/json');
+    var sname = req.param('sname', "");
+    var urlTicker = req.param('urlTicker', "");
+    var digsname = req.param('digsname', "");
+    var realsname = req.param('realsname', "");
+    var last = req.param('last', "");
+    var requestTime = req.param('requestTime', "");
 
-exports.postPageDigital = function (req, res) {
-    var sname = req.param('sname', null);
-    var urlTicker = req.param('urlTicker', null);
-    var digsname = req.param('digsname', null);
-    var realsname = req.param('realsname', null);
-    var last = req.param('last', null);
-    var requestTime = req.param('requestTime', null);
-
-    var bid = req.param('bid', null);
-    var avg_24h = req.param('avg_24h', null);
-    var volume = req.param('volume', null);
-    if (sname !== "" && sname !== null &&
+    var bid = req.param('bid', "");
+    var avg_24h = req.param('avg_24h', "");
+    var volume = req.param('volume', "");
+    var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+    if (digsname == req.params.nameDigital &&
+        sname !== "" && sname !== null &&
         urlTicker !== "" && urlTicker !== null &&
         digsname !== "" && digsname !== null &&
         realsname !== "" && realsname !== null &&
@@ -137,70 +147,56 @@ exports.postPageDigital = function (req, res) {
                                 if (okParsare == true) {
                                     dbAPITicker.addApiTicker(new dbAPITicker.ApiTicker(sname, urlTicker, digsname, realsname, last, requestTime, bid, avg_24h, volume), function (okData) {
                                         if (okData == true) {
-                                            res.send("Add in bd");
+                                            res.send({added: true, url: fullUrl + '/' + sname})
                                             digitalCoins.getCurrency(sname);
                                             intervalRequests.addInterval(sname, requestTime);
                                         }
                                         else {
-                                            show(res, "Name already in database", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                                            res.send({error: "Name already in database+doc"});
                                         }
                                     });
                                 }
                                 else {
-                                    show(res, "URL or ticker fields are incorrect", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                                    res.send({error: "URL or ticker fields are incorrect"});
                                 }
                             });
                         }
                         else {
-                            show(res, "Real coin does not exist", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                            res.send({error: "Real coin does not exist"});
                         }
                     });
                 }
                 else {
-
-                    show(res, "Digitalcoin does not exist", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
-
+                    res.send({error: "Digitalcoin does not exist"});
                 }
             })
         }
         else {
-            show(res, "Request time is too low", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+            res.send({error: "Request time is too low"});
         }
     }
     else {
-        show(res, "Required fields are not filled", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+        res.send({error: "Required fields are not filled+Doc"});
 
-    }
-};
-exports.getUpdateApiPage = function (req, res) {
-    var name = req.params.name;
-    if (name !== "" && name !== null) {
-        dbAPITicker.getApiTicker(name, function (api) {
-            if (api !== "" && api !== null) {
-                dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
-                    dbRealCoins.getAllRealSymbolCoins(function (symbols) {
-                        showUpdate(res, "", api.digsname, api.sname, api.realsname, api.urlTicker, api.last,
-                            api.bid, api.volume, api.avg_24h, api.requestTime)
-                    })
-                });
-            } else {
-                res.send("Eroare");
-            }
-        })
     }
 }
-exports.postUpdatePage = function (req, res) {
-    var sname = req.param('sname', null);
-    var urlTicker = req.param('urlTicker', null);
-    var digsname = req.param('digsname', null);
-    var realsname = req.param('realsname', null);
-    var last = req.param('last', null);
-    var requestTime = req.param('requestTime', null);
+var PUTByDigNameApiName = function (req, res) {
+    res.contentType('application/json');
+    var sname = req.param('sname', "");
+    var urlTicker = req.param('urlTicker', "");
+    var digsname = req.param('digsname', "");
+    var realsname = req.param('realsname', "");
+    var last = req.param('last', "");
+    var requestTime = req.param('requestTime', "");
 
-    var bid = req.param('bid', null);
-    var avg_24h = req.param('avg_24h', null);
-    var volume = req.param('volume', null);
-    if (sname !== "" && sname !== null &&
+    var bid = req.param('bid', "");
+    var avg_24h = req.param('avg_24h', "");
+    var volume = req.param('volume', "");
+    var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+
+    if (sname == req.params.nameApi &&
+        digsname == req.params.nameDigital &&
+        sname !== "" && sname !== null &&
         urlTicker !== "" && urlTicker !== null &&
         digsname !== "" && digsname !== null &&
         realsname !== "" && realsname !== null &&
@@ -217,72 +213,69 @@ exports.postUpdatePage = function (req, res) {
                                         if (okParsare == true) {
                                             dbAPITicker.updateApi(new dbAPITicker.ApiTicker(sname, urlTicker, digsname, realsname, last, requestTime, bid, avg_24h, volume), function (okData) {
                                                 if (okData == true) {
-                                                    res.send("Update in bd");
+                                                    res.send({updated: true,
+                                                        url: fullUrl});
                                                     digitalCoins.getCurrency(sname);
                                                     intervalRequests.removeInterval(sname);
                                                     intervalRequests.addInterval(sname, requestTime);
                                                 }
                                                 else {
-                                                    showUpdate(res, "Error update", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                                                    res.send({error: "Error update"});
                                                 }
                                             });
                                         }
                                         else {
-                                            showUpdate(res, "URL or ticker fields are incorrect", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                                            res.send({error: "URL or ticker fields are incorrect"});
                                         }
                                     });
                                 }
                                 else {
-                                    showUpdate(res, "Real coin does not exist", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                                    res.send({error: "Real coin does not exist"});
                                 }
                             });
                         }
                         else {
-
-                            showUpdate(res, "Digitalcoin does not exist", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                            res.send({error: "Digitalcoin does not exist"});
 
                         }
                     })
                 } else {
-                    showUpdate(res, "Api does not exist", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                    res.send({error: "Api doesn't exist"});
                 }
-            });
+            })
         }
         else {
-            showUpdate(res, "Request time is too low", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+            res.send({error: "Request time is too low"});
         }
     }
     else {
-        showUpdate(res, "Required fields are not filled", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
-
+        res.send({error: "Required fields are not filled"});
     }
-}
-exports.getAddApiPage = function (req, res) {
-    dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
-        dbRealCoins.getAllRealSymbolCoins(function (symbols) {
-            res.render('addApi', {error: "", title: 'Drool Admin', sname: "", urlTicker: "",
-                digsname: "", realsname: "", last: "", requestTime: "", bid: "", avg_24h: "", volume: "",
-                snames: snames, symbols: symbols
-            });
-        })
-    });
-
 };
-exports.getPageShowApis = function (req, res) {
-    dbAPITicker.getAllApis(function (apis) {
-        res.render('showApis', {title: 'Apis ', apis: apis});
-    });
-};
-exports.postDeleteApiPage = function (req, res) {
-    var sname = req.params.name;
-    if (sname !== "" && sname !== null) {
-        intervalRequests.removeInterval(sname);
-        dbAPITicker.deleteApi(sname, function (api) {
-            if (api !== "" && api !== null)
-                res.send(api);
-            else {
-                res.send("date invalide");
+var DELETEApi = function (req, res) {
+    res.contentType('application/json');
+    var sname = req.params.nameApi;
+    dbAPITicker.getApiTicker(sname, function (api) {
+        if (api) {
+            if (api.digsname == req.params.nameDigital) {
+                intervalRequests.removeInterval(sname);
+                dbAPITicker.deleteApi(sname, function (api) {
+                    if (api !== "" && api !== null)
+                        res.send({deleted: true});
+                    else {
+                        res.send({error: "date invalide"});
+                    }
+                });
+            } else {
+                res.send({error: "date invalide"});
             }
-        });
-    }
+        } else {
+            res.send({error: "date invalide"});
+        }
+    });
 }
+exports.GETallApiWithDigital = GETallApiWithDigital;
+exports.GETApiWithDigital = GETApiWithDigital;
+exports.POSTinROOT = POSTinROOT;
+exports.PUTByDigNameApiName = PUTByDigNameApiName;
+exports.DELETEApi = DELETEApi
