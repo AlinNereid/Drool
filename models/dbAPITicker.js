@@ -78,6 +78,7 @@ exports.deleteApi= function(sname,callback){
             callback(false);
         }
         else{
+            intervalRequests.removeInterval(sname);
             database.getDatabase().collection(sname).drop(function(err,deleted){
                 console.log("Drop " +sname +  " "+deleted);
             });
