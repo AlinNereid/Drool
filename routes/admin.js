@@ -2,7 +2,9 @@
  * Created by alin on 5/3/14.
  */
 exports.getLoginPage = function (req, res) {
-    res.render('adminLogin', { title: 'Drool', error: req.session.error });
+    if(req.session.error)
+        res.render('adminLogin', { title: 'Drool', error: req.session.error });
+    res.render('adminLogin', { title: 'Drool', error: "" });
     req.session.error="";
 };
 exports.postLoginPage = function (req, res) {

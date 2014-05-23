@@ -207,7 +207,7 @@ exports.postUpdatePage = function (req, res) {
         last !== "" && last !== null &&
         requestTime !== "" && requestTime !== null) {
         if (requestTime >= 3) {
-            dbAPITicker.getApiTicker(digsname, function (api) {
+            dbAPITicker.getApiTicker(sname, function (api) {
                 if (api) {
                     existsDigitalCoin(digsname, function (existsDigital) {
                         if (existsDigital == true) {
