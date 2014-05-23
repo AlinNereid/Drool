@@ -49,13 +49,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-app.get('/admin',session,adminRoute.getLoginPage);
+app.get('/login',session,adminRoute.getLoginPage);
 
-app.get('/admin/controlpanel',session,function(req,res){
+app.get('/controlpanel',session,function(req,res){
     if(req.session.name == "admin"){
         res.render('adminControlPanel', { title: 'Drool' });
     }else{
-        res.redirect('/');
+        res.redirect('/login');
+        req.session.error="Please login first!";
     }
 });
 app.get('/api/parse',function(req,res){
@@ -77,22 +78,22 @@ app.get('/api/parse',function(req,res){
         res.send(coins)
     })
 });*/
-app.get('/admin/controlpanel/showDigitalCoins',digitalCoinRoute.getPageShowDigital);
-app.post('/admin/controlpanel/addDigitalCoin',digitalCoinRoute.postPageDigital);
-app.get('/admin/controlpanel/addDigitalCoin',digitalCoinRoute.getPageAddDigital);
-app.post('/admin/controlpanel/editDigitalCoin',digitalCoinRoute.postPageUpdateDigital);
+app.get('/controlpanel/showDigitalCoins',digitalCoinRoute.getPageShowDigital);
+app.post('/controlpanel/addDigitalCoin',digitalCoinRoute.postPageDigital);
+app.get('/controlpanel/addDigitalCoin',digitalCoinRoute.getPageAddDigital);
+app.post('/controlpanel/editDigitalCoin',digitalCoinRoute.postPageUpdateDigital);
 
-app.get('/admin/controlpanel/editDigitalCoin/:name',digitalCoinRoute.getPageUpdateDigital);
-app.post('/admin/controlpanel/editDigitalCoin/:name',digitalCoinRoute.postPageUpdateDigital);
+app.get('/controlpanel/editDigitalCoin/:name',digitalCoinRoute.getPageUpdateDigital);
+app.post('/controlpanel/editDigitalCoin/:name',digitalCoinRoute.postPageUpdateDigital);
 
-app.get('/admin/controlpanel/deleteDigitalCoin/:name',digitalCoinRoute.postDeletePage);//de modificat
+app.get('/controlpanel/deleteDigitalCoin/:name',digitalCoinRoute.postDeletePage);//de modificat
 
-app.get('/admin/controlpanel/addApi',apiRoute.getAddApiPage);
-app.get('/admin/controlpanel/editApi/:name',apiRoute.getUpdateApiPage);
-app.post('/admin/controlpanel/editApi/:name',apiRoute.postUpdatePage);
+app.get('/controlpanel/addApi',apiRoute.getAddApiPage);
+app.get('/controlpanel/editApi/:name',apiRoute.getUpdateApiPage);
+app.post('/controlpanel/editApi/:name',apiRoute.postUpdatePage);
 
-app.post('/admin/controlpanel/addApi',apiRoute.postPageDigital);
-app.get('/admin/controlpanel/showApis',apiRoute.getPageShowApis);
+app.post('/controlpanel/addApi',apiRoute.postPageDigital);
+app.get('/controlpanel/showApis',apiRoute.getPageShowApis);
 
 //api
 app.get('/api/real',apiRealCoins.GETall);
@@ -124,9 +125,9 @@ app.put('/api/test',function(req,res){
     res.send({test:"123"});
 });
 
-app.get('/admin/controlpanel/deleteApi/:name',apiRoute.postDeleteApiPage);
-app.post('/admin',session,adminRoute.postLoginPage);
-app.get('/adminout',function(req,res){
+app.get('/controlpanel/deleteApi/:name',apiRoute.postDeleteApiPage);
+app.post('/login',session,adminRoute.postLoginPage);
+app.get('/logout',function(req,res){
     req.session.name=null;
     res.send("yee")
 });
