@@ -2,6 +2,8 @@
  * Created by alin on 5/23/14.
  */
 var token = require('./token');
+var errors=require('../errors/errors');
+errors=errors.errors;
 var verifyCredentials = function (req, res, callback) {
     res.contentType('application/json');
     var tokenID = req.param('token', null);
@@ -11,12 +13,12 @@ var verifyCredentials = function (req, res, callback) {
                 callback(req, res);
             }
             else {
-                res.send({error: "token invalid"});
+                res.send({error: "0300", errorMessage: errors[0300]});
             }
         })
 
     } else {
-        res.send({error: "token inexistent"});
+        res.send({error: "0301", errorMessage: errors[0301]});
     }
 }
 exports.verifyCredentials = verifyCredentials;

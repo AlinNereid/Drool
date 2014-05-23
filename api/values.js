@@ -3,15 +3,17 @@
  */
 var database = require('../models/database.js');
 var dbAPITicker = require('../models/dbAPITicker');
+var errors=require('../errors/errors');
+errors=errors.errors;
 var getDate = function (nameApi, send_json, lastDate, numar, delay,maxTime, callback) {
     if (numar != 1) {
         database.getDatabase().collection(nameApi).find({date: {$lt: lastDate - delay}}, {_id: 0}).sort({date: -1}).limit(1).toArray(function (err, results) {
             if (results != null) {
                 try {
-                    console.log(lastDate)
+                    //console.log(lastDate)
                     lastDate = results[0].date;
                     if (lastDate > maxTime) {
-                        console.log(lastDate + ">" + maxTime)
+                       // console.log(lastDate + ">" + maxTime)
                         send_json["date"].push(results[0]);
                         numar = numar - 1;
                         getDate(nameApi, send_json, lastDate, numar, delay, maxTime, callback);
@@ -51,11 +53,11 @@ var GETValues = function (req, res) {
                                 if (hours >= 0 && numar >= 0) {
                                     var maxTime = Date.now() - hours * 3600000;
                                     numar = numar + 1;
-                                    var delay = hours * 3600000 / numar - api.requestTime * numar;
+                                    var delay = hours * 3600000 / numar - api.requestTime;
                                     if (delay <= 0) {
                                         delay = 1;
                                     }
-                                    console.log("delay "+ delay);
+                                    //console.log("delay "+ delay);
                                     var send_json = {};
                                     var lastDate;
                                     if (numar > 0) {
@@ -77,26 +79,26 @@ var GETValues = function (req, res) {
                                         res.send({date: []});
                                     }
                                 } else {
-                                    res.send({error: "need positive numbers"});
+                                    res.send({error: "0600", errorMessage: errors[0600]});
                                 }
                             } else {
-                                res.send({error: "need numbers"});
+                                res.send({error: "0601", errorMessage: errors[0601]});
                             }
                         } else {
-                            res.send({error: "Api nu corespunde bitcoinului"});
+                            res.send({error: "0100", errorMessage: errors[0100]});
                         }
                     } else {
-                        res.send({error: "Date invalide"});
+                        res.send({error: "0602", errorMessage: errors[0602]});
                     }
                 });
             } else {
-                res.send({error: "Date invalide"});
+                res.send({error: "0602", errorMessage: errors[0602]});
             }
         } else {
-            res.send({error: "numarul de puncte mai mic ca  max"});
+            res.send({error: "0603", errorMessage: errors[0603]});
         }
     } else {
-        res.send({error: "Date invalide"});
+        res.send({error: "0602", errorMessage: errors[0602]});
     }
 };
 exports.GETValues = GETValues;

@@ -5,6 +5,8 @@ var dbDigitalCoins = require('../models/dbDigitalCoins');
 var dbApiTicker = require('../models/dbAPITicker');
 var dbRealCoins = require('../models/dbRealCoins');
 var credential = require('../api/credentials');
+var errors=require('../errors/errors');
+errors=errors.errors;
 String.prototype.endsWith = function (suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
 };
@@ -41,7 +43,6 @@ var existsDigitalCoin = function (digsname, callback) {
 var GETallDigitalCoin = function (req, res) {
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     res.contentType('application/json');
-    console.log("AICI")
     dbDigitalCoins.getAllDigitalCoins(function (coins) {
         for (i = 0; i < coins.length; i++) {
             if (fullUrl.endsWith("/"))
@@ -69,20 +70,20 @@ var PUTByName = function (req, res) {
                                 res.send({updated: true, url: fullUrl})
                             }
                             else
-                                res.send({error: "Moneda exista in baza de date"});
+                                res.send({error:"0400", errorMessage: errors[0400]});
                         })
                     else {
-                        res.send({error: "Exista Moneda reala cu acelasi nume date"});
+                        res.send({error:"0401", errorMessage: errors[0401]});
                     }
                 });
             }
             else {
-                res.send({error: "Nu Exista sname + doc"});
+                res.send({error:"0402", errorMessage: errors[0402]});
             }
         });
     }
     else {
-        res.send({error: "Date invalide + doc"});
+        res.send({error:"0403", errorMessage: errors[0403]});
     }
 }
 var POSTinROOT = function (req, res) {
@@ -97,18 +98,21 @@ var POSTinROOT = function (req, res) {
             if (existaRealSname == false)
                 dbDigitalCoins.addDigitalCoin(new dbDigitalCoins.DigitalCoin(sname, lname, page), function (exista) {
                     if (exista == true) {
-                        res.send({added: true, url: fullUrl + '/' + sname})
+                        if (fullUrl.endsWith("/"))
+                            res.send({added: true, url: fullUrl + sname});
+                        else
+                            res.send({added: true, url: fullUrl + '/' + sname});
                     }
                     else
-                        res.send({error: "Moneda exista in baza de date"});
+                        res.send({error:"0404", errorMessage: errors[0400]});
                 })
             else {
-                res.send({error: "Exista Moneda reala cu acelasi nume date"});
+                res.send({error:"0401", errorMessage: errors[0401]});
             }
         });
     }
     else {
-        res.send({error: "Date invalide + doc"});
+        res.send({error:"0403", errorMessage: errors[0403]});
     }
 }
 var GETByName = function (req, res) {
@@ -125,7 +129,7 @@ var GETByName = function (req, res) {
             res.send(coin);
         }
         else {
-            res.send({error: 'Invalid digitalCurrency'});
+            res.send({error:"0402", errorMessage: errors[0402]});
         }
     });
 }
@@ -137,7 +141,7 @@ var DELETEByName = function (req, res) {
             if (digitalCoins == true)
                 res.send({deleted: true});
             else {
-                res.send({error: "Date invalide + doc"});
+                res.send({error:"0403", errorMessage: errors[0403]});
             }
         });
     });
