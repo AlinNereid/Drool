@@ -23,6 +23,7 @@ var apiConvertor = require('./api/convertor');
 var apiRealCoins = require('./api/realAPI');
 var apiDigitalCoin = require('./api/digitalCoinApi');
 var apiTIcker = require('./api/apiTIcker');
+var apiValues=require('./api/values');
 var app = express();
 var request = require('request');
 // all environments
@@ -117,6 +118,8 @@ app.post('/api/digital/:nameDigital/apiTickers',apiTIcker.POSTinROOT);
 app.get('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.GETApiWithDigital);
 app.put('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.PUTByDigNameApiName);
 app.delete('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.DELETEApi);
+
+app.get('/api/digital/:nameDigital/apiTickers/:nameApi/values',apiValues.GETValues);
 
 app.post('/api/convert',apiConvertor.convertAPI);
 app.put('/api/test',function(req,res){

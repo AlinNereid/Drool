@@ -10,7 +10,7 @@ var existsRealCoinSname = function (digsname, callback) {
         for (i = 0; i < dname.length; i++) {
             //console.log(dname[i].symbol)
             if (digsname == dname[i].symbol) {
-                console.log(dname[i] + " " + digsname);
+                //console.log(dname[i] + " " + digsname);
                 callback(true)
             }
         }
@@ -23,7 +23,7 @@ var existsDigitalCoin = function (digsname, callback) {
     dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
         for (i = 0; i < snames.length; i++) {
             if (digsname == snames[i].sname) {
-                console.log(snames[i] + " " + digsname);
+                //console.log(snames[i] + " " + digsname);
 
                 callback(true);
                 break;

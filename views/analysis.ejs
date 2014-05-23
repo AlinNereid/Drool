@@ -101,16 +101,16 @@
                 testpostAPI();*/
                 var testputAPI =function(){
                  $.ajax({
-                     url: "../../api/digital/TESTCOIN/apiTickers/addApiAPI",
+                     url: "../../api/digital/LTC/apiTickers/bitsamp",
                      type: "PUT",
                      data :
                      {
-                         sname:'addApiAPI',
-                         urlTicker:'https://api.bitcoinaverage.com/ticker/global/USD/',
-                         digsname : 'TESTCOIN',
+                         sname:'testLTC',
+                         urlTicker:'https://btc-e.com/api/2/btc_usd/ticker',
+                         digsname : 'LTC',
                          realsname : 'USD',
-                         requestTime : 30000,
-                         last : 'last'
+                         requestTime : 60000,
+                         last : 'ticker,last'
                      },
                      dataType: "json",
                      success: function(rasp){
@@ -212,7 +212,11 @@
                 function update() {
 
                     $.ajax({
-                        url: "../api/bitcoin/"+apiselectat+"/"+totalPoints,
+                        url: "../api/digital/BTC/apiTIckers/"+"bitstamp"+"/"+"values",
+                        data:{
+                            hours:1,
+                            numberPoints:100
+                        },
                         type: "GET",
                         dataType: "json",
                         success: onDataReceived

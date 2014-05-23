@@ -12,7 +12,7 @@ var existsDigitalCoin = function (digsname, callback) {
     dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
         for (i = 0; i < snames.length; i++) {
             if (digsname == snames[i].sname) {
-                console.log(snames[i] + " " + digsname);
+                //console.log(snames[i] + " " + digsname);
 
                 callback(true);
                 break;
@@ -95,7 +95,7 @@ var GETallApiWithDigital = function (req, res) {
     dbAPITicker.getAllApisWithDigSname(req.params.nameDigital, function (apis) {
         var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
         for (i = 0; i < apis.length; i++) {
-            apis[i].url = fullUrl + '/' + apis[i].sname;
+            apis[i].url = fullUrl + apis[i].sname;
         }
         res.send(apis);
     });
@@ -203,8 +203,10 @@ var PUTByDigNameApiName = function (req, res) {
         last !== "" && last !== null &&
         requestTime !== "" && requestTime !== null) {
         if (requestTime >= 3) {
-            dbAPITicker.getApiTicker(digsname, function (api) {
+            dbAPITicker.getApiTicker(sname, function (api) {
+                //console.log("PUT API "+api);
                 if (api) {
+                    if (api.digsname == req.params.nameDigital) {
                     existsDigitalCoin(digsname, function (existsDigital) {
                         if (existsDigital == true) {
                             existsRealCoin(realsname, function (existsReal) {
@@ -239,6 +241,9 @@ var PUTByDigNameApiName = function (req, res) {
 
                         }
                     })
+                    }else{
+                        res.send({error:"api nu corespunde"});
+                    }
                 } else {
                     res.send({error: "Api doesn't exist"});
                 }
@@ -249,7 +254,7 @@ var PUTByDigNameApiName = function (req, res) {
         }
     }
     else {
-        res.send({error: "Required fields are not filled"});
+        res.send({error: "Required fields are not filled sau api + digcoin nu corespund"});
     }
 };
 var DELETEApi = function (req, res) {
