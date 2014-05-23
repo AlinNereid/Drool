@@ -7,7 +7,10 @@ var dbDigitalCoins = require('../models/dbDigitalCoins');
 var dbRealCoins = require('../models/dbRealCoins');
 var digitalCoins = require('../parser+requestAPI+convertor/digitalCoins');
 var intervalRequests = require('../parser+requestAPI+convertor/intervalRequests');
-
+var credential = require('../api/credentials');
+String.prototype.endsWith = function (suffix) {
+    return this.indexOf(suffix, this.length - suffix.length) !== -1;
+};
 var existsDigitalCoin = function (digsname, callback) {
     dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
         for (i = 0; i < snames.length; i++) {
@@ -23,7 +26,6 @@ var existsDigitalCoin = function (digsname, callback) {
         }
     });
 }
-
 var existsRealCoin = function (realsname, callback) {
     dbRealCoins.getAllRealSymbolCoins(function (symbols) {
         for (i = 0; i < symbols.length; i++) {
@@ -39,7 +41,6 @@ var existsRealCoin = function (realsname, callback) {
 
     });
 }
-
 var verificaParsareSiCampuriURL = function (urlTicker, last, bid, avg_24h, volume, callback) {
     var dateParsate = parser.parseUrl(urlTicker, function (dateParsate) {
         var ok_last = false;
@@ -95,7 +96,10 @@ var GETallApiWithDigital = function (req, res) {
     dbAPITicker.getAllApisWithDigSname(req.params.nameDigital, function (apis) {
         var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
         for (i = 0; i < apis.length; i++) {
-            apis[i].url = fullUrl + '/' +apis[i].sname;
+            if (fullUrl.endsWith("/"))
+                apis[i].url = fullUrl + apis[i].sname;
+            else
+                apis[i].url = fullUrl + '/' + apis[i].sname;
         }
         res.send(apis);
     });
@@ -207,42 +211,42 @@ var PUTByDigNameApiName = function (req, res) {
                 //console.log("PUT API "+api);
                 if (api) {
                     if (api.digsname == req.params.nameDigital) {
-                    existsDigitalCoin(digsname, function (existsDigital) {
-                        if (existsDigital == true) {
-                            existsRealCoin(realsname, function (existsReal) {
-                                if (existsReal == true) {
-                                    verificaParsareSiCampuriURL(urlTicker, last, bid, avg_24h, volume, function (okParsare) {
-                                        if (okParsare == true) {
-                                            dbAPITicker.updateApi(new dbAPITicker.ApiTicker(sname, urlTicker, digsname, realsname, last, requestTime, bid, avg_24h, volume), function (okData) {
-                                                if (okData == true) {
-                                                    res.send({updated: true,
-                                                        url: fullUrl});
-                                                    digitalCoins.getCurrency(sname);
-                                                    intervalRequests.removeInterval(sname);
-                                                    intervalRequests.addInterval(sname, requestTime);
-                                                }
-                                                else {
-                                                    res.send({error: "Error update"});
-                                                }
-                                            });
-                                        }
-                                        else {
-                                            res.send({error: "URL or ticker fields are incorrect"});
-                                        }
-                                    });
-                                }
-                                else {
-                                    res.send({error: "Real coin does not exist"});
-                                }
-                            });
-                        }
-                        else {
-                            res.send({error: "Digitalcoin does not exist"});
+                        existsDigitalCoin(digsname, function (existsDigital) {
+                            if (existsDigital == true) {
+                                existsRealCoin(realsname, function (existsReal) {
+                                    if (existsReal == true) {
+                                        verificaParsareSiCampuriURL(urlTicker, last, bid, avg_24h, volume, function (okParsare) {
+                                            if (okParsare == true) {
+                                                dbAPITicker.updateApi(new dbAPITicker.ApiTicker(sname, urlTicker, digsname, realsname, last, requestTime, bid, avg_24h, volume), function (okData) {
+                                                    if (okData == true) {
+                                                        res.send({updated: true,
+                                                            url: fullUrl});
+                                                        digitalCoins.getCurrency(sname);
+                                                        intervalRequests.removeInterval(sname);
+                                                        intervalRequests.addInterval(sname, requestTime);
+                                                    }
+                                                    else {
+                                                        res.send({error: "Error update"});
+                                                    }
+                                                });
+                                            }
+                                            else {
+                                                res.send({error: "URL or ticker fields are incorrect"});
+                                            }
+                                        });
+                                    }
+                                    else {
+                                        res.send({error: "Real coin does not exist"});
+                                    }
+                                });
+                            }
+                            else {
+                                res.send({error: "Digitalcoin does not exist"});
 
-                        }
-                    })
-                    }else{
-                        res.send({error:"api nu corespunde"});
+                            }
+                        })
+                    } else {
+                        res.send({error: "api nu corespunde"});
                     }
                 } else {
                     res.send({error: "Api doesn't exist"});
@@ -281,6 +285,14 @@ var DELETEApi = function (req, res) {
 }
 exports.GETallApiWithDigital = GETallApiWithDigital;
 exports.GETApiWithDigital = GETApiWithDigital;
-exports.POSTinROOT = POSTinROOT;
-exports.PUTByDigNameApiName = PUTByDigNameApiName;
-exports.DELETEApi = DELETEApi
+exports.POSTinROOT = function (req, res) {
+    credential.verifyCredentials(req, res, POSTinROOT);
+};
+;
+exports.PUTByDigNameApiName = function (req, res) {
+    credential.verifyCredentials(req, res, PUTByDigNameApiName);
+};
+;
+exports.DELETEApi = function (req, res) {
+    credential.verifyCredentials(req, res, DELETEApi);
+};

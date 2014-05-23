@@ -5,6 +5,9 @@ var dbDigitalCoins = require('../models/dbDigitalCoins');
 var dbApiTicker = require('../models/dbAPITicker');
 var dbRealCoins = require('../models/dbRealCoins');
 var credential = require('../api/credentials');
+String.prototype.endsWith = function (suffix) {
+    return this.indexOf(suffix, this.length - suffix.length) !== -1;
+};
 var existsRealCoinSname = function (digsname, callback) {
     dbRealCoins.getAllRealSymbolCoins(function (dname) {
         for (i = 0; i < dname.length; i++) {
@@ -35,32 +38,35 @@ var existsDigitalCoin = function (digsname, callback) {
     });
 }
 
-var GETallDigitalCoin=function(req,res){
+var GETallDigitalCoin = function (req, res) {
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     res.contentType('application/json');
     console.log("AICI")
-    dbDigitalCoins.getAllDigitalCoins(function(coins){
-      for(i=0;i<coins.length;i++){
-            coins[i].url=fullUrl + coins[i].sname;
+    dbDigitalCoins.getAllDigitalCoins(function (coins) {
+        for (i = 0; i < coins.length; i++) {
+            if (fullUrl.endsWith("/"))
+                coins[i].url = fullUrl + coins[i].sname;
+            else
+                coins[i].url = fullUrl + '/' + coins[i].sname;
         }
         res.send(coins);
     });
 }
-var PUTByName=function(req,res){
+var PUTByName = function (req, res) {
     var sname = req.param('sname', "");
     var lname = req.param('lname', "");
     var page = req.param('page', "");
     res.contentType('application/json');
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-    if (sname !== "" && sname !== null && sname == req.params.nameDigital){
+    if (sname !== "" && sname !== null && sname == req.params.nameDigital) {
         sname = sname.toUpperCase();
-        existsDigitalCoin(sname,function(exits){
-            if(exits==true){
+        existsDigitalCoin(sname, function (exits) {
+            if (exits == true) {
                 existsRealCoinSname(sname, function (existaRealSname) {
                     if (existaRealSname == false)
                         dbDigitalCoins.updateDigitalCoin(new dbDigitalCoins.DigitalCoin(sname, lname, page), function (exista) {
                             if (exista == true) {
-                                res.send({updated:true,url:fullUrl})
+                                res.send({updated: true, url: fullUrl})
                             }
                             else
                                 res.send({error: "Moneda exista in baza de date"});
@@ -70,7 +76,7 @@ var PUTByName=function(req,res){
                     }
                 });
             }
-            else{
+            else {
                 res.send({error: "Nu Exista sname + doc"});
             }
         });
@@ -79,19 +85,19 @@ var PUTByName=function(req,res){
         res.send({error: "Date invalide + doc"});
     }
 }
-var POSTinROOT = function(req,res){
+var POSTinROOT = function (req, res) {
     var sname = req.param('sname', "");
     var lname = req.param('lname', "");
     var page = req.param('page', "");
     res.contentType('application/json');
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-    if (sname !== "" && sname !== null){
+    if (sname !== "" && sname !== null) {
         sname = sname.toUpperCase();
         existsRealCoinSname(sname, function (existaRealSname) {
             if (existaRealSname == false)
                 dbDigitalCoins.addDigitalCoin(new dbDigitalCoins.DigitalCoin(sname, lname, page), function (exista) {
                     if (exista == true) {
-                        res.send({added:true,url:fullUrl+'/'+sname})
+                        res.send({added: true, url: fullUrl + '/' + sname})
                     }
                     else
                         res.send({error: "Moneda exista in baza de date"});
@@ -105,37 +111,46 @@ var POSTinROOT = function(req,res){
         res.send({error: "Date invalide + doc"});
     }
 }
-var GETByName=function(req,res){
+var GETByName = function (req, res) {
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     res.contentType('application/json');
-    dbDigitalCoins.getDigitalCoin(req.params.nameDigital,function(coin){
-        if(coin!=null)
-        {
-            coin.urlApis=fullUrl +'/' +"apiTickers";
+    dbDigitalCoins.getDigitalCoin(req.params.nameDigital, function (coin) {
+        if (coin != null) {
+            if (fullUrl.endsWith("/")) {
+                coin.urlApis = fullUrl + "apiTickers";
+            } else {
+                coin.urlApis = fullUrl + "/apiTickers";
+            }
+
             res.send(coin);
         }
-        else{
-        res.send({error:'Invalid digitalCurrency'});
+        else {
+            res.send({error: 'Invalid digitalCurrency'});
         }
     });
 }
-var DELETEByName = function(req,res){
+var DELETEByName = function (req, res) {
     res.contentType('application/json');
     var sname = req.params.nameDigital;
-        dbApiTicker.deleteAllApiWithDigital(sname, function (apisDeleted) {
-            dbDigitalCoins.deleteDigitalCoin(sname, function (digitalCoins) {
-                if (digitalCoins == true)
-                    res.send({deleted:true});
-                else {
-                    res.send({error: "Date invalide + doc"});
-                }
-            });
+    dbApiTicker.deleteAllApiWithDigital(sname, function (apisDeleted) {
+        dbDigitalCoins.deleteDigitalCoin(sname, function (digitalCoins) {
+            if (digitalCoins == true)
+                res.send({deleted: true});
+            else {
+                res.send({error: "Date invalide + doc"});
+            }
         });
+    });
 }
-exports.GETall=GETallDigitalCoin;
-exports.POSTinROOT=function(req,res){
-   credential.verifyCredentials(req,res,POSTinROOT);
-};
+exports.GETall = GETallDigitalCoin;
 exports.GETByNameDigital = GETByName;
-exports.PUTByNameDigital = PUTByName;
-exports.DELETEByName = DELETEByName;
+
+exports.POSTinROOT = function (req, res) {
+    credential.verifyCredentials(req, res, POSTinROOT);
+};
+exports.PUTByNameDigital = function (req, res) {
+    credential.verifyCredentials(req, res, PUTByName);
+};
+exports.DELETEByName = function (req, res) {
+    credential.verifyCredentials(req, res, DELETEByName);
+};

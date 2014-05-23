@@ -36,7 +36,7 @@
                     $.ajax({
                         url:"../../api/digital",
                         type : "POST",
-                        data : {sname:"DIGNOU",page:"Pag mea roz",token:"62139b31c37b88f5845876e63e2fb07bfcd3d054"},
+                        data : {sname:"DIGNOU",page:"Pag mea",token:"b414ef876ec8525286055ea051ca8497e08d46c4"},
                         dataType : "json",
                         success: function(rasp){
                             console.log("yey");
@@ -67,6 +67,9 @@
                         url: "../../api/digital/DIGNOU",
                         type: "DELETE",
                         dataType: "json",
+                        data :{
+                            token : "b414ef876ec8525286055ea051ca8497e08d46c4"
+                        },
                         success: function(rasp){
                             console.log("yey");
                         },
@@ -101,7 +104,7 @@
                 testpostAPI();*/
                 var testputAPI =function(){
                  $.ajax({
-                     url: "../../api/digital/LTC/apiTickers/bitsamp",
+                     url: "../../api/digital/LTC/apiTickers/testLTC",
                      type: "PUT",
                      data :
                      {
@@ -110,7 +113,8 @@
                          digsname : 'LTC',
                          realsname : 'USD',
                          requestTime : 60000,
-                         last : 'ticker,last'
+                         last : 'ticker,last',
+                         token : "b414ef876ec8525286055ea051ca8497e08d46c4"
                      },
                      dataType: "json",
                      success: function(rasp){
@@ -214,8 +218,8 @@
                     $.ajax({
                         url: "../api/digital/BTC/apiTIckers/"+"bitstamp"+"/"+"values",
                         data:{
-                            hours:1,
-                            numberPoints:100
+                            hours:10,
+                            numberPoints:10
                         },
                         type: "GET",
                         dataType: "json",
