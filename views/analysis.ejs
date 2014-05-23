@@ -36,7 +36,7 @@
                     $.ajax({
                         url:"../../api/digital",
                         type : "POST",
-                        data : {sname:"DIGNOU",page:"Pag mea roz"},
+                        data : {sname:"DIGNOU",page:"Pag mea roz",token:"62139b31c37b88f5845876e63e2fb07bfcd3d054"},
                         dataType : "json",
                         success: function(rasp){
                             console.log("yey");
@@ -75,7 +75,7 @@
                         }
                     });
                 };
-                testdele();
+                //testdele();
                 /*var testpostAPI =function(){
                     $.ajax({
                         url: "../../api/digital/TESTCOIN/apiTickers",

@@ -4,7 +4,7 @@
 var dbDigitalCoins = require('../models/dbDigitalCoins');
 var dbApiTicker = require('../models/dbAPITicker');
 var dbRealCoins = require('../models/dbRealCoins');
-
+var credential = require('../api/credentials');
 var existsRealCoinSname = function (digsname, callback) {
     dbRealCoins.getAllRealSymbolCoins(function (dname) {
         for (i = 0; i < dname.length; i++) {
@@ -36,8 +36,13 @@ var existsDigitalCoin = function (digsname, callback) {
 }
 
 var GETallDigitalCoin=function(req,res){
+    var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     res.contentType('application/json');
+    console.log("AICI")
     dbDigitalCoins.getAllDigitalCoins(function(coins){
+      for(i=0;i<coins.length;i++){
+            coins[i].url=fullUrl + coins[i].sname;
+        }
         res.send(coins);
     });
 }
@@ -80,7 +85,7 @@ var POSTinROOT = function(req,res){
     var page = req.param('page', "");
     res.contentType('application/json');
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-    if (sname !== "" && sname !== null && sname == req.params.nameDigital){
+    if (sname !== "" && sname !== null){
         sname = sname.toUpperCase();
         existsRealCoinSname(sname, function (existaRealSname) {
             if (existaRealSname == false)
@@ -101,10 +106,14 @@ var POSTinROOT = function(req,res){
     }
 }
 var GETByName=function(req,res){
+    var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     res.contentType('application/json');
     dbDigitalCoins.getDigitalCoin(req.params.nameDigital,function(coin){
         if(coin!=null)
+        {
+            coin.urlApis=fullUrl +'/' +"apiTickers";
             res.send(coin);
+        }
         else{
         res.send({error:'Invalid digitalCurrency'});
         }
@@ -124,7 +133,9 @@ var DELETEByName = function(req,res){
         });
 }
 exports.GETall=GETallDigitalCoin;
-exports.POSTinROOT=POSTinROOT;
+exports.POSTinROOT=function(req,res){
+   credential.verifyCredentials(req,res,POSTinROOT);
+};
 exports.GETByNameDigital = GETByName;
 exports.PUTByNameDigital = PUTByName;
 exports.DELETEByName = DELETEByName;

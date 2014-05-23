@@ -3,9 +3,9 @@
  */
 var nameCollection = "Tokens"
 var database = require('./database.js');
-exports.Token = function DigitalCoin(tokenID, expiry_date) {
+exports.Token = function DigitalCoin(tokenID, expiryDate) {
     this.tokenID = tokenID;
-    this.expire = expiry_date;
+    this.expiryDate = expiryDate;
     return this;
 }
 var getToken = function (tokenID, callback) {
@@ -31,3 +31,6 @@ var deleteToken = function (tokenID, callback) {
             callback(true);
     })
 }
+exports.getToken=getToken;
+exports.addToken=addToken;
+exports.deleteToken=deleteToken;

@@ -95,7 +95,7 @@ var GETallApiWithDigital = function (req, res) {
     dbAPITicker.getAllApisWithDigSname(req.params.nameDigital, function (apis) {
         var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
         for (i = 0; i < apis.length; i++) {
-            apis[i].url = fullUrl + apis[i].sname;
+            apis[i].url = fullUrl + '/' +apis[i].sname;
         }
         res.send(apis);
     });

@@ -24,6 +24,7 @@ var apiRealCoins = require('./api/realAPI');
 var apiDigitalCoin = require('./api/digitalCoinApi');
 var apiTIcker = require('./api/apiTIcker');
 var apiValues=require('./api/values');
+var token=require('./api/token');
 var app = express();
 var request = require('request');
 // all environments
@@ -69,13 +70,6 @@ app.get('/api/parse',function(req,res){
 
     }
 });
-app.get('/api/digital',function(req,res){
-    dbDigitalCoins.getAllDigitalCoins(function(coins){
-        res.contentType('application/json');
-        console.log("app/digital" + coins);
-        res.send(coins)
-    })
-});
 /*app.get('/api/real',function(req,res){
     dbRealCoins.getAllRealSymbolPriceCoins(function(coins){
         res.contentType('application/json');
@@ -108,20 +102,20 @@ app.get('/api/real/:name',apiRealCoins.GETByName);
 app.get('/api/digital',apiDigitalCoin.GETall);
 app.post('/api/digital',apiDigitalCoin.POSTinROOT);
 
-app.get('/api/digital/:nameDigital',apiDigitalCoin.GETByNameDigital);
-app.put('/api/digital/:nameDigital',apiDigitalCoin.PUTByNameDigital);
-app.delete('/api/digital/:nameDigital',apiDigitalCoin.DELETEByName);
+app.get('/api/digital/:nameDigital',apiDigitalCoin.GETByNameDigital);//get a digitalcoin
+app.put('/api/digital/:nameDigital',apiDigitalCoin.PUTByNameDigital);//edit/update
+app.delete('/api/digital/:nameDigital',apiDigitalCoin.DELETEByName);//delete
 
-app.get('/api/digital/:nameDigital/apiTickers',apiTIcker.GETallApiWithDigital);
-app.post('/api/digital/:nameDigital/apiTickers',apiTIcker.POSTinROOT);
+app.get('/api/digital/:nameDigital/apiTickers',apiTIcker.GETallApiWithDigital);//get all apis for a digitalCoin
+app.post('/api/digital/:nameDigital/apiTickers',apiTIcker.POSTinROOT);//add a api
 
-app.get('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.GETApiWithDigital);
-app.put('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.PUTByDigNameApiName);
-app.delete('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.DELETEApi);
+app.get('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.GETApiWithDigital);//get a api
+app.put('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.PUTByDigNameApiName);//update
+app.delete('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.DELETEApi);//delete
 
-app.get('/api/digital/:nameDigital/apiTickers/:nameApi/values',apiValues.GETValues);
+app.get('/api/digital/:nameDigital/apiTickers/:nameApi/values',apiValues.GETValues);//get values
 
-app.post('/api/convert',apiConvertor.convertAPI);
+app.post('/api/convert',apiConvertor.convertAPI);//convertor
 app.put('/api/test',function(req,res){
 
     var p1 = req.param("p1",null);
@@ -377,6 +371,14 @@ database.connect(function(err, db) {
         //
         convertorEngine.convert(3,"LTC",null,"RON",null,function(value){
             console.log("VALOARE          " + value);
+        });
+
+        token.addToken(3,function(tokenID){
+            console.log("token " + tokenID);
+        });
+
+        token.verifyToken("88cdbdc7623faf4a008623ec8bbe3ecf8285e722",function(ok){
+           console.log("verify " + ok);
         });
        /* setInterva(getCurrencyBitcoin,timeRequest,"https://api.bitcoinaverage.com/ticker/global/USD/","bitcoinaverageUSD");
         setInterval(getCurrencyBitcoin,timeRequest,"https://www.bitstamp.net/api/ticker/","bitstampUSD");

@@ -3,6 +3,7 @@
  */
 var nameCollection="digitalCoins";
 var database=require('./database.js');
+
 exports.DigitalCoin = function DigitalCoin(sname,lname,page){
     this.sname=sname;
     this.lname=lname;
