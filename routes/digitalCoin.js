@@ -20,7 +20,7 @@ exports.getPageUpdateDigital = function (req, res) {
             if (digitalCoins !== "" && digitalCoins !== null)
                 res.render('updateDigitalCoin', {error: "", title: 'Update Digital Coin', sname: digitalCoins.sname, lname: digitalCoins.lname, page: digitalCoins.page});
             else {
-                res.send("date invalide");
+                res.send("Error updating digital coin");
             }
         });
     }
@@ -69,15 +69,15 @@ exports.postPageDigital = function (req, res) {
                         res.send("Add in bd");
                     }
                     else
-                        res.render('addDigitalCoin', {error: "Moneda exista in baza de date", title: 'Drool Admin', sname: sname, lname: lname, page: page});
+                        res.render('addDigitalCoin', {error: "Digital coin exists in the database", title: 'Drool Admin', sname: sname, lname: lname, page: page});
                 })
             else {
-                res.render('addDigitalCoin', {error: "Exista moneda reala cu acest nume", title: 'Drool Admin', sname: sname, lname: lname, page: page});
+                res.render('addDigitalCoin', {error: "Exists a real coin with the same name", title: 'Drool Admin', sname: sname, lname: lname, page: page});
             }
         });
     }
     else {
-        res.render('addDigitalCoin', {error: "Date invalide", title: 'Drool Admin', sname: sname, lname: lname, page: page});
+        res.render('addDigitalCoin', {error: "Required fields are not filled", title: 'Drool Admin', sname: sname, lname: lname, page: page});
     }
 };
 exports.postPageUpdateDigital = function (req, res) {
@@ -95,20 +95,20 @@ exports.postPageUpdateDigital = function (req, res) {
                                 res.send("Update in bd");
                             }
                             else
-                                res.render('updateDigitalCoin', {error: "Moneda exista in baza de date", title: 'Drool Admin', sname: sname, lname: lname, page: page});
+                                res.render('updateDigitalCoin', {error: "Error in updating digital coin", title: 'Drool Admin', sname: sname, lname: lname, page: page});
                         })
                     else {
-                        res.render('updateDigitalCoin', {error: "Exista moneda reala cu acest nume", title: 'Drool Admin', sname: sname, lname: lname, page: page});
+                        res.render('updateDigitalCoin', {error: "Exists a real coin with the same name", title: 'Drool Admin', sname: sname, lname: lname, page: page});
                     }
                 });
             }
             else {
-                res.send("Nu exista sname");
+                res.send("Digital coin does not exist");
             }
         });
     }
     else {
-        res.render('updateDigitalCoin', {error: "Date invalide", title: 'Drool Admin', sname: sname, lname: lname, page: page});
+        res.render('updateDigitalCoin', {error: "Invalid data", title: 'Drool Admin', sname: sname, lname: lname, page: page});
     }
 }
 exports.postDeletePage = function (req, res) {
@@ -116,13 +116,13 @@ exports.postDeletePage = function (req, res) {
     if (sname !== "" && sname !== null) {
         dbApiTicker.deleteAllApiWithDigital(sname, function (apisDeleted) {
             if (apisDeleted == true) {
-                console.log("am sters si api'uri");
+                //console.log("am sters si api'uri");
             }
             dbDigitalCoins.deleteDigitalCoin(sname, function (digitalCoins) {
                 if (digitalCoins == true)
                     res.send(digitalCoins);
                 else {
-                    res.send("date invalide");
+                    res.send("Invalid Data");
                 }
             });
         });

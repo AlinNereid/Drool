@@ -142,12 +142,12 @@ exports.postPageDigital = function (req, res) {
                                             intervalRequests.addInterval(sname, requestTime);
                                         }
                                         else {
-                                            show(res, "Name database", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                                            show(res, "Name already exits in the database", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
                                         }
                                     });
                                 }
                                 else {
-                                    show(res, "URL or ticker fields are incorrect", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                                    show(res, "The URL or the fields of the ticker are incorrect", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
                                 }
                             });
                         }
@@ -158,13 +158,13 @@ exports.postPageDigital = function (req, res) {
                 }
                 else {
 
-                    show(res, "Digitalcoin does not exist", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                    show(res, "Digital coin does not exist", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
 
                 }
             })
         }
         else {
-            show(res, "Request time is too low", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+            show(res, "The value of the request time is too low", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
         }
     }
     else {
@@ -184,7 +184,7 @@ exports.getUpdateApiPage = function (req, res) {
                     })
                 });
             } else {
-                res.send("Eroare");
+                res.send("Error");
             }
         })
     }
@@ -223,12 +223,12 @@ exports.postUpdatePage = function (req, res) {
                                                     intervalRequests.addInterval(sname, requestTime);
                                                 }
                                                 else {
-                                                    showUpdate(res, "Error update", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                                                    showUpdate(res, "Error updating api", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
                                                 }
                                             });
                                         }
                                         else {
-                                            showUpdate(res, "URL or ticker fields are incorrect", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                                            showUpdate(res, "The URL or the fields of the ticker are incorrect", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
                                         }
                                     });
                                 }
@@ -239,7 +239,7 @@ exports.postUpdatePage = function (req, res) {
                         }
                         else {
 
-                            showUpdate(res, "Digitalcoin does not exist", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                            showUpdate(res, "Digital coin does not exist", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
 
                         }
                     })
@@ -249,7 +249,7 @@ exports.postUpdatePage = function (req, res) {
             });
         }
         else {
-            showUpdate(res, "Request time is too low", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+            showUpdate(res, "The value of the request time is too low", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
         }
     }
     else {
@@ -281,7 +281,7 @@ exports.postDeleteApiPage = function (req, res) {
             if (api !== "" && api !== null)
                 res.send(api);
             else {
-                res.send("date invalide");
+                res.send("Error");
             }
         });
     }
