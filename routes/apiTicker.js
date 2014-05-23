@@ -142,7 +142,7 @@ exports.postPageDigital = function (req, res) {
                                             intervalRequests.addInterval(sname, requestTime);
                                         }
                                         else {
-                                            show(res, "Name already in database", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                                            show(res, "Name is already in database", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
                                         }
                                     });
                                 }

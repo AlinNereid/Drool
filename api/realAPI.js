@@ -2,6 +2,8 @@
  * Created by alin on 5/22/14.
  */
 var dbRealCoins = require('../models/dbRealCoins');
+var errors=require('../errors/errors');
+errors=errors.errors;
 var GETallRealCoins = function (req, res) {
     res.contentType('application/json');
     dbRealCoins.getAllRealSymbolPriceCoins(function (realCoins) {
@@ -22,7 +24,7 @@ var GETByName = function (req, res) {
                 price: value.price
             });
         } else {
-            res.send({error: 'Invalid realCurrency'});
+            res.send({error: "0500", errorMessage: errors[0500]});
         }
     })
 }

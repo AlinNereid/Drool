@@ -8,6 +8,8 @@ var dbRealCoins = require('../models/dbRealCoins');
 var digitalCoins = require('../parser+requestAPI+convertor/digitalCoins');
 var intervalRequests = require('../parser+requestAPI+convertor/intervalRequests');
 var credential = require('../api/credentials');
+var errors=require('../errors/errors');
+errors=errors.errors;
 String.prototype.endsWith = function (suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
 };
@@ -71,7 +73,6 @@ var verificaParsareSiCampuriURL = function (urlTicker, last, bid, avg_24h, volum
             }
             if (bid == "") {
                 ok_bid = true;
-                ;
             }
             if (avg_24h == "") {
                 ok_avg_24h = true;
@@ -112,13 +113,13 @@ var GETApiWithDigital = function (req, res) {
                 if (api != null) {
                     res.send(api);
                 } else {
-                    res.send({error: "api invalid "});
+                    res.send({error: "0100", errorMessage: errors[0100]});
                 }
             } else {
-                res.send({error: "api invalid "});
+                res.send({error: "0100", errorMessage: errors[0100]});
             }
         } else {
-            res.send({error: "api invalid "});
+            res.send({error: "0100", errorMessage: errors[0100]});
         }
     })
 }
@@ -156,31 +157,31 @@ var POSTinROOT = function (req, res) {
                                             intervalRequests.addInterval(sname, requestTime);
                                         }
                                         else {
-                                            res.send({error: "Name already in database+doc"});
+                                            res.send({error: "0101", errorMessage:errors[0101]});
                                         }
                                     });
                                 }
                                 else {
-                                    res.send({error: "URL or ticker fields are incorrect"});
+                                    res.send({error: "0102", errorMessage:errors[0102]});
                                 }
                             });
                         }
                         else {
-                            res.send({error: "Real coin does not exist"});
+                            res.send({error: "0103", errorMessage: errors[0103]});
                         }
                     });
                 }
                 else {
-                    res.send({error: "Digitalcoin does not exist"});
+                    res.send({error: "0104", errorMessage: errors[0104]});
                 }
             })
         }
         else {
-            res.send({error: "Request time is too low"});
+            res.send({error: "0105", errorMessage: errors[0105]});
         }
     }
     else {
-        res.send({error: "Required fields are not filled+Doc"});
+        res.send({error:"0106", errorMessage:errors[0106]});
 
     }
 }
@@ -226,39 +227,39 @@ var PUTByDigNameApiName = function (req, res) {
                                                         intervalRequests.addInterval(sname, requestTime);
                                                     }
                                                     else {
-                                                        res.send({error: "Error update"});
+                                                        res.send({error:"0107", errorMessage: errors[0107]});
                                                     }
                                                 });
                                             }
                                             else {
-                                                res.send({error: "URL or ticker fields are incorrect"});
+                                                res.send({error:"0102", errorMessage: errors[0102]});
                                             }
                                         });
                                     }
                                     else {
-                                        res.send({error: "Real coin does not exist"});
+                                        res.send({error:"0103", errorMessage: errors[0103]});
                                     }
                                 });
                             }
                             else {
-                                res.send({error: "Digitalcoin does not exist"});
+                                res.send({error:"0104", errorMessage:errors[0104]});
 
                             }
                         })
                     } else {
-                        res.send({error: "api nu corespunde"});
+                        res.send({error:"0100", errorMessage:errors[0100]});
                     }
                 } else {
-                    res.send({error: "Api doesn't exist"});
+                    res.send({error: "0100", errorMessage: errors[0100]});
                 }
             })
         }
         else {
-            res.send({error: "Request time is too low"});
+            res.send({error:"0105", errorMessage: errors[0105]});
         }
     }
     else {
-        res.send({error: "Required fields are not filled sau api + digcoin nu corespund"});
+        res.send({error:"0106", errorMessage: errors[0106]});
     }
 };
 var DELETEApi = function (req, res) {
@@ -272,14 +273,14 @@ var DELETEApi = function (req, res) {
                     if (api !== "" && api !== null)
                         res.send({deleted: true});
                     else {
-                        res.send({error: "date invalide"});
+                        res.send({error:"0100", errorMessage: errors[0100]});
                     }
                 });
             } else {
-                res.send({error: "date invalide"});
+                res.send({error:"0100", errorMessage: errors[0100]});
             }
         } else {
-            res.send({error: "date invalide"});
+            res.send({error:"0100", errorMessage: errors[0100]});
         }
     });
 }

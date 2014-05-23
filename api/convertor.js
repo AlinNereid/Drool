@@ -2,6 +2,8 @@
  * Created by alin on 5/22/14.
  */
 var convertorEngine = require('../parser+requestAPI+convertor/convertor');
+var errors=require('../errors/errors');
+errors=errors.errors;
 exports.convertAPI = function (req, res) {
     var val1 = req.param('value', null);
     var c1 = req.param('currency1', null);
@@ -14,10 +16,10 @@ exports.convertAPI = function (req, res) {
             if (typeof value == "number" && !isNaN(value)) {
                 res.send({value: value});
             } else {
-                res.send({error: "currencies or apis doesn't exist or match", urlDocumentation: "\\blabla"});
+                res.send({error:"0200", errorMessage: errors[0200]});
             }
         });
     else {
-        res.send({error: "insufficient data", urlDocumentation: "\\blabla"});
+        res.send({error:"0201", errorMessage: errors[0201]});
     }
 };
