@@ -26,54 +26,17 @@
     <favorites_list name="Drool" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4716117">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="errors.js" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/errors/errors.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="51" selection-start="474" selection-end="474" vertical-scroll-proportion="0.46218488" vertical-offset="0" max-vertical-offset="495">
-                  <folding>
-                    <element signature="e#0#38#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="apiTIcker.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/api/apiTIcker.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="10" column="0" selection-start="469" selection-end="530" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4560">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="values.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/api/values.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="72" column="22" selection-start="3591" selection-end="3591" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1635">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="apiTicker.js" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/routes/apiTicker.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="148" column="13" selection-start="5720" selection-end="5720" vertical-scroll-proportion="0.42016807" vertical-offset="2070" max-vertical-offset="4395">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="apiTicker.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/apiTicker.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="144" column="60" selection-start="5485" selection-end="5485" vertical-scroll-proportion="0.25210086" vertical-offset="2070" max-vertical-offset="4395">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -356,7 +319,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1303" height="668" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -366,7 +329,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3872093" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2895349" sideWeight="0.50026953" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30472854" sideWeight="0.49973047" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30472854" sideWeight="0.49973047" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -532,19 +495,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/apiTicker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="13" selection-start="5720" selection-end="5720" vertical-scroll-proportion="0.42016807" vertical-offset="2070" max-vertical-offset="4395">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/errors/errors.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="51" selection-start="474" selection-end="474" vertical-scroll-proportion="0.46218488" vertical-offset="0" max-vertical-offset="495">
           <folding>
             <element signature="e#0#38#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/apiTicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="144" column="60" selection-start="5485" selection-end="5485" vertical-scroll-proportion="0.25210086" vertical-offset="2070" max-vertical-offset="4395">
+          <folding />
         </state>
       </provider>
     </entry>
