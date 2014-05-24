@@ -4,13 +4,25 @@
 var dbDigitalCoins = require('../models/dbDigitalCoins');
 var dbApiTicker = require('../models/dbAPITicker');
 var dbRealCoins = require('../models/dbRealCoins');
+var admin=require("./admin");
 //db.digitalCoins.ensureIndex( { sname: 1 }, { unique: true } )
 var getPageAddDigital = function (req, res) {
     res.render('addDigitalCoin', {error: "", title: 'Drool Admin', sname: "", lname: "", page: ""});
 };
 var getPageShowDigital = function (req, res) {
     dbDigitalCoins.getAllDigitalCoins(function (digitalCoins) {
-        res.render('showDigitalCoins', {title: 'Digital Coins', digitalCoins: digitalCoins});
+        if(req.session.token){
+            var tokenID=req.session.token;
+            if(tokenID!=""){
+                res.render('showDigitalCoins', {title: 'Digital Coins', digitalCoins: digitalCoins, tokenID:tokenID});
+            }
+            else{
+                res.render('showDigitalCoins', {title: 'Digital Coins', digitalCoins: digitalCoins, tokenID:"invalid"});
+            }
+        }
+        else{
+            res.render('showDigitalCoins', {title: 'Digital Coins', digitalCoins: digitalCoins, tokenID:"invalid"});
+        }
     });
 };
 var getPageUpdateDigital = function (req, res) {
@@ -130,11 +142,23 @@ var postDeletePage = function (req, res) {
     }
 }
 
-exports.getPageAddDigital=getPageAddDigital;
-exports.getPageShowDigital=getPageShowDigital;
-exports.getPageUpdateDigital=getPageUpdateDigital;
-exports.postPageDigital=postPageDigital;
-exports.postPageUpdateDigital=postPageUpdateDigital;
-exports.postDeletePage=postDeletePage;
+exports.getPageAddDigital=function(req,res){
+    admin.verifyCredentials(req,res, getPageAddDigital);
+};
+exports.getPageShowDigital=function(req,res){
+    admin.verifyCredentials(req,res, getPageShowDigital);
+};
+exports.getPageUpdateDigital=function(req,res){
+    admin.verifyCredentials(req,res, getPageUpdateDigital);
+};
+exports.postPageDigital=function(req,res){
+    admin.verifyCredentials(req,res, postPageDigital);
+};
+exports.postPageUpdateDigital=function(req,res){
+    admin.verifyCredentials(req,res, postPageUpdateDigital);
+};
+exports.postDeletePage=function(req,res){
+    admin.verifyCredentials(req,res, postDeletePage);
+};
 
 

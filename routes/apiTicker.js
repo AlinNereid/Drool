@@ -271,7 +271,17 @@ var getAddApiPage = function (req, res) {
 };
 var getPageShowApis = function (req, res) {
     dbAPITicker.getAllApis(function (apis) {
-        res.render('showApis', {title: 'Apis ', apis: apis});
+        if(req.session.token){
+            var tokenID=req.session.token;
+            if(tokenID!="")
+                res.render('showApis', {title: 'Apis ', apis: apis, tokenID: tokenID});
+            else
+                res.render('showApis', {title: 'Apis ', apis: apis, tokenID: "invalid"});
+        }
+        else{
+            res.render('showApis', {title: 'Apis ', apis: apis, tokenID: "invalid"});
+        }
+
     });
 };
 var postDeleteApiPage = function (req, res) {
@@ -291,10 +301,18 @@ var postDeleteApiPage = function (req, res) {
 exports.postPageDigital=function(req,res){
     admin.verifyCredentials(req,res, postPageDigital);
 };
-exports.getUpdateApiPage=getUpdateApiPage;
-exports.postUpdatePage=postUpdatePage;
-exports.getAddApiPage=getAddApiPage;
+exports.getUpdateApiPage=function(req,res){
+    admin.verifyCredentials(req,res, getUpdateApiPage);
+};
+exports.postUpdatePage=function(req,res){
+    admin.verifyCredentials(req,res, postUpdatePage);
+};
+exports.getAddApiPage=function(req,res){
+    admin.verifyCredentials(req,res, getAddApiPage);
+};
 exports.getPageShowApis=function(req,res){
     admin.verifyCredentials(req,res, getPageShowApis);
 };
-exports.postDeleteApiPage=postDeleteApiPage;
+exports.postDeleteApiPage=function(req,res){
+    admin.verifyCredentials(req,res, postDeleteApiPage);
+};

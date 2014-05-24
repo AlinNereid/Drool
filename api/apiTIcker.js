@@ -143,7 +143,7 @@ var POSTinROOT = function (req, res) {
         realsname !== "" && realsname !== null &&
         last !== "" && last !== null &&
         requestTime !== "" && requestTime !== null) {
-        if (requestTime >= 3) {
+        if (requestTime >= 5000) {
             existsDigitalCoin(digsname, function (existsDigital) {
                 if (existsDigital == true) {
                     existsRealCoin(realsname, function (existsReal) {
