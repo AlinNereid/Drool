@@ -7,6 +7,7 @@ var dbDigitalCoins = require('../models/dbDigitalCoins');
 var dbRealCoins = require('../models/dbRealCoins');
 var digitalCoins = require('../parser+requestAPI+convertor/digitalCoins');
 var intervalRequests = require('../parser+requestAPI+convertor/intervalRequests');
+var admin=require("./admin");
 var existsDigitalCoin = function (digsname, callback) {
     dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
         for (i = 0; i < snames.length; i++) {
@@ -111,7 +112,7 @@ var showUpdate = function (res, err, digsname, sname, realsname, urlTicker, last
     });
 }
 
-exports.postPageDigital = function (req, res) {
+var postPageDigital = function (req, res) {
     var sname = req.param('sname', null);
     var urlTicker = req.param('urlTicker', null);
     var digsname = req.param('digsname', null);
@@ -172,7 +173,7 @@ exports.postPageDigital = function (req, res) {
 
     }
 };
-exports.getUpdateApiPage = function (req, res) {
+var getUpdateApiPage = function (req, res) {
     var name = req.params.name;
     if (name !== "" && name !== null) {
         dbAPITicker.getApiTicker(name, function (api) {
@@ -189,7 +190,7 @@ exports.getUpdateApiPage = function (req, res) {
         })
     }
 }
-exports.postUpdatePage = function (req, res) {
+var postUpdatePage = function (req, res) {
     var sname = req.param('sname', null);
     var urlTicker = req.param('urlTicker', null);
     var digsname = req.param('digsname', null);
@@ -257,7 +258,7 @@ exports.postUpdatePage = function (req, res) {
 
     }
 }
-exports.getAddApiPage = function (req, res) {
+var getAddApiPage = function (req, res) {
     dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
         dbRealCoins.getAllRealSymbolCoins(function (symbols) {
             res.render('addApi', {error: "", title: 'Drool Admin', sname: "", urlTicker: "",
@@ -268,12 +269,12 @@ exports.getAddApiPage = function (req, res) {
     });
 
 };
-exports.getPageShowApis = function (req, res) {
+var getPageShowApis = function (req, res) {
     dbAPITicker.getAllApis(function (apis) {
         res.render('showApis', {title: 'Apis ', apis: apis});
     });
 };
-exports.postDeleteApiPage = function (req, res) {
+var postDeleteApiPage = function (req, res) {
     var sname = req.params.name;
     if (sname !== "" && sname !== null) {
         intervalRequests.removeInterval(sname);
@@ -286,3 +287,14 @@ exports.postDeleteApiPage = function (req, res) {
         });
     }
 }
+
+exports.postPageDigital=function(req,res){
+    admin.verifyCredentials(req,res, postPageDigital);
+};
+exports.getUpdateApiPage=getUpdateApiPage;
+exports.postUpdatePage=postUpdatePage;
+exports.getAddApiPage=getAddApiPage;
+exports.getPageShowApis=function(req,res){
+    admin.verifyCredentials(req,res, getPageShowApis);
+};
+exports.postDeleteApiPage=postDeleteApiPage;

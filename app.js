@@ -50,36 +50,8 @@ if ('development' == app.get('env')) {
 }
 app.get('/login', session, adminRoute.getLoginPage);
 
-app.get('/controlpanel', session, function (req, res) {
-    if (req.session.name == "admin") {
-        res.render('adminControlPanel', { title: 'Drool', error: "" });
-    } else {
-        res.redirect('/login');
-        req.session.error = "Please login first!";
-    }
-});
-app.post('/controlpanel', session, function (req, res) {
-    if (req.session.name == "admin") {
-        var tokenID = req.param('setToken', null);
-        if (tokenID) {
-            token.verifyToken(tokenID, function (exists) {
-                if (exists) {
-                    req.session.token = tokenID;
-                    res.render('adminControlPanel', { title: 'Drool', error: "Token assigned" });
-                }
-                else {
-                    res.render('adminControlPanel', { title: 'Drool', error: "Token invalid" });
-                }
-            })
-        }
-        else{
-            res.render('adminControlPanel', { title: 'Drool', error:"Token invalid" });
-        }
-    } else {
-        res.redirect('/login');
-        req.session.error = "Please login first!";
-    }
-});
+app.get('/controlpanel', session, adminRoute.getControlPanel);
+app.post('/controlpanel', session,adminRoute.postControlPanel);
 app.get('/api/parse', function (req, res) {
     var url = req.param('url', null);
     console.log(url);
@@ -99,7 +71,7 @@ app.get('/api/parse', function (req, res) {
  res.send(coins)
  })
  });*/
-app.get('/controlpanel/showDigitalCoins', digitalCoinRoute.getPageShowDigital);
+app.get('/controlpanel/showDigitalCoins', session, digitalCoinRoute.getPageShowDigital);
 app.post('/controlpanel/addDigitalCoin', digitalCoinRoute.postPageDigital);
 app.get('/controlpanel/addDigitalCoin', digitalCoinRoute.getPageAddDigital);
 app.post('/controlpanel/editDigitalCoin', digitalCoinRoute.postPageUpdateDigital);
@@ -114,7 +86,7 @@ app.get('/controlpanel/editApi/:name', apiRoute.getUpdateApiPage);
 app.post('/controlpanel/editApi/:name', apiRoute.postUpdatePage);
 
 app.post('/controlpanel/addApi', apiRoute.postPageDigital);
-app.get('/controlpanel/showApis', apiRoute.getPageShowApis);
+app.get('/controlpanel/showApis', session, apiRoute.getPageShowApis);
 
 //api
 app.get('/api/real', apiRealCoins.GETall);

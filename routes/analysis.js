@@ -3,6 +3,8 @@
  */
 
 
-exports.get = function (req, res) {
+var get = function (req, res) {
     res.render('analysis', { title: 'Drool' });
 };
+
+exports.get=get;

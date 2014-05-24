@@ -5,15 +5,15 @@ var dbDigitalCoins = require('../models/dbDigitalCoins');
 var dbApiTicker = require('../models/dbAPITicker');
 var dbRealCoins = require('../models/dbRealCoins');
 //db.digitalCoins.ensureIndex( { sname: 1 }, { unique: true } )
-exports.getPageAddDigital = function (req, res) {
+var getPageAddDigital = function (req, res) {
     res.render('addDigitalCoin', {error: "", title: 'Drool Admin', sname: "", lname: "", page: ""});
 };
-exports.getPageShowDigital = function (req, res) {
+var getPageShowDigital = function (req, res) {
     dbDigitalCoins.getAllDigitalCoins(function (digitalCoins) {
         res.render('showDigitalCoins', {title: 'Digital Coins', digitalCoins: digitalCoins});
     });
 };
-exports.getPageUpdateDigital = function (req, res) {
+var getPageUpdateDigital = function (req, res) {
     var sname = req.params.name;
     if (sname !== "" && sname !== null) {
         dbDigitalCoins.getDigitalCoin(sname, function (digitalCoins) {
@@ -55,7 +55,7 @@ var existsRealCoinSname = function (digsname, callback) {
         }
     });
 }
-exports.postPageDigital = function (req, res) {
+var postPageDigital = function (req, res) {
     var sname = req.param('sname', null);
     var lname = req.param('lname', null);
     var page = req.param('page', null);
@@ -80,7 +80,7 @@ exports.postPageDigital = function (req, res) {
         res.render('addDigitalCoin', {error: "Required fields are not filled", title: 'Drool Admin', sname: sname, lname: lname, page: page});
     }
 };
-exports.postPageUpdateDigital = function (req, res) {
+var postPageUpdateDigital = function (req, res) {
     var sname = req.param('sname', null);
     var lname = req.param('lname', null);
     var page = req.param('page', null);
@@ -111,7 +111,7 @@ exports.postPageUpdateDigital = function (req, res) {
         res.render('updateDigitalCoin', {error: "Invalid data", title: 'Drool Admin', sname: sname, lname: lname, page: page});
     }
 }
-exports.postDeletePage = function (req, res) {
+var postDeletePage = function (req, res) {
     var sname = req.params.name;
     if (sname !== "" && sname !== null) {
         dbApiTicker.deleteAllApiWithDigital(sname, function (apisDeleted) {
@@ -129,3 +129,12 @@ exports.postDeletePage = function (req, res) {
 
     }
 }
+
+exports.getPageAddDigital=getPageAddDigital;
+exports.getPageShowDigital=getPageShowDigital;
+exports.getPageUpdateDigital=getPageUpdateDigital;
+exports.postPageDigital=postPageDigital;
+exports.postPageUpdateDigital=postPageUpdateDigital;
+exports.postDeletePage=postDeletePage;
+
+
