@@ -23,48 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="adminControlPanel.ejs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/adminControlPanel.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="38" selection-start="1184" selection-end="1184" vertical-scroll-proportion="-24.0" vertical-offset="0" max-vertical-offset="1080">
-              <folding>
-                <element signature="n#style#0;n#p#1;n#form#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="analysis.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/analysis.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="3690">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="analysis.ejs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/analysis.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="23" selection-start="3306" selection-end="3858" vertical-scroll-proportion="-7.648148" vertical-offset="1261" max-vertical-offset="5292">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="admin.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/admin.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="51" column="26" selection-start="1677" selection-end="1677" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1602">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="apiTIcker.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/apiTIcker.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="145" column="31" selection-start="4777" selection-end="4777" vertical-scroll-proportion="-96.666664" vertical-offset="0" max-vertical-offset="5472">
               <folding />
             </state>
           </provider>
@@ -82,7 +44,7 @@
       <file leaf-file-name="showApis.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/showApis.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="19" selection-start="1110" selection-end="1110" vertical-scroll-proportion="-5.962963" vertical-offset="361" max-vertical-offset="1368">
+            <state line="39" column="4" selection-start="1288" selection-end="1318" vertical-scroll-proportion="-12.62963" vertical-offset="361" max-vertical-offset="1368">
               <folding>
                 <element signature="n#style#0;n#p#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <marker date="1400926508736" expanded="true" signature="1638:2235" placeholder="{...}" />
@@ -103,10 +65,113 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="digitalCoin.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="digitalCoin.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/digitalCoin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="5" selection-start="5118" selection-end="5118" vertical-scroll-proportion="0.78914404" vertical-offset="1782" max-vertical-offset="3060">
+            <state line="120" column="5" selection-start="5118" selection-end="5118" vertical-scroll-proportion="-6.75" vertical-offset="1782" max-vertical-offset="3060">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="352" column="57" selection-start="13349" selection-end="13349" vertical-scroll-proportion="0.9196262" vertical-offset="1614" max-vertical-offset="2412">
+              <folding>
+                <element signature="e#0#31#0" expanded="false" />
+                <element signature="e#1520#1554#0" expanded="false" />
+                <element signature="e#1672#1712#0" expanded="false" />
+                <element signature="e#3017#3340#0" expanded="false" />
+                <element signature="e#3115#3338#0" expanded="false" />
+                <element signature="e#3187#3329#0" expanded="false" />
+                <element signature="e#3344#3541#0" expanded="false" />
+                <element signature="e#4688#4828#0" expanded="false" />
+                <element signature="e#4996#5048#0" expanded="false" />
+                <element signature="e#5215#5958#0" expanded="false" />
+                <element signature="e#5237#5915#0" expanded="false" />
+                <element signature="e#5399#5907#0" expanded="false" />
+                <element signature="e#5434#5839#0" expanded="false" />
+                <element signature="e#5456#5692#0" expanded="false" />
+                <element signature="e#5719#5825#0" expanded="false" />
+                <element signature="e#5845#5897#0" expanded="false" />
+                <element signature="e#5921#5956#0" expanded="false" />
+                <element signature="e#6019#7555#0" expanded="false" />
+                <element signature="e#6059#6849#0" expanded="false" />
+                <element signature="e#6322#6842#0" expanded="false" />
+                <element signature="e#6506#6720#0" expanded="false" />
+                <element signature="e#6588#6705#0" expanded="false" />
+                <element signature="e#6726#6831#0" expanded="false" />
+                <element signature="e#6859#7553#0" expanded="false" />
+                <element signature="e#7095#7545#0" expanded="false" />
+                <element signature="e#7201#7412#0" expanded="false" />
+                <element signature="e#7608#8595#0" expanded="false" />
+                <element signature="e#7716#8167#0" expanded="false" />
+                <element signature="e#7838#8159#0" expanded="false" />
+                <element signature="e#7916#8015#0" expanded="false" />
+                <element signature="e#8177#8593#0" expanded="false" />
+                <element signature="e#8313#8585#0" expanded="false" />
+                <element signature="e#8364#8457#0" expanded="false" />
+                <element signature="e#8651#10848#0" expanded="false" />
+                <element signature="e#8891#10844#0" expanded="false" />
+                <element signature="e#8926#10126#0" expanded="false" />
+                <element signature="e#8961#10116#0" expanded="false" />
+                <element signature="e#9155#10100#0" expanded="false" />
+                <element signature="e#9214#9335#0" expanded="false" />
+                <element signature="e#9483#10080#0" expanded="false" />
+                <element signature="e#9546#9626#0" expanded="false" />
+                <element signature="e#9872#9951#0" expanded="false" />
+                <element signature="e#10132#10838#0" expanded="false" />
+                <element signature="e#10183#10276#0" expanded="false" />
+                <element signature="e#10416#10826#0" expanded="false" />
+                <element signature="e#10471#10535#0" expanded="false" />
+                <element signature="e#10911#12188#0" expanded="false" />
+                <element signature="e#10957#12184#0" expanded="false" />
+                <element signature="e#11015#12178#0" expanded="false" />
+                <element signature="e#11033#12059#0" expanded="false" />
+                <element signature="e#11123#11182#0" expanded="false" />
+                <element signature="e#11328#11466#0" expanded="false" />
+                <element signature="e#11635#12043#0" expanded="false" />
+                <element signature="e#11680#12025#0" expanded="false" />
+                <element signature="e#11802#12001#0" expanded="false" />
+                <element signature="e#12082#12168#0" expanded="false" />
+                <element signature="e#12190#13156#0" expanded="false" />
+                <element signature="e#13448#15383#0" expanded="false" />
+                <element signature="e#13636#13733#0" expanded="false" />
+                <element signature="e#13877#13995#0" expanded="false" />
+                <element signature="e#14099#14166#0" expanded="false" />
+                <element signature="e#14573#14638#0" expanded="false" />
+                <element signature="e#14687#14743#0" expanded="false" />
+                <element signature="e#14831#14883#0" expanded="false" />
+                <element signature="e#14894#15227#0" expanded="false" />
+                <element signature="e#15390#16187#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apiTIcker.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/apiTIcker.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="137" column="4" selection-start="4344" selection-end="4415" vertical-scroll-proportion="0.0" vertical-offset="2430" max-vertical-offset="5472">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="notFound.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/notFound.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="0" selection-start="258" selection-end="258" vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="396">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/index.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="1293" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="810">
               <folding />
             </state>
           </provider>
@@ -144,12 +209,13 @@
         <option value="$PROJECT_DIR$/views/adminControlPanel.ejs" />
         <option value="$PROJECT_DIR$/routes/analysis.js" />
         <option value="$PROJECT_DIR$/routes/admin.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/api/apiTIcker.js" />
         <option value="$PROJECT_DIR$/views/showDigitalCoins.ejs" />
         <option value="$PROJECT_DIR$/views/showApis.ejs" />
         <option value="$PROJECT_DIR$/routes/apiTicker.js" />
         <option value="$PROJECT_DIR$/routes/digitalCoin.js" />
+        <option value="$PROJECT_DIR$/views/notFound.ejs" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -538,9 +604,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/analysis.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3690">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/analysis.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="23" selection-start="3306" selection-end="3858" vertical-scroll-proportion="-7.648148" vertical-offset="1261" max-vertical-offset="5292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/adminControlPanel.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="38" selection-start="1184" selection-end="1184" vertical-scroll-proportion="-24.0" vertical-offset="0" max-vertical-offset="1080">
+          <folding>
+            <element signature="n#style#0;n#p#1;n#form#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="26" selection-start="1677" selection-end="1677" vertical-scroll-proportion="0.0" vertical-offset="849" max-vertical-offset="1602">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="198">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/showDigitalCoins.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="74" selection-start="732" selection-end="732" vertical-scroll-proportion="-12.0" vertical-offset="0" max-vertical-offset="1296">
+          <folding>
+            <element signature="n#style#0;n#p#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1400926500152" expanded="true" signature="1598:2117" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/apiTicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="220" column="126" selection-start="9209" selection-end="9284" vertical-scroll-proportion="-2.25" vertical-offset="3834" max-vertical-offset="5832">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/digitalCoin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="5" selection-start="5118" selection-end="5118" vertical-scroll-proportion="-6.75" vertical-offset="1782" max-vertical-offset="3060">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="1293" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/showApis.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="4" selection-start="1288" selection-end="1318" vertical-scroll-proportion="-12.62963" vertical-offset="361" max-vertical-offset="1368">
+          <folding>
+            <element signature="n#style#0;n#p#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1400926508736" expanded="true" signature="1638:2235" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/notFound.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="258" selection-end="258" vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="396">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/apiTIcker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="4" selection-start="4344" selection-end="4415" vertical-scroll-proportion="0.0" vertical-offset="2430" max-vertical-offset="5472">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="0" selection-start="2912" selection-end="2912" vertical-scroll-proportion="-5.5555553" vertical-offset="1056" max-vertical-offset="2286">
+        <state line="352" column="57" selection-start="13349" selection-end="13349" vertical-scroll-proportion="0.9196262" vertical-offset="1614" max-vertical-offset="2412">
           <folding>
             <element signature="e#0#31#0" expanded="false" />
             <element signature="e#1520#1554#0" expanded="false" />
@@ -599,95 +757,16 @@
             <element signature="e#11802#12001#0" expanded="false" />
             <element signature="e#12082#12168#0" expanded="false" />
             <element signature="e#12190#13156#0" expanded="false" />
-            <element signature="e#13239#15211#0" expanded="false" />
-            <element signature="e#13274#15209#0" expanded="false" />
-            <element signature="e#13462#13559#0" expanded="false" />
-            <element signature="e#13703#13821#0" expanded="false" />
-            <element signature="e#13925#13992#0" expanded="false" />
-            <element signature="e#14399#14464#0" expanded="false" />
-            <element signature="e#14513#14569#0" expanded="false" />
-            <element signature="e#14657#14709#0" expanded="false" />
-            <element signature="e#14720#15053#0" expanded="false" />
-            <element signature="e#15216#16013#0" expanded="false" />
+            <element signature="e#13448#15383#0" expanded="false" />
+            <element signature="e#13636#13733#0" expanded="false" />
+            <element signature="e#13877#13995#0" expanded="false" />
+            <element signature="e#14099#14166#0" expanded="false" />
+            <element signature="e#14573#14638#0" expanded="false" />
+            <element signature="e#14687#14743#0" expanded="false" />
+            <element signature="e#14831#14883#0" expanded="false" />
+            <element signature="e#14894#15227#0" expanded="false" />
+            <element signature="e#15390#16187#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/apiTIcker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="31" selection-start="4777" selection-end="4777" vertical-scroll-proportion="-96.666664" vertical-offset="0" max-vertical-offset="5472">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/analysis.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3690">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/analysis.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="23" selection-start="3306" selection-end="3858" vertical-scroll-proportion="-7.648148" vertical-offset="1261" max-vertical-offset="5292">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/adminControlPanel.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="38" selection-start="1184" selection-end="1184" vertical-scroll-proportion="-24.0" vertical-offset="0" max-vertical-offset="1080">
-          <folding>
-            <element signature="n#style#0;n#p#1;n#form#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="26" selection-start="1677" selection-end="1677" vertical-scroll-proportion="0.0" vertical-offset="849" max-vertical-offset="1602">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="198">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/showDigitalCoins.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="74" selection-start="732" selection-end="732" vertical-scroll-proportion="-12.0" vertical-offset="0" max-vertical-offset="1296">
-          <folding>
-            <element signature="n#style#0;n#p#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1400926500152" expanded="true" signature="1598:2117" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/showApis.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="19" selection-start="1110" selection-end="1110" vertical-scroll-proportion="-5.962963" vertical-offset="361" max-vertical-offset="1368">
-          <folding>
-            <element signature="n#style#0;n#p#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1400926508736" expanded="true" signature="1638:2235" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/apiTicker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="220" column="126" selection-start="9209" selection-end="9284" vertical-scroll-proportion="-2.25" vertical-offset="3834" max-vertical-offset="5832">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/digitalCoin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="5" selection-start="5118" selection-end="5118" vertical-scroll-proportion="0.78914404" vertical-offset="1782" max-vertical-offset="3060">
-          <folding />
         </state>
       </provider>
     </entry>
