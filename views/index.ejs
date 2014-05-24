@@ -14,7 +14,7 @@
     <div id="convertor">
         <input placeholder="VAL" id="input1" type="text" name="val1" size="3">
         <div class="dropdown">
-            <label id="search1"><%= digitalCoins[0] %></label>
+            <label id="search1" title="Select a digital coin"><%= digitalCoins[0] %></label>
             <ul class="menuSearch1">
                 <li>
                     <input type="text" id="textField1" placeholder="Search">
@@ -24,11 +24,11 @@
                 <% } %>
             </ul>
         </div>
-        <span id="plus1">+</span>
+        <span id="plus1" title="Select an Api">+</span>
         <span>=</span>
         <input id="input2" type="text" name="val2" size="3">
         <div class="dropdown">
-            <label id="search2">USD</label>
+            <label id="search2" title="Select a coin">USD</label>
             <ul class="menuSearch2">
                 <li>
                     <input type="text" id="textField2" placeholder="Search">
@@ -38,7 +38,7 @@
                 <% } %>
             </ul>
         </div>
-        <span id="plus2">+</span>
+        <span id="plus2" title="Select an Api" style="display: none">+</span>
         <div class="clear"></div>
     </div>
 </main>

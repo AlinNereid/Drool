@@ -1,7 +1,15 @@
 var valoarecurenta;
-var allRealSymbols=[];
-var allDigitalSnames=[];
+var allSymbols = [];
+var allDigitalSnames = [];
+var api1 = "Any api";
+var api2 = "Any api";
 var resize = function () {
+    if($timer1.val()=="NaN"){
+        $timer1.val("");
+    }
+    if($timer2.val()=="NaN"){
+        $timer2.val("");
+    }
     if ($timer1.val().length < 30) {
         if ($timer1.val().length > minimalSize) {
             $timer1.attr({width: 'auto', size: $timer1.val().length});
@@ -33,12 +41,13 @@ $(document).ready(function () {
 
     function getAllApis(digsname, callback) {
         $.ajax({
-            url: "../api/coins/digital/"+digsname+"/apiTickers",
+            url: "../api/coins/digital/" + digsname + "/apiTickers",
             type: "GET",
             dataType: "json",
             success: function (data) {
-                var apis=[];
-                for(i=0; i< data.length; i++){
+                var apis = [];
+                apis.push("Any api")
+                for (i = 0; i < data.length; i++) {
                     apis.push(data[i].sname);
                 }
                 callback(apis)
@@ -47,17 +56,16 @@ $(document).ready(function () {
         });
     }
 
-    function getAllCurrencyReal() {
+    function getAllSymbols() {
         $.ajax({
-            url: "../api/coins/real",
+            url: "../api/coins",
             type: "GET",
             dataType: "json",
             success: function (data) {
-                data=data.realCoins;
-                for(i=0; i< data.length; i++){
-                    allRealSymbols.push(data[i].symbol);
+                for (i = 0; i < data.length; i++) {
+                    allSymbols.push({type: data[i].type, symbol: data[i].coin});
                 }
-                console.log(allRealSymbols);
+                console.log(allSymbols);
             }
         });
     }
@@ -68,7 +76,7 @@ $(document).ready(function () {
             type: "GET",
             dataType: "json",
             success: function (data) {
-                for(i=0; i< data.length; i++){
+                for (i = 0; i < data.length; i++) {
                     allDigitalSnames.push(data[i].sname);
                 }
                 console.log(allDigitalSnames);
@@ -80,16 +88,37 @@ $(document).ready(function () {
 
     function update() {
         valoarecurenta = 0;
+        var url = "../api/convertor";
+        var date = {};
+        if (api1 != "Any api") {
+            date.api1 = api1;
+        }
+        if (api2 != "Any api") {
+            date.api2 = api2;
+        }
+        date.value = 1;
+        date.currency1 = $("#search1").text();
+        date.currency2 = $("#search2").text();
         $.ajax({
-            url: "../api/currency/" + $('#search1').text() + "/" + $('#search2').text(),
-            type: "GET",
+            url: "../../api/convert",
+            type: "POST",
+            data: date,
             dataType: "json",
-            success: function (data) {
-                valoarecurenta = data.price.toFixed(numberDecimal);
-                console.log(valoarecurenta);
+            success: function (rasp) {
+                valoarecurenta=rasp.value;
+                if($timer1.val()==""){
+                    $timer2.val("");
+                }
+                else{
+                    $timer2.val(($timer1.val() * valoarecurenta).toFixed(numberDecimal));
+                }
+
+                resize()
+            },
+            error: function () {
+                console.log("error");
             }
         });
-
     }
 
     var documentHeight = $(document).height();
@@ -100,7 +129,7 @@ $(document).ready(function () {
     /*$("main").css("padding-bottom",percentageHeight*4 );*/
 
 
-    getAllCurrencyReal();
+    getAllSymbols();
     update();
     updateTimeOut = setInterval(update, updateInterval);
 
@@ -180,9 +209,9 @@ $(document).ready(function () {
                 $('ul.menuSearch2 li:nth-child(' + indexli + ')').show();
             }
             var currencyStartWithTextField = [];
-            for (i = 0; i < allRealSymbols.length; i++) {
-                if (allRealSymbols[i].indexOf($('#textField2').val().toUpperCase()) == 0) {
-                    currencyStartWithTextField.push(allRealSymbols[i]);
+            for (i = 0; i < allSymbols.length; i++) {
+                if (allSymbols[i].symbol.indexOf($('#textField2').val().toUpperCase()) == 0) {
+                    currencyStartWithTextField.push(allSymbols[i].symbol);
                     //console.log(allcurrency[i]);
                 }
             }
@@ -202,7 +231,7 @@ $(document).ready(function () {
     });
     $(document).click(function (e) {
         var target = e.target;
-        console.log($(target));
+        /*console.log($(target));*/
         if ($(target).is('label#search1') || $(target).is('#textField1')) {
             $('.menuSearch1').stop().slideDown(200);
         }
@@ -210,16 +239,13 @@ $(document).ready(function () {
             if ($(target).is('ul.menuSearch1 li *')) {
                 console.log("da");
                 $("#search1").text(target.parentNode.textContent);
-
-                clearInterval(updateTimeOut);
+                api1="Any api";
                 update();
-                updateTimeOut = setInterval(update, updateInterval);
             }
             if ($(target).is('ul.menuSearch1 li')) {
                 $("#search1").text(target.textContent);
-                clearInterval(updateTimeOut);
+                api1="Any api";
                 update();
-                updateTimeOut = setInterval(update, updateInterval);
             }
             $('.menuSearch1').stop().slideUp(200);
 
@@ -231,16 +257,37 @@ $(document).ready(function () {
             if ($(target).is('ul.menuSearch2 li *')) {
                 console.log("da");
                 $("#search2").text(target.parentNode.textContent);
-
-                clearInterval(updateTimeOut);
+                console.log("target " + target.parentNode.textContent);
+                for (var i = 0; i < allSymbols.length; i++) {
+                    if (allSymbols[i].symbol == target.parentNode.textContent) {
+                        if (allSymbols[i].type == "digital") {
+                            $("#plus2").show();
+                        }
+                        else {
+                            $("#plus2").hide();
+                        }
+                        break;
+                    }
+                }
+                api2="Any api";
                 update();
-                updateTimeOut = setInterval(update, updateInterval);
             }
             if ($(target).is('ul.menuSearch2 li')) {
                 $("#search2").text(target.textContent);
-                clearInterval(updateTimeOut);
+                console.log("target " + target.textContent);
+                for (var i = 0; i < allSymbols.length; i++) {
+                    if (allSymbols[i].symbol == target.textContent) {
+                        if (allSymbols[i].type == "digital") {
+                            $("#plus2").show();
+                        }
+                        else {
+                            $("#plus2").hide();
+                        }
+                        break;
+                    }
+                }
+                api2="Any api";
                 update();
-                updateTimeOut = setInterval(update, updateInterval);
             }
             $('.menuSearch2').stop().slideUp(200);
 
@@ -248,7 +295,7 @@ $(document).ready(function () {
 
         if ($(target).is('span#plus1')) {
             if ($("#selectPlus1").length == 0) {
-                getAllApis($("#search1").text(), function(apis){
+                getAllApis($("#search1").text(), function (apis) {
                     var positionPlus = $("#plus1").position();
                     var heightPlus = $("#plus1").height();
                     var widthPlus = $("#plus1").width();
@@ -259,8 +306,8 @@ $(document).ready(function () {
                     $("#convertor").append('<select id="selectPlus1"></select>');
                     $("#selectPlus1").css(myClass);
 
-                    for(var i=0; i< apis.length; i++){
-                        $("#selectPlus1").append('<option>'+apis[i]+'</option>')
+                    for (var i = 0; i < apis.length; i++) {
+                        $("#selectPlus1").append('<option>' + apis[i] + '</option>')
                     }
                 });
 
@@ -270,21 +317,31 @@ $(document).ready(function () {
             if (!$(target).is('#selectPlus1'))
                 $("#selectPlus1").remove();
         }
+        if ($(target).is('#selectPlus1')) {
+            api1 = $("#selectPlus1").val();
+            update();
+        }
+        if ($(target).is('#selectPlus2')) {
+            api2 = $("#selectPlus2").val();
+            update();
+        }
         if ($(target).is('span#plus2')) {
-            if ($("#selectplus2").length == 0) {
-                var positionPlus = $("#plus2").position();
-                var heightPlus = $("#plus2").height();
-                var widthPlus = $("#plus2").width();
-                var leftDiv = positionPlus.left - 75 + widthPlus;
-                var topDiv = positionPlus.top + heightPlus + 18;
+            if ($("#selectPlus2").length == 0) {
+                getAllApis($("#search2").text(), function (apis) {
+                    var positionPlus = $("#plus2").position();
+                    var heightPlus = $("#plus2").height();
+                    var widthPlus = $("#plus2").width();
+                    var leftDiv = positionPlus.left - 75 + widthPlus;
+                    var topDiv = positionPlus.top + heightPlus + 18;
 
-                var myClass2 = { position: "absolute", left: leftDiv, top: topDiv, width: 150, fontSize: 18 };
-                $("#convertor").append('<select id="selectPlus2"></select>');
-                $("#selectPlus2").css(myClass2);
+                    var myClass2 = { position: "absolute", left: leftDiv, top: topDiv, width: 150, fontSize: 18 };
+                    $("#convertor").append('<select id="selectPlus2"></select>');
+                    $("#selectPlus2").css(myClass2);
 
-                $("#selectPlus2").append('<option>test0</option>')
-                $("#selectPlus2").append('<option>test1</option>')
-                $("#selectPlus2").append('<option>test2</option>')
+                    for (var i = 0; i < apis.length; i++) {
+                        $("#selectPlus2").append('<option>' + apis[i] + '</option>')
+                    }
+                });
             }
         }
         if (!$(target).is('span#plus2')) {
@@ -293,7 +350,7 @@ $(document).ready(function () {
         }
     });
 
-    $( window ).resize(function() {
+    $(window).resize(function () {
         $("#selectPlus1").remove();
         $("#selectPlus2").remove();
     })

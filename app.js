@@ -350,10 +350,10 @@ var getCurrencyBitcoin = function (url, numeApi, callback) {
  });
  };*/
 var timeRequest = 60000;
-app.use(function(req, res, next){
+/*app.use(function(req, res, next){
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     res.render('notFound', {title: "Drool", page: fullUrl});
-})
+})*/
 // Connect to the db
 database.connect(function (err, db) {
     if (err) throw err;
