@@ -104,7 +104,7 @@ var POSTinROOT = function (req, res) {
                             res.send({added: true, url: fullUrl + '/' + sname});
                     }
                     else
-                        res.send({error:"0404", errorMessage: errors[0400]});
+                        res.send({error:"0404", errorMessage: errors[0404]});
                 })
             else {
                 res.send({error:"0401", errorMessage: errors[0401]});

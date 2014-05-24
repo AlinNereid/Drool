@@ -26,7 +26,7 @@ header{
 }
 main{
     /*height: 55%;*/
-    min-height: 60%;
+    min-height: 350px;
 }
 footer{
   /*height: 10%;
@@ -181,6 +181,12 @@ ul#menu li, div.dropdown * li{
   font-size: 24px;
   border-radius: 7px;
 }
+#textField1{
+    height: 40px;
+    width: 150px;
+    font-size: 24px;
+    border-radius: 7px;
+}
 div.clear{
   clear: both;
 }
@@ -232,7 +238,7 @@ ul li span{
   }
 }
 
-/* medium screens *//*
+/* medium screens */
 
 @media all and (max-width: 600px) and (min-width: 390px){
   header nav ul  {
@@ -263,8 +269,8 @@ ul li span{
   display: inline;  
   margin-right: 0%;
   }
-  */
-/*dropdown*//*
+
+/*dropdown*/
 
   .dropdown ul{
     width: 100px;
@@ -274,10 +280,17 @@ ul li span{
     height: 28px;
     line-height: 14px;
   }
+    .dropdown ul li, #textField1{
+        font-size: 14px;
+        height: 28px;
+        line-height: 14px;
+    }
   .dropdown,.menuSearch1,.menuSearch2, div.dropdown * li, .dropdown ul, #textField2{
-
     width: 100px;
   }
+    .dropdown,.menuSearch1,.menuSearch1, div.dropdown * li, .dropdown ul, #textField1{
+        width: 100px;
+    }
    #search1,#search2 {
     height: 32px;
     font-size: 16px;
@@ -289,8 +302,7 @@ ul li span{
   }
 }
 
-*/
-/*small screens*//*
+/*small screens*/
 
 @media all and (max-width: 390px) {
   header nav ul  {
@@ -328,8 +340,7 @@ ul li span{
     display: inline;  
     margin-right: 0%;
   }
-   */
-/*dropdown*//*
+/*dropdown*/
 
   .dropdown ul{
     width: 80px;
@@ -339,9 +350,17 @@ ul li span{
     height: 22px;
     line-height: 8px;
   }
+    .dropdown ul li, #textField1{
+        font-size: 11px;
+        height: 22px;
+        line-height: 8px;
+    }
   .dropdown,.menuSearch1,.menuSearch2, div.dropdown * li, .dropdown ul, #textField2{
     width: 80px;
   }
+    .dropdown,.menuSearch1,.menuSearch1, div.dropdown * li, .dropdown ul, #textField1{
+        width: 80px;
+    }
    #search1,#search2 {
     height: 26px;
     font-size: 12px;
@@ -352,7 +371,7 @@ ul li span{
     margin-top: 1px;
   }
 }
-*/
+
 
 #subTitle{
     font-size: 2.2em;
@@ -662,4 +681,15 @@ div.pencil:before {
 
 #formAdmin{
     margin-top: 40px;
+}
+
+#plus1{
+    border: 2px solid black;
+    margin-left: 7px;
+    border-radius: 7px;
+}
+#plus2{
+    border: 2px solid black;
+    margin-left: 7px;
+    border-radius: 7px;
 }

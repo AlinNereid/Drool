@@ -49,9 +49,9 @@
                 testPost();
                 var testPost2 = function(){
                     $.ajax({
-                        url:"../../api/digital",
+                        url:"../../api/coins/digital",
                         type : "POST",
-                        data : {sname:"DIGNOU",page:"Pag mea",token:"b414ef876ec8525286055ea051ca8497e08d46c4"},
+                        data : {sname:"DIGNOU",page:"Pag mea",token:"77b2279a4cff34876acb07d0e155acf088db12f0"},
                         dataType : "json",
                         success: function(rasp){
                             console.log("yey");
@@ -64,9 +64,9 @@
                 testPost2();
                 var testPUT =function(){
                     $.ajax({
-                        url: "../../api/digital/DIGNOU",
+                        url: "../../api/coins/digital/DIGNOU",
                         type: "PUT",
-                        data : {sname:"DIGNOU",page:"pagina"},
+                        data : {sname:"DIGNOU",page:"pagina",token : "77b2279a4cff34876acb07d0e155acf088db12f0"},
                         dataType: "json",
                         success: function(rasp){
                             console.log("yey");
@@ -79,11 +79,11 @@
                 testPUT();
                 var testdele =function(){
                     $.ajax({
-                        url: "../../api/digital/DIGNOU",
+                        url: "../../api/coins/digital/DIGNOU",
                         type: "DELETE",
                         dataType: "json",
                         data :{
-                            token : "b414ef876ec8525286055ea051ca8497e08d46c4"
+                            token : "77b2279a4cff34876acb07d0e155acf088db12f0"
                         },
                         success: function(rasp){
                             console.log("yey");
@@ -119,7 +119,7 @@
                 testpostAPI();*/
                 var testputAPI =function(){
                  $.ajax({
-                     url: "../../api/digital/LTC/apiTickers/testLTC",
+                     url: "../../api/coins/digital/LTC/apiTickers/testLTC",
                      type: "PUT",
                      data :
                      {
@@ -129,7 +129,7 @@
                          realsname : 'USD',
                          requestTime : 60000,
                          last : 'ticker,last',
-                         token : "b414ef876ec8525286055ea051ca8497e08d46c4"
+                         token : "77b2279a4cff34876acb07d0e155acf088db12f0"
                      },
                      dataType: "json",
                      success: function(rasp){
@@ -144,7 +144,7 @@
 
                 var testdeleAPI =function(){
                     $.ajax({
-                        url: "../../api/digital/TESTCOIN/apiTickers/addApiAPI",
+                        url: "../../api/coins/digital/TESTCOIN/apiTickers/addApiAPI",
                         type: "DELETE",
                         dataType: "json",
                         success: function(rasp){
@@ -231,7 +231,7 @@
                 function update() {
 
                     $.ajax({
-                        url: "../api/digital/BTC/apiTIckers/"+"bitstamp"+"/"+"values",
+                        url: "../api/coins/digital/BTC/apiTIckers/"+"bitstamp"+"/"+"values",
                         data:{
                             hours:10,
                             numberPoints:10

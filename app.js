@@ -23,6 +23,7 @@ var apiRealCoins = require('./api/realAPI');
 var apiDigitalCoin = require('./api/digitalCoinApi');
 var apiTIcker = require('./api/apiTIcker');
 var apiValues = require('./api/values');
+var apiCoins = require('./api/coins');
 var token = require('./api/token');
 var app = express();
 var request = require('request');
@@ -96,25 +97,26 @@ app.get('/api/parse', function (req, res) {
  });*/
 
 //api
-app.get('/api/real', apiRealCoins.GETall);
-app.get('/api/real/:name', apiRealCoins.GETByName);
+app.get('/api/coins', apiCoins.GETcoins);
+app.get('/api/coins/real', apiRealCoins.GETall);
+app.get('/api/coins/real/:name', apiRealCoins.GETByName);
 
 
-app.get('/api/digital', apiDigitalCoin.GETall);
-app.post('/api/digital', apiDigitalCoin.POSTinROOT);
+app.get('/api/coins/digital', apiDigitalCoin.GETall);
+app.post('/api/coins/digital', apiDigitalCoin.POSTinROOT);
 
-app.get('/api/digital/:nameDigital', apiDigitalCoin.GETByNameDigital);//get a digitalcoin
-app.put('/api/digital/:nameDigital', apiDigitalCoin.PUTByNameDigital);//edit/update
-app.delete('/api/digital/:nameDigital', apiDigitalCoin.DELETEByName);//delete
+app.get('/api/coins/digital/:nameDigital', apiDigitalCoin.GETByNameDigital);//get a digitalcoin
+app.put('/api/coins/digital/:nameDigital', apiDigitalCoin.PUTByNameDigital);//edit/update
+app.delete('/api/coins/digital/:nameDigital', apiDigitalCoin.DELETEByName);//delete
 
-app.get('/api/digital/:nameDigital/apiTickers', apiTIcker.GETallApiWithDigital);//get all apis for a digitalCoin
-app.post('/api/digital/:nameDigital/apiTickers', apiTIcker.POSTinROOT);//add a api
+app.get('/api/coins/digital/:nameDigital/apiTickers', apiTIcker.GETallApiWithDigital);//get all apis for a digitalCoin
+app.post('/api/coins/digital/:nameDigital/apiTickers', apiTIcker.POSTinROOT);//add a api
 
-app.get('/api/digital/:nameDigital/apiTickers/:nameApi', apiTIcker.GETApiWithDigital);//get a api
-app.put('/api/digital/:nameDigital/apiTickers/:nameApi', apiTIcker.PUTByDigNameApiName);//update
-app.delete('/api/digital/:nameDigital/apiTickers/:nameApi', apiTIcker.DELETEApi);//delete
+app.get('/api/coins/digital/:nameDigital/apiTickers/:nameApi', apiTIcker.GETApiWithDigital);//get a api
+app.put('/api/coins/digital/:nameDigital/apiTickers/:nameApi', apiTIcker.PUTByDigNameApiName);//update
+app.delete('/api/coins/digital/:nameDigital/apiTickers/:nameApi', apiTIcker.DELETEApi);//delete
 
-app.get('/api/digital/:nameDigital/apiTickers/:nameApi/values', apiValues.GETValues);//get values
+app.get('/api/coins/digital/:nameDigital/apiTickers/:nameApi/values', apiValues.GETValues);//get values
 
 app.post('/api/convert', apiConvertor.convertAPI);//convertor
 
@@ -129,7 +131,7 @@ app.put('/api/test', function (req, res) {
 
 app.get('/controlpanel/deleteApi/:name', apiRoute.postDeleteApiPage);
 app.post('/login', session, adminRoute.postLoginPage);
-app.get('/logout', function (req, res) {
+app.get('/logout', session, function (req, res) {
     req.session.name = null;
     res.send("yee")
 });
@@ -203,7 +205,7 @@ app.get('/api/currency/:m1', function (req, res) {
     console.log(m1);
     var send_json = [];
     if (m1 == 'ALLCURRENCYREAL') {
-        var collection = database.getDatabase().collection("collectionYahooApi").find().toArray(function (err, results) {
+        var collection = database.getDatabase().collection("YahooFinanceCurrency").find().toArray(function (err, results) {
             var array = []
             for (i = 0; i < results.length; i++) {
                 var simbol = results[i].symbol;
@@ -215,7 +217,7 @@ app.get('/api/currency/:m1', function (req, res) {
         });
     }
     else {
-        var collection = database.getDatabase().collection("collectionYahooApi").find({"symbol": m1}).toArray(function (err, results) {
+        var collection = database.getDatabase().collection("YahooFinanceCurrency").find({"symbol": m1}).toArray(function (err, results) {
             for (i = 0; i < results.length; i++) {
                 val1 = results[i].price;
                 //console.log(val1);

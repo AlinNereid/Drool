@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%- include layouts/head.ejs%>
+    <title><%= title %></title>
+    <script type="text/javascript" src="/javascript/jquery-1.11.0.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/css/stylemedia.css">
     <script type="text/javascript" src="/javascript/datejs.js"></script>
     <script type="text/javascript" src="/javascript/javascript.js"></script>
 </head>
@@ -13,11 +16,15 @@
         <div class="dropdown">
             <label id="search1"><%= digitalCoins[0] %></label>
             <ul class="menuSearch1">
+                <li>
+                    <input type="text" id="textField1" placeholder="Search">
+                </li>
                 <% for(var i=0; i<digitalCoins.length; i++) {%>
                 <li><span><%= digitalCoins[i] %></span></li>
                 <% } %>
             </ul>
         </div>
+        <span id="plus1">+</span>
         <span>=</span>
         <input id="input2" type="text" name="val2" size="3">
         <div class="dropdown">
@@ -31,6 +38,7 @@
                 <% } %>
             </ul>
         </div>
+        <span id="plus2">+</span>
         <div class="clear"></div>
     </div>
 </main>

@@ -8,7 +8,7 @@
             var r= confirm("Are you sure you want to delete this coin including all the apis associated?");
             if(r==true){
                 $.ajax({
-                    url: "../../api/digital/"+digitalName,
+                    url: "../../api/coins/digital/"+digitalName,
                     type: "DELETE",
                     dataType: "json",
                     data :{

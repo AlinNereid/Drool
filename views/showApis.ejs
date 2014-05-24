@@ -8,7 +8,7 @@
             var r= confirm("Are you sure you want to delete this api?");
             if(r==true){
                 $.ajax({
-                    url: "../../api/digital/"+digitalName+"/apiTickers/"+apiName,
+                    url: "../../api/coins/digital/"+digitalName+"/apiTickers/"+apiName,
                     type: "DELETE",
                     dataType: "json",
                     data :{
