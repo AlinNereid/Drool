@@ -138,7 +138,7 @@ var postPageDigital = function (req, res) {
                                 if (okParsare == true) {
                                     dbAPITicker.addApiTicker(new dbAPITicker.ApiTicker(sname, urlTicker, digsname, realsname, last, requestTime, bid, avg_24h, volume), function (okData) {
                                         if (okData == true) {
-                                            res.send("Add in bd");
+                                            res.redirect(req.protocol+'://'+req.get('host')+"/controlpanel/showApis");
                                             digitalCoins.getCurrency(sname);
                                             intervalRequests.addInterval(sname, requestTime);
                                         }
@@ -218,7 +218,7 @@ var postUpdatePage = function (req, res) {
                                         if (okParsare == true) {
                                             dbAPITicker.updateApi(new dbAPITicker.ApiTicker(sname, urlTicker, digsname, realsname, last, requestTime, bid, avg_24h, volume), function (okData) {
                                                 if (okData == true) {
-                                                    res.send("Update in bd");
+                                                    res.redirect(req.protocol+'://'+req.get('host')+"/controlpanel/showApis");
                                                     digitalCoins.getCurrency(sname);
                                                     intervalRequests.removeInterval(sname);
                                                     intervalRequests.addInterval(sname, requestTime);

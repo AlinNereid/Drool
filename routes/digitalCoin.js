@@ -78,7 +78,7 @@ var postPageDigital = function (req, res) {
             if (existaRealSname == false)
                 dbDigitalCoins.addDigitalCoin(new dbDigitalCoins.DigitalCoin(sname, lname, page), function (exista) {
                     if (exista == true) {
-                        res.send("Add in bd");
+                        res.redirect(req.protocol+'://'+req.get('host')+"/controlpanel/showDigitalCoins");
                     }
                     else
                         res.render('addDigitalCoin', {error: "Digital coin exists in the database", title: 'Drool Admin', sname: sname, lname: lname, page: page});
@@ -104,7 +104,7 @@ var postPageUpdateDigital = function (req, res) {
                     if (existaRealSname == false)
                         dbDigitalCoins.updateDigitalCoin(new dbDigitalCoins.DigitalCoin(sname, lname, page), function (exista) {
                             if (exista == true) {
-                                res.send("Update in bd");
+                                res.redirect(req.protocol+'://'+req.get('host')+"/controlpanel/showDigitalCoins");
                             }
                             else
                                 res.render('updateDigitalCoin', {error: "Error in updating digital coin", title: 'Drool Admin', sname: sname, lname: lname, page: page});
