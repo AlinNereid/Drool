@@ -13,34 +13,34 @@
             <form id="formAddApi" action="./addApi" autocomplete="on"  method="post">
                 <div id="divForm">
                     <div id="labels">
-                        <label class="labelAddApi">Name:</label> 
-                        <label class="labelAddApi">URL:</label>
-                        <label class="labelAddApi">Digital Coin:</label>
-                        <label class="labelAddApi">Real Reference Coin:</label>
-                        <label class="labelAddApi">Request Time(s):</label>
-                        <label class="labelAddApi">Last:</label>
+                        <label class="labelAddApi">Name*:</label>
+                        <label class="labelAddApi">URL*:</label>
+                        <label class="labelAddApi">Digital Coin*:</label>
+                        <label class="labelAddApi">Real Reference Coin*:</label>
+                        <label class="labelAddApi">Request Time(ms)*:</label>
+                        <label class="labelAddApi">Last*:</label>
                         <label class="labelAddApi">Bid:</label> 
                         <label class="labelAddApi">Avg 24h:</label>
                         <label class="labelAddApi">Volume:</label> 
                     </div>
                     <div id="inputs">
-                        <input class="addApiInputs" type="text" name="sname" value="<%= sname %>">
-                        <input  class="addApiInputs" type="url" name="urlTicker" value="<%= urlTicker %>">
+                        <input class="addApiInputs" type="text" name="sname" value="<%= sname %>" required>
+                        <input  class="addApiInputs" type="url" name="urlTicker" value="<%= urlTicker %>" required>
                             <button name="parse" id="parse">Parse Api</button>  
-                        <input class="addApiInputs" list="digsname" name="digsname" value="<%= digsname %>">
+                        <input class="addApiInputs" list="digsname" name="digsname" value="<%= digsname %>" required>
                         <datalist id="digsname">
                             <% for(var i=0; i<snames.length; i++) {%>
                                 <option value="<%= snames[i].sname %>">
                             <% } %>
                         </datalist>
-                        <input class="addApiInputs" list="realsname" name="realsname" value="<%= realsname %>">
+                        <input class="addApiInputs" list="realsname" name="realsname" value="<%= realsname %>" required>
                         <datalist id="realsname">
                             <% for(var i=0; i<symbols.length; i++) {%>
                                 <option value="<%= symbols[i].symbol %>">
                             <% } %>
                         </datalist>
-                        <input class="addApiInputs" type="number" step="any" name="requestTime" value="<%= requestTime %>">
-                        <input class="addApiInputs" type="text" name="last" value="<%= last %>">
+                        <input class="addApiInputs" type="number" step="any" name="requestTime" min ="5000" value="<%= requestTime %>" required>
+                        <input class="addApiInputs" type="text" name="last" value="<%= last %>" required>
                         <input class="addApiInputs" type="text" name="bid" value="<%= bid %>">
                         <input class="addApiInputs" type="text" name="avg_24h" value="<%= avg_24h %>">
                         <input class="addApiInputs" type="text" name="volume" value="<%= volume %>">

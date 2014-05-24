@@ -17,6 +17,21 @@
                     clearInterval(updateTimeOut);
                     update();
                 });
+                var testPostToken = function(){
+                    $.ajax({
+                        url:"../../api/generateToken",
+                        type : "POST",
+                        data : {hours:3},
+                        dataType : "json",
+                        success: function(rasp){
+                            console.log("yey");
+                        },
+                        error:function(){
+                            console.log("error");
+                        }
+                    });
+                }
+                testPostToken();
                 var testPost = function(){
                     $.ajax({
                     url:"../../api/convert",

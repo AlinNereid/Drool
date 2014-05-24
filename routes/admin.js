@@ -4,7 +4,9 @@
 exports.getLoginPage = function (req, res) {
     if(req.session.error)
         res.render('adminLogin', { title: 'Drool', error: req.session.error });
-    res.render('adminLogin', { title: 'Drool', error: "" });
+    else{
+        res.render('adminLogin', { title: 'Drool', error: "" });
+    }
     req.session.error="";
 };
 exports.postLoginPage = function (req, res) {

@@ -7,8 +7,8 @@
     <p id="subTitle">Edit Digital Coin</p>
     <form id="formAddDigital" action="../editDigitalCoin" autocomplete="on"  method="post">
         <p>
-            <label class="labelAddDigital" for="sname">Short Name:</label>
-            <input class="addDigitalInputs"type="text" name="sname" id="sname" value="<%= sname %>">
+            <label class="labelAddDigital" for="sname">Short Name*:</label>
+            <input class="addDigitalInputs"type="text" name="sname" id="sname" value="<%= sname %>" readonly required>
         </p>
         <p>
             <label class="labelAddDigital" for="lname">Long Name:</label>

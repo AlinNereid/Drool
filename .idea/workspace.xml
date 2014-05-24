@@ -26,25 +26,93 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7488">
+            <state line="64" column="49" selection-start="2259" selection-end="2259" vertical-scroll-proportion="-2.8888888" vertical-offset="1074" max-vertical-offset="7884">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/admin.js">
+      <file leaf-file-name="analysis.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/analysis.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="55" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
+            <state line="31" column="23" selection-start="948" selection-end="1401" vertical-scroll-proportion="-10.666667" vertical-offset="270" max-vertical-offset="5292">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="apiTicker.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes/apiTicker.js">
+      <file leaf-file-name="adminControlPanel.ejs" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/adminControlPanel.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="217" column="46" selection-start="8871" selection-end="8871" vertical-scroll-proportion="4.7877097" vertical-offset="1335" max-vertical-offset="5274">
+            <state line="51" column="32" selection-start="1702" selection-end="1702" vertical-scroll-proportion="1.7552581" vertical-offset="0" max-vertical-offset="1080">
+              <folding>
+                <element signature="n#style#0;n#p#1;n#form#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adminLogin.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/adminLogin.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="612">
+              <folding>
+                <marker date="1400862116169" expanded="true" signature="21:692" placeholder="..." />
+                <marker date="1400862116169" expanded="true" signature="28:72" placeholder="..." />
+                <marker date="1400862116169" expanded="true" signature="79:684" placeholder="..." />
+                <marker date="1400862116169" expanded="true" signature="128:642" placeholder="..." />
+                <marker date="1400862116169" expanded="true" signature="222:634" placeholder="..." />
+                <marker date="1400862116169" expanded="true" signature="234:363" placeholder="..." />
+                <marker date="1400862116169" expanded="true" signature="376:517" placeholder="..." />
+                <marker date="1400862116169" expanded="false" signature="595:605" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addApi.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/addApi.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="59" selection-start="1445" selection-end="1455" vertical-scroll-proportion="-7.3703704" vertical-offset="305" max-vertical-offset="1332">
+              <folding>
+                <marker date="1400916779723" expanded="true" signature="1710:1818" placeholder="{...}" />
+                <marker date="1400916779723" expanded="true" signature="2096:2206" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addDigitalCoin.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/addDigitalCoin.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="41" selection-start="148" selection-end="185" vertical-scroll-proportion="-1.7037038" vertical-offset="98" max-vertical-offset="648">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="token.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/token.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="49" selection-start="1632" selection-end="1632" vertical-scroll-proportion="0.0" vertical-offset="548" max-vertical-offset="1314">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apiTIcker.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/apiTIcker.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="126" column="0" selection-start="3904" selection-end="3944" vertical-scroll-proportion="0.0" vertical-offset="2106" max-vertical-offset="5472">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="values.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/values.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1962">
               <folding />
             </state>
           </provider>
@@ -61,8 +129,21 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/routes/digitalCoin.js" />
-        <option value="$PROJECT_DIR$/routes/admin.js" />
         <option value="$PROJECT_DIR$/routes/apiTicker.js" />
+        <option value="$PROJECT_DIR$/views/showApis.ejs" />
+        <option value="$PROJECT_DIR$/routes/admin.js" />
+        <option value="$PROJECT_DIR$/views/layouts/headerControlPanelElements2.ejs" />
+        <option value="$PROJECT_DIR$/views/layouts/headerControlPanelElements.ejs" />
+        <option value="$PROJECT_DIR$/views/layouts/headerControlPanel.ejs" />
+        <option value="$PROJECT_DIR$/views/addApi.ejs" />
+        <option value="$PROJECT_DIR$/views/addDigitalCoin.ejs" />
+        <option value="$PROJECT_DIR$/views/updateDigitalCoin.ejs" />
+        <option value="$PROJECT_DIR$/views/updateApi.ejs" />
+        <option value="$PROJECT_DIR$/views/analysis.ejs" />
+        <option value="$PROJECT_DIR$/public/css/stylemedia.css" />
+        <option value="$PROJECT_DIR$/api/token.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/adminControlPanel.ejs" />
       </list>
     </option>
   </component>
@@ -127,7 +208,99 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parser+requestAPI+convertor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -140,8 +313,41 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
+    <property name="LayoutCode.rearrangeEntriesJavaScript" value="false" />
   </component>
   <component name="RunManager" selected="Node.js.app.js">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="name" value="Dart" />
+      <option name="saveOutputToFile" value="false" />
+      <option name="showConsoleOnStdErr" value="false" />
+      <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
       <browser start="false" url="" with-js-debugger="false" />
       <method />
@@ -199,26 +405,11 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/analysis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="2" selection-start="127" selection-end="127" vertical-scroll-proportion="0.19301471" vertical-offset="0" max-vertical-offset="544" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/digitalCoin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="15" selection-start="5264" selection-end="5264" vertical-scroll-proportion="1.8192091" vertical-offset="924" max-vertical-offset="2040">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="180" selection-end="180" vertical-scroll-proportion="0.19301471" vertical-offset="0" max-vertical-offset="544" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascript/javascript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.3235294" vertical-offset="720" max-vertical-offset="2655" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.3235294" vertical-offset="720" max-vertical-offset="2655">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascript/datejs.js">
@@ -226,24 +417,210 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/parser+requestAPI+convertor/intervalRequests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7488">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="550">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin.js">
+    <entry file="file://$PROJECT_DIR$/views/layouts/headerControlPanelElements2.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="55" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
+        <state line="1" column="4" selection-start="13" selection-end="107" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/headerControlPanelElements.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="98" selection-start="107" selection-end="107" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/headerControlPanel.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="98" selection-start="107" selection-end="107" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/analysis.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3690">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/analysis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="2" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/apiTicker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="217" column="46" selection-start="8871" selection-end="8871" vertical-scroll-proportion="4.7877097" vertical-offset="1335" max-vertical-offset="5274">
+        <state line="97" column="9" selection-start="3008" selection-end="3008" vertical-scroll-proportion="0.0" vertical-offset="1335" max-vertical-offset="5274">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/digitalCoin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="15" selection-start="5264" selection-end="5264" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2448">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/showApis.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="7" selection-start="1149" selection-end="1149" vertical-scroll-proportion="-16.88889" vertical-offset="192" max-vertical-offset="774">
+          <folding>
+            <marker date="1400913892955" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1400913892955" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1400913892955" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1400913892955" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1400913892955" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1400913892955" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1400913892955" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1400913892955" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1400913892955" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/showDigitalCoins.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="702">
+          <folding>
+            <marker date="1400600795250" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1400600795250" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1400600795250" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1400600795250" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1400600795250" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1400600795250" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1400600795250" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1400600795250" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1400600795250" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/updateDigitalCoin.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="117" selection-start="462" selection-end="462" vertical-scroll-proportion="-4.3703704" vertical-offset="62" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/updateApi.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="104" selection-start="2504" selection-end="2504" vertical-scroll-proportion="-14.666667" vertical-offset="378" max-vertical-offset="1368">
+          <folding>
+            <marker date="1400916814326" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1400916814326" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="18" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/apiTIcker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="0" selection-start="3904" selection-end="3944" vertical-scroll-proportion="0.0" vertical-offset="2106" max-vertical-offset="5472">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/values.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1962">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/adminLogin.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="612">
+          <folding>
+            <marker date="1400862116169" expanded="true" signature="21:692" placeholder="..." />
+            <marker date="1400862116169" expanded="true" signature="28:72" placeholder="..." />
+            <marker date="1400862116169" expanded="true" signature="79:684" placeholder="..." />
+            <marker date="1400862116169" expanded="true" signature="128:642" placeholder="..." />
+            <marker date="1400862116169" expanded="true" signature="222:634" placeholder="..." />
+            <marker date="1400862116169" expanded="true" signature="234:363" placeholder="..." />
+            <marker date="1400862116169" expanded="true" signature="376:517" placeholder="..." />
+            <marker date="1400862116169" expanded="false" signature="595:605" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/addApi.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="59" selection-start="1445" selection-end="1455" vertical-scroll-proportion="-7.3703704" vertical-offset="305" max-vertical-offset="1332">
+          <folding>
+            <marker date="1400916779723" expanded="true" signature="1710:1818" placeholder="{...}" />
+            <marker date="1400916779723" expanded="true" signature="2096:2206" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/stylemedia.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="436" column="1" selection-start="8583" selection-end="8583" vertical-scroll-proportion="0.38049713" vertical-offset="7649" max-vertical-offset="12024">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/analysis.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="23" selection-start="948" selection-end="1401" vertical-scroll-proportion="-10.666667" vertical-offset="270" max-vertical-offset="5292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/token.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="49" selection-start="1632" selection-end="1632" vertical-scroll-proportion="0.0" vertical-offset="548" max-vertical-offset="1314">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="49" selection-start="2259" selection-end="2259" vertical-scroll-proportion="-2.8888888" vertical-offset="1074" max-vertical-offset="7884">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/addDigitalCoin.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="41" selection-start="148" selection-end="185" vertical-scroll-proportion="-1.7037038" vertical-offset="98" max-vertical-offset="648">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/adminControlPanel.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="32" selection-start="1702" selection-end="1702" vertical-scroll-proportion="1.7552581" vertical-offset="0" max-vertical-offset="1080">
+          <folding>
+            <element signature="n#style#0;n#p#1;n#form#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

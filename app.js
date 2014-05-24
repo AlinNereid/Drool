@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -11,20 +10,20 @@ var analysis = require('./routes/analysis');
 var adminRoute = require('./routes/admin');
 var database = require('./models/database');
 var apiRoute = require('./routes/apiTicker');
-var digitalCoinRoute=require('./routes/digitalCoin');
-var dbDigitalCoins= require('./models/dbDigitalCoins');
-var dbRealCoins= require('./models/dbRealCoins');
-var parser=require('./parser+requestAPI+convertor/parse');
-var realCoins=require('./parser+requestAPI+convertor/realCoins');
-var digitalCoins=require('./parser+requestAPI+convertor/digitalCoins');
+var digitalCoinRoute = require('./routes/digitalCoin');
+var dbDigitalCoins = require('./models/dbDigitalCoins');
+var dbRealCoins = require('./models/dbRealCoins');
+var parser = require('./parser+requestAPI+convertor/parse');
+var realCoins = require('./parser+requestAPI+convertor/realCoins');
+var digitalCoins = require('./parser+requestAPI+convertor/digitalCoins');
 var intervalRequests = require('./parser+requestAPI+convertor/intervalRequests');
 var convertorEngine = require('./parser+requestAPI+convertor/convertor');
 var apiConvertor = require('./api/convertor');
 var apiRealCoins = require('./api/realAPI');
 var apiDigitalCoin = require('./api/digitalCoinApi');
 var apiTIcker = require('./api/apiTIcker');
-var apiValues=require('./api/values');
-var token=require('./api/token');
+var apiValues = require('./api/values');
+var token = require('./api/token');
 var app = express();
 var request = require('request');
 // all environments
@@ -47,23 +46,45 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+    app.use(express.errorHandler());
 }
-app.get('/login',session,adminRoute.getLoginPage);
+app.get('/login', session, adminRoute.getLoginPage);
 
-app.get('/controlpanel',session,function(req,res){
-    if(req.session.name == "admin"){
-        res.render('adminControlPanel', { title: 'Drool' });
-    }else{
+app.get('/controlpanel', session, function (req, res) {
+    if (req.session.name == "admin") {
+        res.render('adminControlPanel', { title: 'Drool', error: "" });
+    } else {
         res.redirect('/login');
-        req.session.error="Please login first!";
+        req.session.error = "Please login first!";
     }
 });
-app.get('/api/parse',function(req,res){
-   var url=req.param('url',null);
+app.post('/controlpanel', session, function (req, res) {
+    if (req.session.name == "admin") {
+        var tokenID = req.param('setToken', null);
+        if (tokenID) {
+            token.verifyToken(tokenID, function (exists) {
+                if (exists) {
+                    req.session.token = tokenID;
+                    res.render('adminControlPanel', { title: 'Drool', error: "Token assigned" });
+                }
+                else {
+                    res.render('adminControlPanel', { title: 'Drool', error: "Token invalid" });
+                }
+            })
+        }
+        else{
+            res.render('adminControlPanel', { title: 'Drool', error:"Token invalid" });
+        }
+    } else {
+        res.redirect('/login');
+        req.session.error = "Please login first!";
+    }
+});
+app.get('/api/parse', function (req, res) {
+    var url = req.param('url', null);
     console.log(url);
-    if(url !== null && url!==""){
-        var dateParsate = parser.parseUrl(url,function(dateParsate){
+    if (url !== null && url !== "") {
+        var dateParsate = parser.parseUrl(url, function (dateParsate) {
             res.contentType('application/json');
             console.log("appks" + dateParsate);
             res.send(dateParsate)
@@ -72,181 +93,183 @@ app.get('/api/parse',function(req,res){
     }
 });
 /*app.get('/api/real',function(req,res){
-    dbRealCoins.getAllRealSymbolPriceCoins(function(coins){
-        res.contentType('application/json');
-        console.log("app/real" + coins);
-        res.send(coins)
-    })
-});*/
-app.get('/controlpanel/showDigitalCoins',digitalCoinRoute.getPageShowDigital);
-app.post('/controlpanel/addDigitalCoin',digitalCoinRoute.postPageDigital);
-app.get('/controlpanel/addDigitalCoin',digitalCoinRoute.getPageAddDigital);
-app.post('/controlpanel/editDigitalCoin',digitalCoinRoute.postPageUpdateDigital);
+ dbRealCoins.getAllRealSymbolPriceCoins(function(coins){
+ res.contentType('application/json');
+ console.log("app/real" + coins);
+ res.send(coins)
+ })
+ });*/
+app.get('/controlpanel/showDigitalCoins', digitalCoinRoute.getPageShowDigital);
+app.post('/controlpanel/addDigitalCoin', digitalCoinRoute.postPageDigital);
+app.get('/controlpanel/addDigitalCoin', digitalCoinRoute.getPageAddDigital);
+app.post('/controlpanel/editDigitalCoin', digitalCoinRoute.postPageUpdateDigital);
 
-app.get('/controlpanel/editDigitalCoin/:name',digitalCoinRoute.getPageUpdateDigital);
-app.post('/controlpanel/editDigitalCoin/:name',digitalCoinRoute.postPageUpdateDigital);
+app.get('/controlpanel/editDigitalCoin/:name', digitalCoinRoute.getPageUpdateDigital);
+app.post('/controlpanel/editDigitalCoin/:name', digitalCoinRoute.postPageUpdateDigital);
 
-app.get('/controlpanel/deleteDigitalCoin/:name',digitalCoinRoute.postDeletePage);//de modificat
+app.get('/controlpanel/deleteDigitalCoin/:name', digitalCoinRoute.postDeletePage);//de modificat
 
-app.get('/controlpanel/addApi',apiRoute.getAddApiPage);
-app.get('/controlpanel/editApi/:name',apiRoute.getUpdateApiPage);
-app.post('/controlpanel/editApi/:name',apiRoute.postUpdatePage);
+app.get('/controlpanel/addApi', apiRoute.getAddApiPage);
+app.get('/controlpanel/editApi/:name', apiRoute.getUpdateApiPage);
+app.post('/controlpanel/editApi/:name', apiRoute.postUpdatePage);
 
-app.post('/controlpanel/addApi',apiRoute.postPageDigital);
-app.get('/controlpanel/showApis',apiRoute.getPageShowApis);
+app.post('/controlpanel/addApi', apiRoute.postPageDigital);
+app.get('/controlpanel/showApis', apiRoute.getPageShowApis);
 
 //api
-app.get('/api/real',apiRealCoins.GETall);
-app.get('/api/real/:name',apiRealCoins.GETByName);
+app.get('/api/real', apiRealCoins.GETall);
+app.get('/api/real/:name', apiRealCoins.GETByName);
 
 
-app.get('/api/digital',apiDigitalCoin.GETall);
-app.post('/api/digital',apiDigitalCoin.POSTinROOT);
+app.get('/api/digital', apiDigitalCoin.GETall);
+app.post('/api/digital', apiDigitalCoin.POSTinROOT);
 
-app.get('/api/digital/:nameDigital',apiDigitalCoin.GETByNameDigital);//get a digitalcoin
-app.put('/api/digital/:nameDigital',apiDigitalCoin.PUTByNameDigital);//edit/update
-app.delete('/api/digital/:nameDigital',apiDigitalCoin.DELETEByName);//delete
+app.get('/api/digital/:nameDigital', apiDigitalCoin.GETByNameDigital);//get a digitalcoin
+app.put('/api/digital/:nameDigital', apiDigitalCoin.PUTByNameDigital);//edit/update
+app.delete('/api/digital/:nameDigital', apiDigitalCoin.DELETEByName);//delete
 
-app.get('/api/digital/:nameDigital/apiTickers',apiTIcker.GETallApiWithDigital);//get all apis for a digitalCoin
-app.post('/api/digital/:nameDigital/apiTickers',apiTIcker.POSTinROOT);//add a api
+app.get('/api/digital/:nameDigital/apiTickers', apiTIcker.GETallApiWithDigital);//get all apis for a digitalCoin
+app.post('/api/digital/:nameDigital/apiTickers', apiTIcker.POSTinROOT);//add a api
 
-app.get('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.GETApiWithDigital);//get a api
-app.put('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.PUTByDigNameApiName);//update
-app.delete('/api/digital/:nameDigital/apiTickers/:nameApi',apiTIcker.DELETEApi);//delete
+app.get('/api/digital/:nameDigital/apiTickers/:nameApi', apiTIcker.GETApiWithDigital);//get a api
+app.put('/api/digital/:nameDigital/apiTickers/:nameApi', apiTIcker.PUTByDigNameApiName);//update
+app.delete('/api/digital/:nameDigital/apiTickers/:nameApi', apiTIcker.DELETEApi);//delete
 
-app.get('/api/digital/:nameDigital/apiTickers/:nameApi/values',apiValues.GETValues);//get values
+app.get('/api/digital/:nameDigital/apiTickers/:nameApi/values', apiValues.GETValues);//get values
 
-app.post('/api/convert',apiConvertor.convertAPI);//convertor
-app.put('/api/test',function(req,res){
+app.post('/api/convert', apiConvertor.convertAPI);//convertor
 
-    var p1 = req.param("p1",null);
-    console.log("put "+p1);
+app.post('/api/generateToken', session, token.POSTtokenApi);
+app.put('/api/test', function (req, res) {
+
+    var p1 = req.param("p1", null);
+    console.log("put " + p1);
     res.contentType('application/json');
-    res.send({test:"123"});
+    res.send({test: "123"});
 });
 
-app.get('/controlpanel/deleteApi/:name',apiRoute.postDeleteApiPage);
-app.post('/login',session,adminRoute.postLoginPage);
-app.get('/logout',function(req,res){
-    req.session.name=null;
+app.get('/controlpanel/deleteApi/:name', apiRoute.postDeleteApiPage);
+app.post('/login', session, adminRoute.postLoginPage);
+app.get('/logout', function (req, res) {
+    req.session.name = null;
     res.send("yee")
 });
 app.get('/', index.get);
 app.get('/convertor', index.get);
 app.get('/analysis', analysis.get);
-var getDate = function(send_json,lastDate,numar,delay,callback){
-    if(numar!=0){
-        database.getDatabase().collection("bitstamp").find({date:{$lt :lastDate - delay}},{_id:0}).sort({date:-1}).limit(1).toArray(function(err, results) {
-            if(results!=null){
-                try{
-                lastDate=results[0].date;
-                send_json["date"].push(results[0]);
-                numar=numar-1;
-                getDate(send_json,lastDate,numar,delay,callback);
+var getDate = function (send_json, lastDate, numar, delay, callback) {
+    if (numar != 0) {
+        database.getDatabase().collection("bitstamp").find({date: {$lt: lastDate - delay}}, {_id: 0}).sort({date: -1}).limit(1).toArray(function (err, results) {
+            if (results != null) {
+                try {
+                    lastDate = results[0].date;
+                    send_json["date"].push(results[0]);
+                    numar = numar - 1;
+                    getDate(send_json, lastDate, numar, delay, callback);
                 }
-                catch(e){
-                    console.log("Error "+ e)
+                catch (e) {
+                    console.log("Error " + e)
                     callback(send_json);
                 }
-            }else{
+            } else {
                 callback(send_json);
             }
         });
-    }else{
+    } else {
         callback(send_json)
     }
 }
-app.get('/api/bitcoin/:numeAPI/:numar',function(req,res){
-        if(req.params.numeAPI == "test"){
-            var delay=72000*12;
-            var send_json={};
-            var numar=parseInt(req.params.numar);
-            var lastDate;
-            database.getDatabase().collection("bitstamp").find({},{_id:0}).sort({date:-1}).limit(1).toArray(function(err, results) {
-                numar=numar-1;
-                send_json["date"]=[];
-                send_json["date"].push(results[0]);
-                lastDate=results[0].date;
-                if(numar>0){
-                    getDate(send_json,lastDate,numar,delay,function(send_json){
-                        res.contentType('application/json');
-                        res.json(send_json);
-                    })
-                }else{
+app.get('/api/bitcoin/:numeAPI/:numar', function (req, res) {
+    if (req.params.numeAPI == "test") {
+        var delay = 72000 * 12;
+        var send_json = {};
+        var numar = parseInt(req.params.numar);
+        var lastDate;
+        database.getDatabase().collection("bitstamp").find({}, {_id: 0}).sort({date: -1}).limit(1).toArray(function (err, results) {
+            numar = numar - 1;
+            send_json["date"] = [];
+            send_json["date"].push(results[0]);
+            lastDate = results[0].date;
+            if (numar > 0) {
+                getDate(send_json, lastDate, numar, delay, function (send_json) {
                     res.contentType('application/json');
                     res.json(send_json);
-                }
+                })
+            } else {
+                res.contentType('application/json');
+                res.json(send_json);
+            }
 
-            })
-        }
-    else{
-        var numar=parseInt(req.params.numar);
-        var collection = database.getDatabase().collection("collectionDateApi").find({"nameApi":req.params.numeAPI}).sort({dataServer:-1}).limit(numar).toArray(function(err, results) {
+        })
+    }
+    else {
+        var numar = parseInt(req.params.numar);
+        var collection = database.getDatabase().collection("collectionDateApi").find({"nameApi": req.params.numeAPI}).sort({dataServer: -1}).limit(numar).toArray(function (err, results) {
             var send_json;
-            var array=[];
-            for(i=0;i<results.length;i++){
-                var obj=results[i];
-                array.push({"last":obj["date"]["last"],"bid":obj["date"]["bid"],"timestamp":obj["date"]["timestamp"],"drooltime":obj["dataServer"]});
+            var array = [];
+            for (i = 0; i < results.length; i++) {
+                var obj = results[i];
+                array.push({"last": obj["date"]["last"], "bid": obj["date"]["bid"], "timestamp": obj["date"]["timestamp"], "drooltime": obj["dataServer"]});
 
             }
             res.contentType('application/json');
-            send_json={"date":array};
+            send_json = {"date": array};
             res.json(send_json);
         });
     }
 });
 
-app.get('/api/currency/:m1',function(req,res){
-    var m1=req.params.m1;
+app.get('/api/currency/:m1', function (req, res) {
+    var m1 = req.params.m1;
     console.log(m1);
-    var send_json=[];
-    if(m1=='ALLCURRENCYREAL'){
-        var collection = database.getDatabase().collection("collectionYahooApi").find().toArray(function(err,results){
-            var array=[]
-            for(i=0;i<results.length;i++){
-                var simbol=results[i].symbol;
+    var send_json = [];
+    if (m1 == 'ALLCURRENCYREAL') {
+        var collection = database.getDatabase().collection("collectionYahooApi").find().toArray(function (err, results) {
+            var array = []
+            for (i = 0; i < results.length; i++) {
+                var simbol = results[i].symbol;
                 array.push(simbol);
             }
-            send_json={"allcurrencyreal":array};
+            send_json = {"allcurrencyreal": array};
             res.contentType('application/json');
             res.json(send_json);
         });
     }
-    else{
-        var collection = database.getDatabase().collection("collectionYahooApi").find({"symbol":m1}).toArray(function(err,results){
-            for(i=0;i<results.length;i++){
-                val1=results[i].price;
+    else {
+        var collection = database.getDatabase().collection("collectionYahooApi").find({"symbol": m1}).toArray(function (err, results) {
+            for (i = 0; i < results.length; i++) {
+                val1 = results[i].price;
                 //console.log(val1);
             }
-            send_json.price=val1;
+            send_json.price = val1;
             res.contentType('application/json');
             res.json(send_json);
         });
     }
 });
-app.get('/api/currency/:m1/:m2',function(req,res){
-    var m1=req.params.m1;
-    var m2=req.params.m2;
+app.get('/api/currency/:m1/:m2', function (req, res) {
+    var m1 = req.params.m1;
+    var m2 = req.params.m2;
     var val1;
     var val2;
-    var send_json={};
-    var collection = database.getDatabase().collection("collectionYahooApi").find({"symbol":m1}).toArray(function(err,results){
-        if(results.length==0){
-            if(m1=='BITCOIN'){
-                var collection3 = database.getDatabase().collection("collectionDateApi").find({"nameApi":"bitcoinaverageUSD"}).sort({dataServer:-1}).limit(1).toArray(function(err, results) {
-                    for(i=0;i<results.length;i++){
-                        var obj=results[i];
-                        val1=obj["date"]["last"];
+    var send_json = {};
+    var collection = database.getDatabase().collection("collectionYahooApi").find({"symbol": m1}).toArray(function (err, results) {
+        if (results.length == 0) {
+            if (m1 == 'BITCOIN') {
+                var collection3 = database.getDatabase().collection("collectionDateApi").find({"nameApi": "bitcoinaverageUSD"}).sort({dataServer: -1}).limit(1).toArray(function (err, results) {
+                    for (i = 0; i < results.length; i++) {
+                        var obj = results[i];
+                        val1 = obj["date"]["last"];
                     }
-                    var collection2 = database.getDatabase().collection("collectionYahooApi").find({"symbol":m2}).toArray(function(err,results){
-                        for(i=0;i<results.length;i++){
-                            val2=results[i].price;
+                    var collection2 = database.getDatabase().collection("collectionYahooApi").find({"symbol": m2}).toArray(function (err, results) {
+                        for (i = 0; i < results.length; i++) {
+                            val2 = results[i].price;
                         }
-                        send_json["val "+m1]=val1;
-                        send_json["val "+m2]=val2;
-                        send_json.price=val1*val2;
-                        if((val2===undefined&&results>0)||m2=="USD"){
-                            send_json.price=val1;
+                        send_json["val " + m1] = val1;
+                        send_json["val " + m2] = val2;
+                        send_json.price = val1 * val2;
+                        if ((val2 === undefined && results > 0) || m2 == "USD") {
+                            send_json.price = val1;
                         }
                         res.contentType('application/json');
 
@@ -254,18 +277,18 @@ app.get('/api/currency/:m1/:m2',function(req,res){
                     });
                 });
             }
-        }else{
-            for(i=0;i<results.length;i++){
-                val1=results[i].price;
+        } else {
+            for (i = 0; i < results.length; i++) {
+                val1 = results[i].price;
                 //console.log(val1);
             }
-            var collection2 = database.getDatabase().collection("collectionYahooApi").find({"symbol":m2}).toArray(function(err,results){
-                for(i=0;i<results.length;i++){
-                    val2=results[i].price;
+            var collection2 = database.getDatabase().collection("collectionYahooApi").find({"symbol": m2}).toArray(function (err, results) {
+                for (i = 0; i < results.length; i++) {
+                    val2 = results[i].price;
                 }
-                send_json["val "+m1]=val1;
-                send_json["val "+m2]=val2;
-                send_json.price=val1/val2;
+                send_json["val " + m1] = val1;
+                send_json["val " + m2] = val2;
+                send_json.price = val1 / val2;
                 console.log(send_json.val1);
                 res.contentType('application/json');
 
@@ -275,90 +298,90 @@ app.get('/api/currency/:m1/:m2',function(req,res){
     });
 });
 
-var getCurrencyBitcoin=function(url,numeApi,callback){
-    request(url,function(err, resp, body){
-        if (err ) return console.error(err)
-        else{
+var getCurrencyBitcoin = function (url, numeApi, callback) {
+    request(url, function (err, resp, body) {
+        if (err) return console.error(err)
+        else {
             try {
-                var date=JSON.parse(body);
-                if(numeApi=="btc-eUSD"){
-                    date=date.ticker;
+                var date = JSON.parse(body);
+                if (numeApi == "btc-eUSD") {
+                    date = date.ticker;
                 }
 
                 console.log(numeApi);
                 console.log(date);
                 console.log(date.last);
 
-                var dateAPI={
-                    "date":date,
-                    "nameApi":numeApi,
-                    "dataServer":Date.now()
+                var dateAPI = {
+                    "date": date,
+                    "nameApi": numeApi,
+                    "dataServer": Date.now()
                 }
 
-                database.getDatabase().collection("collectionDateApi").find({"date":date,"dataServer":{"$gte":Date.now()-100000}}).toArray(function(err, items) {
+                database.getDatabase().collection("collectionDateApi").find({"date": date, "dataServer": {"$gte": Date.now() - 100000}}).toArray(function (err, items) {
                     if (items.length == 0) {
                         database.getDatabase().collection("collectionDateApi").insert(dateAPI, function (err, inserted) {
                             console.log("insert");
-                            if(err)
-                                console.error(numeApi+"  ----   DB error:", err);
+                            if (err)
+                                console.error(numeApi + "  ----   DB error:", err);
                         });
                     }
                 });
             }
             catch (e) {
-                console.error(numeApi+"  ----   Parsing error:", e);
+                console.error(numeApi + "  ----   Parsing error:", e);
             }
         }
     });
 };
 /*var getCurrencyReal=function(url,numeApi,callback){
-    request(url,function(err, resp, body){
-        if (err && resp.statusCode!=200) return console.error(err)
-        else{
-            if(numeApi=="yahooFinance"){
-                try {
-                    var date=JSON.parse(body);
-                    date=date.list.resources;
-                    var dateAPI={
-                        "date":date,
-                        "nameApi":numeApi,
-                        "dataServer":Date.now()
-                    }
-                        console.log("Update yahooFinance")
-                        for(i=0;i<date.length;i++){
-                            var obiectMongo={};
-                            var obj=date[i];
-                            obiectMongo.symbol=obj.resource.fields.symbol;
-                            obiectMongo.symbol=obiectMongo.symbol.substring(0,obiectMongo.symbol.length-2);
-                            obiectMongo.price=obj.resource.fields.price;
-                            obiectMongo.utctime=obj.resource.fields.utctime;
-                            database.getDatabase().collection("collectionYahooApi").update({"symbol":obiectMongo.symbol},obiectMongo,{"upsert":true}, function (err, inserted) {
-                                if(err)
-                                    console.error(numeApi+"  ----   DB error:", err);
-                            });
-                        }
-                }
-                catch (e) {
-                    console.error(numeApi+"  ----   Parsing error:", e);
-                }
-            }
-        }
-    });
-};*/
-var timeRequest=60000;
+ request(url,function(err, resp, body){
+ if (err && resp.statusCode!=200) return console.error(err)
+ else{
+ if(numeApi=="yahooFinance"){
+ try {
+ var date=JSON.parse(body);
+ date=date.list.resources;
+ var dateAPI={
+ "date":date,
+ "nameApi":numeApi,
+ "dataServer":Date.now()
+ }
+ console.log("Update yahooFinance")
+ for(i=0;i<date.length;i++){
+ var obiectMongo={};
+ var obj=date[i];
+ obiectMongo.symbol=obj.resource.fields.symbol;
+ obiectMongo.symbol=obiectMongo.symbol.substring(0,obiectMongo.symbol.length-2);
+ obiectMongo.price=obj.resource.fields.price;
+ obiectMongo.utctime=obj.resource.fields.utctime;
+ database.getDatabase().collection("collectionYahooApi").update({"symbol":obiectMongo.symbol},obiectMongo,{"upsert":true}, function (err, inserted) {
+ if(err)
+ console.error(numeApi+"  ----   DB error:", err);
+ });
+ }
+ }
+ catch (e) {
+ console.error(numeApi+"  ----   Parsing error:", e);
+ }
+ }
+ }
+ });
+ };*/
+var timeRequest = 60000;
 // Connect to the db
-database.connect(function(err, db) {
-    if(err) throw err;
+database.connect(function (err, db) {
+    if (err) throw err;
     else {
         console.log("We are connected to MONGODB");
         database.setDatabase(db);
         database.showDataBase();
-        http.createServer(app).listen(app.get('port'), function(){
+        http.createServer(app).listen(app.get('port'), function () {
             console.log('Express server DROOL listening on port ' + app.get('port'));
         });
-        realCoins.getRealCurrency("http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");
-       /* getCurrencyReal("http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");*/
-        intervalRequests.addInterval("bitstamp",30000);
+        realCoins.getRealCurrency("http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json", "yahooFinance");
+        /* getCurrencyReal("http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");*/
+        intervalRequests.addInterval("bitstamp", 30000);
         digitalCoins.getCurrency("bitstamp");
 //        api.getLowerValueInUSD(2,"TESTCOIN",function(lowerValue){
 //            console.log("1_lowerValue" + lowerValue);
@@ -370,41 +393,40 @@ database.connect(function(err, db) {
 //            console.log("EUR " +value);
 //        });
         //
-        convertorEngine.convert(3,"LTC",null,"RON",null,function(value){
+        convertorEngine.convert(3, "LTC", null, "RON", null, function (value) {
             console.log("VALOARE          " + value);
         });
 
-        token.addToken(3,function(tokenID){
+        token.addToken(3, function (tokenID) {
             console.log("token " + tokenID);
         });
 
-        token.verifyToken("88cdbdc7623faf4a008623ec8bbe3ecf8285e722",function(ok){
-           console.log("verify " + ok);
+        token.verifyToken("88cdbdc7623faf4a008623ec8bbe3ecf8285e722", function (ok) {
+            console.log("verify " + ok);
         });
-       /* setInterva(getCurrencyBitcoin,timeRequest,"https://api.bitcoinaverage.com/ticker/global/USD/","bitcoinaverageUSD");
-        setInterval(getCurrencyBitcoin,timeRequest,"https://www.bitstamp.net/api/ticker/","bitstampUSD");
-        setInterval(getCurrencyBitcoin,timeRequest,"https://btc-e.com/api/2/btc_usd/ticker","btc-eUSD");*/
+        /* setInterva(getCurrencyBitcoin,timeRequest,"https://api.bitcoinaverage.com/ticker/global/USD/","bitcoinaverageUSD");
+         setInterval(getCurrencyBitcoin,timeRequest,"https://www.bitstamp.net/api/ticker/","bitstampUSD");
+         setInterval(getCurrencyBitcoin,timeRequest,"https://btc-e.com/api/2/btc_usd/ticker","btc-eUSD");*/
         //setInterval(getCurrencyReal,timeRequest*3,"http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");
     }
 });
 
 
-
 /*
-MongoClient.connect("mongodb://localhost:27017/dbDrool", function(err, db) {
-    if(err) throw err;
-    else {
-        console.log("We are connected");
-        database.setDatabase(db);
-        database.showDataBase();
-        http.createServer(app).listen(app.get('port'), function(){
-            console.log('Express server listening on port ' + app.get('port'));
-        });
-        setInterval(getCurrencyBitcoin,timeRequest,"https://api.bitcoinaverage.com/ticker/global/USD/","bitcoinaverageUSD");
-        setInterval(getCurrencyBitcoin,timeRequest,"https://www.bitstamp.net/api/ticker/","bitstampUSD");
-        setInterval(getCurrencyBitcoin,timeRequest,"https://btc-e.com/api/2/btc_usd/ticker","btc-eUSD");
-        setInterval(getCurrencyReal,timeRequest*3,"http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");
-    }
-});
-*/
+ MongoClient.connect("mongodb://localhost:27017/dbDrool", function(err, db) {
+ if(err) throw err;
+ else {
+ console.log("We are connected");
+ database.setDatabase(db);
+ database.showDataBase();
+ http.createServer(app).listen(app.get('port'), function(){
+ console.log('Express server listening on port ' + app.get('port'));
+ });
+ setInterval(getCurrencyBitcoin,timeRequest,"https://api.bitcoinaverage.com/ticker/global/USD/","bitcoinaverageUSD");
+ setInterval(getCurrencyBitcoin,timeRequest,"https://www.bitstamp.net/api/ticker/","bitstampUSD");
+ setInterval(getCurrencyBitcoin,timeRequest,"https://btc-e.com/api/2/btc_usd/ticker","btc-eUSD");
+ setInterval(getCurrencyReal,timeRequest*3,"http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");
+ }
+ });
+ */
 

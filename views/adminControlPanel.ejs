@@ -2,11 +2,52 @@
 <html>
 <head>
     <%- include layouts/head.ejs%>
+    <script type="text/javascript">
+        var generateToken= function(){
+            $.ajax({
+                url:"../../api/generateToken",
+                type : "POST",
+                data : {hours:parseInt($("#NumHours").val())},
+                dataType : "json",
+                success: function(rasp){
+                    if(rasp){
+                        if(rasp.tokenID){
+                            $("#token").text(rasp.tokenID);
+                        }
+                        else{
+                            if(rasp.error)
+                                $("#token").text(rasp.error);
+                        }
+                    }
+                },
+                error:function(){
+                    console.log("error");
+                }
+            });
+        }
+    </script>
 </head>
 <body>
     <%- include layouts/headerControlPanel.ejs %>
 <main>
+    <p id="subTitle">Token</p>
+    <p>
+        <label class="labelAddDigital" for="NumHours">Hours:</label>
+        <input class="addDigitalInputs" type="number" name="NumHours" id="NumHours" required>
+        <button id="generate" onclick="generateToken()">Generate Token</button>
+    <p id="token">
 
+    </p>
+    <form id="formGenerateToken" action=""  method="post">
+        <p>
+            <label class="labelAddDigital" for="setToken">SetToken:</label>
+            <input class="addDigitalInputs" type="text" name="setToken" id="setToken" required>
+        </p>
+        <input id="submit" type="submit" name="submit" value="Submit">
+        <p style="color:red">
+            <%= error %>
+        </p>
+    </form>
 </main>
 <%- include layouts/footer.ejs%>
 </body>
