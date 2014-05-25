@@ -11,6 +11,7 @@ var errorsObj={
     0105:"The value of the request time is too low.",
     0106:"Required parameters are not specified.",
     0107:"Error in updating api.",
+    0108:"The name of the api can't be 'Any api'",
     0200:"Required parameters don't have a proper value.",
     0201:"Required parameters are not specified.",
     0300:"The token is invalid",

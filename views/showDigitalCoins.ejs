@@ -16,7 +16,12 @@
                     },
                     success: function(rasp){
                         if(rasp.deleted){
-                            document.getElementById("table").deleteRow(i+1);
+                            $('table tr').eq(i+1)
+                                    .children('td')
+                                    .animate({ padding: 0 })
+                                    .wrapInner('<div />')
+                                    .children()
+                                    .slideUp(function() { $(this).closest('tr').hide(); });
                         }
                         else{
                             if(rasp.errorMessage){

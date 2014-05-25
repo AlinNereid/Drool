@@ -23,7 +23,7 @@ var getLowerValueInUSD = function (val, currency, callback) {
                     currentValue.ref = api.realsname;
                     changeValueToUSD(currentValue, function (priceInUSD) {
                         apiCurentID++;
-                        console.log(priceInUSD);
+                        //console.log(priceInUSD);
                         if (typeof lowerValue == "undefined") {
                             lowerValue = val * priceInUSD;
                         }
@@ -110,16 +110,16 @@ var convert = function (val1, currency1, api1, currency2, api2, callback) {
                 if (tip1 == "digital") {
                     getLowerValueInUSD(val1, currency1, function (lowerInUsdVal1) {
                         if (tip2 == "digital") {
-                            console.log("DD");
+                            //console.log("DD");
                             getLowerValueInUSD(val2, currency2, function (lowerInUsdVal2) {
                                 value = lowerInUsdVal1 / lowerInUsdVal2;
                                 callback(value*coef);
                             });
                         } else {
-                            console.log("DR");
+                            //console.log("DR");
                             getValueInUSDReal(currency2, function (valueInUSD2) {
                                 valueInUSD2 = valueInUSD2 * val2;
-                                console.log(lowerInUsdVal1 + "        " + valueInUSD2);
+                                //console.log(lowerInUsdVal1 + "        " + valueInUSD2);
                                 value = lowerInUsdVal1 * valueInUSD2;
                                 callback(value*coef);
                             });
@@ -129,13 +129,13 @@ var convert = function (val1, currency1, api1, currency2, api2, callback) {
                     getValueInUSDReal(currency1, function (valueInUSD1) {
                         valueInUSD1 = valueInUSD1 * val1;
                         if (tip2 == "digital") {
-                            console.log("RD");
+                            //console.log("RD");
                             getLowerValueInUSD(val2, currency2, function (lowerInUsdVal2) {
                                 value = 1 / (valueInUSD1 * lowerInUsdVal2);
                                 callback(value*coef);
                             });
                         } else {
-                            console.log("RR");
+                            //console.log("RR");
                             getValueInUSDReal(currency2, function (valueInUSD2) {
                                 valueInUSD2=valueInUSD2*val2;
                                 value = valueInUSD2 / valueInUSD1;
@@ -147,7 +147,7 @@ var convert = function (val1, currency1, api1, currency2, api2, callback) {
             } else if (api1 != null && api2 != null) // se specifica ambele api'uri
             {
                 if (tip1 == "digital" && tip2 == "digital") {
-                    console.log("DD");
+                    //console.log("DD");
                     getValueInUSD(val1, currency1, api1, function (valueInUSD1) {
                         getValueInUSD(val2, currency2, api2, function (valueInUSD2) {
                             value = valueInUSD1 / valueInUSD2;
@@ -161,13 +161,13 @@ var convert = function (val1, currency1, api1, currency2, api2, callback) {
                 if (tip1 == "digital") {
                     getValueInUSD(val1, currency1, api1, function (valueInUSD1) {
                         if (tip2 == "digital") {
-                            console.log("DD");
+                            //console.log("DD");
                             getLowerValueInUSD(val2, currency2, function (lowerInUsdVal2) {
                                 value = valueInUSD1 / lowerInUsdVal2;
                                 callback(value*coef);
                             });
                         } else {
-                            console.log("DR");
+                            //console.log("DR");
                             getValueInUSDReal(currency2, function (valueInUSD2) {
                                 valueInUSD2 = valueInUSD2 * val2;
                                 value = valueInUSD1 * valueInUSD2;
@@ -182,13 +182,13 @@ var convert = function (val1, currency1, api1, currency2, api2, callback) {
                 if (tip2 == "digital") {
                     getValueInUSD(val2, currency2, api2, function (valueInUSD2) {
                         if (tip1 == "digital") {
-                            console.log("DD");
+                            //console.log("DD");
                             getLowerValueInUSD(val1, currency1, function (lowerInUsdVal1) {
                                 value = lowerInUsdVal1 / valueInUSD2;
                                 callback(value*coef);
                             });
                         } else {
-                            console.log("RD");
+                            //console.log("RD");
                             getValueInUSDReal(currency1, function (valueInUSD1) {
                                 valueInUSD1 = valueInUSD1 * val1;
                                 value = 1 / (valueInUSD1 * valueInUSD2);

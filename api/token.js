@@ -63,6 +63,7 @@ var GetTokenApi = function(req,res){
         res.send({error:"Please login first!"})
     }
 }
+
 exports.POSTtokenApi = GetTokenApi;
 exports.verifyToken = verify;
 exports.addToken = addNewToken;

@@ -17,7 +17,7 @@ exports.ApiTicker = function ApiTicker(sname,urlTicker,digsname,realsname,last,r
     return this;
 }
 exports.addApiTicker= function(apiTicker,callback){
-    console.log(apiTicker);
+    console.log("ADDAPI :"+apiTicker);
     database.getDatabase().collection(nameCollection).insert(apiTicker
         ,function (err, inserted) {
             console.log(err);
@@ -49,7 +49,7 @@ exports.getAllApisWithDigSname = function(dname,callback){
     });
 }
 exports.updateApi = function(apiTicker,callback){
-    console.log(apiTicker);
+    console.log("UPDATE API :"+apiTicker);
     database.getDatabase().collection(nameCollection).update({sname:apiTicker.sname},apiTicker,function (err, inserted) {
             console.log(err);
             if(err)
@@ -72,7 +72,7 @@ exports.getLastValue=function(sname,callback){
     });
 }
 exports.deleteApi= function(sname,callback){
-    console.log("Delete " + sname);
+    console.log("DELETE API :" + sname);
     database.getDatabase().collection(nameCollection).remove({sname:sname},function (err, numDeleted) {
         if(numDeleted == 0 || err){
             callback(false);

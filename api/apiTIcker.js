@@ -8,8 +8,8 @@ var dbRealCoins = require('../models/dbRealCoins');
 var digitalCoins = require('../parser+requestAPI+convertor/digitalCoins');
 var intervalRequests = require('../parser+requestAPI+convertor/intervalRequests');
 var credential = require('../api/credentials');
-var errors=require('../errors/errors');
-errors=errors.errors;
+var errors = require('../errors/errors');
+errors = errors.errors;
 String.prototype.endsWith = function (suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
 };
@@ -144,44 +144,49 @@ var POSTinROOT = function (req, res) {
         last !== "" && last !== null &&
         requestTime !== "" && requestTime !== null) {
         if (requestTime >= 5000) {
-            existsDigitalCoin(digsname, function (existsDigital) {
-                if (existsDigital == true) {
-                    existsRealCoin(realsname, function (existsReal) {
-                        if (existsReal == true) {
-                            verificaParsareSiCampuriURL(urlTicker, last, bid, avg_24h, volume, function (okParsare) {
-                                if (okParsare == true) {
-                                    dbAPITicker.addApiTicker(new dbAPITicker.ApiTicker(sname, urlTicker, digsname, realsname, last, requestTime, bid, avg_24h, volume), function (okData) {
-                                        if (okData == true) {
-                                            res.send({added: true, url: fullUrl + '/' + sname})
-                                            digitalCoins.getCurrency(sname);
-                                            intervalRequests.addInterval(sname, requestTime);
-                                        }
-                                        else {
-                                            res.send({error: "0101", errorMessage:errors[0101]});
-                                        }
-                                    });
-                                }
-                                else {
-                                    res.send({error: "0102", errorMessage:errors[0102]});
-                                }
-                            });
-                        }
-                        else {
-                            res.send({error: "0103", errorMessage: errors[0103]});
-                        }
-                    });
-                }
-                else {
-                    res.send({error: "0104", errorMessage: errors[0104]});
-                }
-            })
+            if (sname != "Any api") {
+                existsDigitalCoin(digsname, function (existsDigital) {
+                    if (existsDigital == true) {
+                        existsRealCoin(realsname, function (existsReal) {
+                            if (existsReal == true) {
+                                verificaParsareSiCampuriURL(urlTicker, last, bid, avg_24h, volume, function (okParsare) {
+                                    if (okParsare == true) {
+                                        dbAPITicker.addApiTicker(new dbAPITicker.ApiTicker(sname, urlTicker, digsname, realsname, last, requestTime, bid, avg_24h, volume), function (okData) {
+                                            if (okData == true) {
+                                                res.send({added: true, url: fullUrl + '/' + sname})
+                                                digitalCoins.getCurrency(sname);
+                                                intervalRequests.addInterval(sname, requestTime);
+                                            }
+                                            else {
+                                                res.send({error: "0101", errorMessage: errors[0101]});
+                                            }
+                                        });
+                                    }
+                                    else {
+                                        res.send({error: "0102", errorMessage: errors[0102]});
+                                    }
+                                });
+                            }
+                            else {
+                                res.send({error: "0103", errorMessage: errors[0103]});
+                            }
+                        });
+                    }
+                    else {
+                        res.send({error: "0104", errorMessage: errors[0104]});
+                    }
+                })
+            }
+            else {
+                res.send({error: "0108", errorMessage: errors[0108]});
+            }
         }
         else {
             res.send({error: "0105", errorMessage: errors[0105]});
         }
     }
     else {
-        res.send({error:"0106", errorMessage:errors[0106]});
+        res.send({error: "0106", errorMessage: errors[0106]});
 
     }
 }
@@ -207,7 +212,7 @@ var PUTByDigNameApiName = function (req, res) {
         realsname !== "" && realsname !== null &&
         last !== "" && last !== null &&
         requestTime !== "" && requestTime !== null) {
-        if (requestTime >= 3) {
+        if (requestTime >= 5000) {
             dbAPITicker.getApiTicker(sname, function (api) {
                 //console.log("PUT API "+api);
                 if (api) {
@@ -227,27 +232,27 @@ var PUTByDigNameApiName = function (req, res) {
                                                         intervalRequests.addInterval(sname, requestTime);
                                                     }
                                                     else {
-                                                        res.send({error:"0107", errorMessage: errors[0107]});
+                                                        res.send({error: "0107", errorMessage: errors[0107]});
                                                     }
                                                 });
                                             }
                                             else {
-                                                res.send({error:"0102", errorMessage: errors[0102]});
+                                                res.send({error: "0102", errorMessage: errors[0102]});
                                             }
                                         });
                                     }
                                     else {
-                                        res.send({error:"0103", errorMessage: errors[0103]});
+                                        res.send({error: "0103", errorMessage: errors[0103]});
                                     }
                                 });
                             }
                             else {
-                                res.send({error:"0104", errorMessage:errors[0104]});
+                                res.send({error: "0104", errorMessage: errors[0104]});
 
                             }
                         })
                     } else {
-                        res.send({error:"0100", errorMessage:errors[0100]});
+                        res.send({error: "0100", errorMessage: errors[0100]});
                     }
                 } else {
                     res.send({error: "0100", errorMessage: errors[0100]});
@@ -255,11 +260,11 @@ var PUTByDigNameApiName = function (req, res) {
             })
         }
         else {
-            res.send({error:"0105", errorMessage: errors[0105]});
+            res.send({error: "0105", errorMessage: errors[0105]});
         }
     }
     else {
-        res.send({error:"0106", errorMessage: errors[0106]});
+        res.send({error: "0106", errorMessage: errors[0106]});
     }
 };
 var DELETEApi = function (req, res) {
@@ -273,14 +278,14 @@ var DELETEApi = function (req, res) {
                     if (api !== "" && api !== null)
                         res.send({deleted: true});
                     else {
-                        res.send({error:"0100", errorMessage: errors[0100]});
+                        res.send({error: "0100", errorMessage: errors[0100]});
                     }
                 });
             } else {
-                res.send({error:"0100", errorMessage: errors[0100]});
+                res.send({error: "0100", errorMessage: errors[0100]});
             }
         } else {
-            res.send({error:"0100", errorMessage: errors[0100]});
+            res.send({error: "0100", errorMessage: errors[0100]});
         }
     });
 }

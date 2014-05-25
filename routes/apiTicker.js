@@ -7,12 +7,12 @@ var dbDigitalCoins = require('../models/dbDigitalCoins');
 var dbRealCoins = require('../models/dbRealCoins');
 var digitalCoins = require('../parser+requestAPI+convertor/digitalCoins');
 var intervalRequests = require('../parser+requestAPI+convertor/intervalRequests');
-var admin=require("./admin");
+var admin = require("./admin");
 var existsDigitalCoin = function (digsname, callback) {
     dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
         for (i = 0; i < snames.length; i++) {
             if (digsname == snames[i].sname) {
-                console.log(snames[i] + " " + digsname);
+                //console.log(snames[i] + " " + digsname);
 
                 callback(true);
                 break;
@@ -129,40 +129,44 @@ var postPageDigital = function (req, res) {
         realsname !== "" && realsname !== null &&
         last !== "" && last !== null &&
         requestTime !== "" && requestTime !== null) {
-        if (requestTime >= 3) {
-            existsDigitalCoin(digsname, function (existsDigital) {
-                if (existsDigital == true) {
-                    existsRealCoin(realsname, function (existsReal) {
-                        if (existsReal == true) {
-                            verificaParsareSiCampuriURL(urlTicker, last, bid, avg_24h, volume, function (okParsare) {
-                                if (okParsare == true) {
-                                    dbAPITicker.addApiTicker(new dbAPITicker.ApiTicker(sname, urlTicker, digsname, realsname, last, requestTime, bid, avg_24h, volume), function (okData) {
-                                        if (okData == true) {
-                                            res.redirect(req.protocol+'://'+req.get('host')+"/controlpanel/showApis");
-                                            digitalCoins.getCurrency(sname);
-                                            intervalRequests.addInterval(sname, requestTime);
-                                        }
-                                        else {
-                                            show(res, "Name already exits in the database", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
-                                        }
-                                    });
-                                }
-                                else {
-                                    show(res, "The URL or the fields of the ticker are incorrect", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
-                                }
-                            });
-                        }
-                        else {
-                            show(res, "Real coin does not exist", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
-                        }
-                    });
-                }
-                else {
+        if (requestTime >= 5000) {
+            if (sname != "Any api") {
+                existsDigitalCoin(digsname, function (existsDigital) {
+                    if (existsDigital == true) {
+                        existsRealCoin(realsname, function (existsReal) {
+                            if (existsReal == true) {
+                                verificaParsareSiCampuriURL(urlTicker, last, bid, avg_24h, volume, function (okParsare) {
+                                    if (okParsare == true) {
+                                        dbAPITicker.addApiTicker(new dbAPITicker.ApiTicker(sname, urlTicker, digsname, realsname, last, requestTime, bid, avg_24h, volume), function (okData) {
+                                            if (okData == true) {
+                                                res.redirect(req.protocol + '://' + req.get('host') + "/controlpanel/showApis");
+                                                digitalCoins.getCurrency(sname);
+                                                intervalRequests.addInterval(sname, requestTime);
+                                            }
+                                            else {
+                                                show(res, "Name already exits in the database", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                                            }
+                                        });
+                                    }
+                                    else {
+                                        show(res, "The URL or the fields of the ticker are incorrect", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                                    }
+                                });
+                            }
+                            else {
+                                show(res, "Real coin does not exist", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                            }
+                        });
+                    }
+                    else {
 
-                    show(res, "Digital coin does not exist", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+                        show(res, "Digital coin does not exist", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
 
-                }
-            })
+                    }
+                })
+            } else {
+                show(res, "The name of the api can't be 'Any api'", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
+            }
         }
         else {
             show(res, "The value of the request time is too low", digsname, sname, realsname, urlTicker, last, bid, volume, avg_24h, requestTime);
@@ -207,7 +211,7 @@ var postUpdatePage = function (req, res) {
         realsname !== "" && realsname !== null &&
         last !== "" && last !== null &&
         requestTime !== "" && requestTime !== null) {
-        if (requestTime >= 3) {
+        if (requestTime >= 5000) {
             dbAPITicker.getApiTicker(sname, function (api) {
                 if (api) {
                     existsDigitalCoin(digsname, function (existsDigital) {
@@ -218,7 +222,7 @@ var postUpdatePage = function (req, res) {
                                         if (okParsare == true) {
                                             dbAPITicker.updateApi(new dbAPITicker.ApiTicker(sname, urlTicker, digsname, realsname, last, requestTime, bid, avg_24h, volume), function (okData) {
                                                 if (okData == true) {
-                                                    res.redirect(req.protocol+'://'+req.get('host')+"/controlpanel/showApis");
+                                                    res.redirect(req.protocol + '://' + req.get('host') + "/controlpanel/showApis");
                                                     digitalCoins.getCurrency(sname);
                                                     intervalRequests.removeInterval(sname);
                                                     intervalRequests.addInterval(sname, requestTime);
@@ -271,14 +275,14 @@ var getAddApiPage = function (req, res) {
 };
 var getPageShowApis = function (req, res) {
     dbAPITicker.getAllApis(function (apis) {
-        if(req.session.token){
-            var tokenID=req.session.token;
-            if(tokenID!="")
+        if (req.session.token) {
+            var tokenID = req.session.token;
+            if (tokenID != "")
                 res.render('showApis', {title: 'Apis ', apis: apis, tokenID: tokenID});
             else
                 res.render('showApis', {title: 'Apis ', apis: apis, tokenID: "invalid"});
         }
-        else{
+        else {
             res.render('showApis', {title: 'Apis ', apis: apis, tokenID: "invalid"});
         }
 
@@ -298,21 +302,21 @@ var postDeleteApiPage = function (req, res) {
     }
 }
 
-exports.postPageDigital=function(req,res){
-    admin.verifyCredentials(req,res, postPageDigital);
+exports.postPageDigital = function (req, res) {
+    admin.verifyCredentials(req, res, postPageDigital);
 };
-exports.getUpdateApiPage=function(req,res){
-    admin.verifyCredentials(req,res, getUpdateApiPage);
+exports.getUpdateApiPage = function (req, res) {
+    admin.verifyCredentials(req, res, getUpdateApiPage);
 };
-exports.postUpdatePage=function(req,res){
-    admin.verifyCredentials(req,res, postUpdatePage);
+exports.postUpdatePage = function (req, res) {
+    admin.verifyCredentials(req, res, postUpdatePage);
 };
-exports.getAddApiPage=function(req,res){
-    admin.verifyCredentials(req,res, getAddApiPage);
+exports.getAddApiPage = function (req, res) {
+    admin.verifyCredentials(req, res, getAddApiPage);
 };
-exports.getPageShowApis=function(req,res){
-    admin.verifyCredentials(req,res, getPageShowApis);
+exports.getPageShowApis = function (req, res) {
+    admin.verifyCredentials(req, res, getPageShowApis);
 };
-exports.postDeleteApiPage=function(req,res){
-    admin.verifyCredentials(req,res, postDeleteApiPage);
+exports.postDeleteApiPage = function (req, res) {
+    admin.verifyCredentials(req, res, postDeleteApiPage);
 };

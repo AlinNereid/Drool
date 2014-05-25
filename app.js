@@ -365,9 +365,11 @@ database.connect(function (err, db) {
             console.log('Express server DROOL listening on port ' + app.get('port'));
         });
         realCoins.getRealCurrency("http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json", "yahooFinance");
+        setInterval(realCoins.getRealCurrency,timeRequest,"http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");
+        intervalRequests.StartAllApi();
         /* getCurrencyReal("http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");*/
-        intervalRequests.addInterval("bitstamp", 30000);
-        digitalCoins.getCurrency("bitstamp");
+        /*intervalRequests.addInterval("bitstamp", 30000);
+        digitalCoins.getCurrency("bitstamp");*/
 //        api.getLowerValueInUSD(2,"TESTCOIN",function(lowerValue){
 //            console.log("1_lowerValue" + lowerValue);
 //        });

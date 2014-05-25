@@ -159,7 +159,7 @@ var getCurrencyDigitalCoin = function (sname, callback) {
                                 date: Date.now()
                             }
 
-                            console.log("LAST" + dateDinApi);
+                            //console.log(sname+" add from api :" + dateDinApi);
                             if(last!=""){
                                 dbAPITicker.addDateApi(sname, dateDinApi, function (checkInserted) {
 

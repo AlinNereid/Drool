@@ -11,7 +11,7 @@ exports.DigitalCoin = function DigitalCoin(sname,lname,page){
     return this;
 }
 exports.addDigitalCoin= function(digCoin,callback){
-    console.log(digCoin);
+    console.log("ADD DIGITAL :" +digCoin);
     database.getDatabase().collection(nameCollection).insert(digCoin
     ,function (err, inserted) {
         console.log(err);
@@ -22,7 +22,7 @@ exports.addDigitalCoin= function(digCoin,callback){
     });
 };
 exports.updateDigitalCoin = function(digCoin,callback){
-    console.log(digCoin);
+    console.log("UPDATE DIGITAL :"+digCoin);
     database.getDatabase().collection(nameCollection).update({sname:digCoin.sname},digCoin
         ,function (err, inserted) {
             console.log(err);
@@ -33,7 +33,7 @@ exports.updateDigitalCoin = function(digCoin,callback){
         });
 }
 exports.deleteDigitalCoin = function(sname,callback){
-    console.log("Delete " + sname);
+    console.log("DELETE DIGITAL " + sname);
     database.getDatabase().collection(nameCollection).remove({sname:sname},function (err, numDeleted) {
         if(numDeleted == 0 || err){
             callback(false);
@@ -44,7 +44,7 @@ exports.deleteDigitalCoin = function(sname,callback){
 }
 exports.getDigitalCoin=function(sname,callback){
     database.getDatabase().collection(nameCollection).findOne({sname:sname},{_id:0},function(err, coins){
-        console.log(coins);
+        //console.log(coins);
         callback(coins);
     });
 }

@@ -3,6 +3,7 @@ var allSymbols = [];
 var allDigitalSnames = [];
 var api1 = "Any api";
 var api2 = "Any api";
+var focus = 1;
 var resize = function () {
     if($timer1.val()=="NaN"){
         $timer1.val("");
@@ -27,6 +28,7 @@ var resize = function () {
 }
 
 $(document).ready(function () {
+
     var updateTimeOut;
     var text1 = $('ul.menuSearch2 li:nth-child(' + 2 + ') span').text();
     var text2 = $('ul.menuSearch2 li:nth-child(' + 3 + ') span').text();
@@ -106,11 +108,20 @@ $(document).ready(function () {
             dataType: "json",
             success: function (rasp) {
                 valoarecurenta=rasp.value;
-                if($timer1.val()==""){
-                    $timer2.val("");
-                }
+                if(focus==1)
+                    if($timer1.val()==""){
+                        $timer2.val("");
+                    }
+                    else{
+                        $timer2.val(($timer1.val() * valoarecurenta).toFixed(numberDecimal));
+                    }
                 else{
-                    $timer2.val(($timer1.val() * valoarecurenta).toFixed(numberDecimal));
+                    if($timer2.val()==""){
+                        $timer1.val("");
+                    }
+                    else{
+                        $timer1.val(($timer2.val() / valoarecurenta).toFixed(numberDecimal));
+                    }
                 }
 
                 resize()
@@ -136,6 +147,7 @@ $(document).ready(function () {
     //startTimer1();
     $timer1 = $('#input1');
     $('#input1').on('input', function () {
+        focus=1;
         if ($timer1.val() == "") {
             $timer1.attr({width: 'auto', size: minimalSize});
             $timer2.val("");
@@ -148,6 +160,7 @@ $(document).ready(function () {
     //startTimer2();
     $timer2 = $('#input2');
     $('#input2').on('input', function () {
+        focus=2;
         if ($timer2.val() == "") {
             $timer1.attr({width: 'auto', size: minimalSize});
             $timer2.attr({width: 'auto', size: minimalSize});
