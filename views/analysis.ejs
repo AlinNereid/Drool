@@ -8,14 +8,72 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <script type="text/javascript">
+            var apiselectat;
+            var digitalCoinSelectat;
+            var hours;
+            var points;
+            var monedaRef="";
+            var apisGlobal;
 
-
+            function getAllApis(digsname, callback) {
+                $.ajax({
+                    url: "../api/coins/digital/" + digsname + "/apiTickers",
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        var apis = [];
+                        for (i = 0; i < data.length; i++) {
+                            apis.push({sname : data[i].sname,refCoin:data[i].realsname});
+                        }
+                        apisGlobal=apis;
+                        if(apisGlobal.length!=0){
+                            monedaRef=apisGlobal[0].refCoin;
+                        }
+                        callback(apis)
+                        console.log(apis);
+                    }
+                });
+            }
             $(function () {
-                $('select').on('change', function (e) {
-                    var optionSelected = $("option:selected", this);
-                    apiselectat=this.value;
-                    clearInterval(updateTimeOut);
+                apiselectat=$("#selectApis option").eq(0).val();
+                digitalCoinSelectat=$("#selectDig option").eq(0).val();
+                hours=1;
+                points=25;
+                getAllApis($("#selectDig").val(),function(api){});
+                $('#hours').on('change', function (e) {
+                    hours=this.value;
                     update();
+                });
+                $('#points').on('change', function (e) {
+                    points=this.value;
+                    update();
+                });
+                $('#selectApis').on('change', function (e) {
+                    console.log(this);
+                    apiselectat=this.value;
+                    monedaRef="";
+                    for(i=0;i<apisGlobal.length;i++){
+                        if(apisGlobal[i].sname==this.value){
+                            monedaRef=apisGlobal[i].refCoin;
+                            break;
+                        }
+                    }
+                    update();
+                });
+                $('#selectDig').on('change', function (e) {
+                    digitalCoinSelectat=this.value;
+                    apiselectat="";
+                    $("#selectApis option").remove()
+                    getAllApis($("#selectDig").val(),function(apis){
+                        if(apis.length!=0){
+                            apiselectat=apis[0].sname;
+                            monedaRef=apis[0].refCoin;
+                        }
+                        for (var i = 0; i < apis.length; i++) {
+                            $("#selectApis").append('<option value='+apis[i].sname+'>' + apis[i].sname + '</option>')
+                            update();
+                        }
+                    })
                 });
                 var testPostToken = function(){
                     $.ajax({
@@ -160,8 +218,8 @@
                 var data = [],
                         totalPoints = 50;
                 var updateInterval = 30000;
-                var apiselectat="test";
                 var options= {
+                    //colors:["#1EC988"],
                     series: {
                         shadowSize: 0
                     },
@@ -181,13 +239,11 @@
 
                 };
                 function onDataReceived(rasp) {
-                    console.log("yey");
-
                     if(rasp){
                         data=[];
                         var date=rasp["date"];
                         for(i=0;i<date.length;i++){
-                            data.push([new Date(date[i]["date"] + 3*3600*1000).getTime(),date[i]["last"],{url: date[i]["last"]+"  Date: "+ new Date(date[i]["date"]).toString()}]);
+                            data.push([new Date(date[i]["date"] + 3*3600*1000).getTime(),date[i]["last"],{url: date[i]["last"]+monedaRef+"  Date: "+ new Date(date[i]["date"]).toString()}]);
                         }
                         $.plot("#placeholder",[{ label: apiselectat, data: data}], options);
                     }
@@ -229,21 +285,20 @@
                 }
 
                 function update() {
-
                     $.ajax({
-                        url: "../api/coins/digital/BTC/apiTIckers/"+"bitstamp"+"/"+"values",
+                        url: "../api/coins/digital/"+digitalCoinSelectat+"/apiTIckers/"+apiselectat+"/"+"values",
                         data:{
-                            hours:10,
-                            numberPoints:10
+                            hours:hours,
+                            numberPoints:points
                         },
                         type: "GET",
                         dataType: "json",
                         success: onDataReceived
                     });
-                    updateTimeOut=setTimeout(update, updateInterval);
-                }
 
+                }
                 update();
+                updateTimeID=setInterval(update, updateInterval);
             });
         </script>
     </head>
@@ -273,13 +328,28 @@
     <main>
         <div id="content">
             <div class="demo-container">
-                <div id="placeholder" class="demo-placeholder" style="float:left;width: 700px"></div>
-                <select style="float:right;width:150px">
-                    <option value="test">test</option>
-                    <option value="bitcoinaverageUSD">bitcoinaverageUSD</option>
-                    <option value="bitstampUSD">bitstampUSD</option>
-                    <option value="btc-eUSD">btc-eUSD</option>
+                <div id="placeholder" class="demo-placeholder" style="float:left;width: 700px;"></div>
+                <label>Digital Coin:</label>
+                <select id ="selectDig" style="float:right;width:150px; background: rgb(224,224,224);">
+                    <% for(var i=0; i<digCoins.length; i++) {%>
+                    <option value="<%=digCoins[i].sname%>"><%=digCoins[i].sname%></option>
+                    <% } %>
                 </select>
+                <br>
+                <label>Apis:</label>
+                <select id ="selectApis" style="float:right;width:150px; background: rgb(224,224,224);">
+                    <% for(var i=0; i<apis.length; i++) {%>
+                    <option value="<%=apis[i].sname%>"><%=apis[i].sname%></option>
+                    <% } %>
+                </select>
+                <br>
+                <label>Hours:</label>
+                <br>
+                <input id="hours" style="width: 35px; background: rgb(224,224,224);" type="number" step="1" value="1" min="1" >
+                <br>
+                <label>Points:</label>
+                <br>
+                <input id="points" style="width: 35px; background: rgb(224,224,224);" type="number" step="5" value="25" min="1"max="50">
             </div>
         </div>
     </main>
