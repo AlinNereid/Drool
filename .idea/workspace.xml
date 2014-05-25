@@ -27,50 +27,49 @@
         <entry file="file://$PROJECT_DIR$/routes/analysis.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="11" column="0" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-              <folding>
-                <marker date="1400998046065" expanded="true" signature="179:431" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="apiTicker.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/apiTicker.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="153" selection-end="210" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5904">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="realCoins.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parser+requestAPI+convertor/realCoins.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="54" selection-start="1272" selection-end="1272" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="810">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="analysis.ejs" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="analysis.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/analysis.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="332" column="101" selection-start="13126" selection-end="13126" vertical-scroll-proportion="0.23018868" vertical-offset="5854" max-vertical-offset="6552">
+            <state line="49" column="22" selection-start="2436" selection-end="2436" vertical-scroll-proportion="-20.185184" vertical-offset="337" max-vertical-offset="6876">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#select#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="values.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="values.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/values.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="37" selection-start="2361" selection-end="2361" vertical-scroll-proportion="-12.333333" vertical-offset="657" max-vertical-offset="1962">
+            <state line="81" column="134" selection-start="4136" selection-end="4136" vertical-scroll-proportion="0.93322206" vertical-offset="899" max-vertical-offset="2322">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.datetimepicker.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascript/jquery.datetimepicker.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1315" column="72" selection-start="45499" selection-end="45499" vertical-scroll-proportion="0.0" vertical-offset="23499" max-vertical-offset="24084">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.datetimepicker.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascript/jquery.datetimepicker.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="19" selection-start="266" selection-end="266" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5562">
               <folding />
             </state>
           </provider>
@@ -81,18 +80,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="323" column="21" selection-start="11397" selection-end="11544" vertical-scroll-proportion="-15.925926" vertical-offset="5384" max-vertical-offset="6750">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.ejs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/index.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="23" selection-start="1503" selection-end="1629" vertical-scroll-proportion="-15.111111" vertical-offset="258" max-vertical-offset="954">
-              <folding>
-                <marker date="1400946234556" expanded="true" signature="971:1056" placeholder="{...}" />
-                <marker date="1400946234556" expanded="true" signature="1544:1626" placeholder="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -110,6 +97,15 @@
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="306">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="168" column="33" selection-start="6390" selection-end="6392" vertical-scroll-proportion="0.0" vertical-offset="3427" max-vertical-offset="7650">
               <folding />
             </state>
           </provider>
@@ -169,8 +165,8 @@
         <option value="$PROJECT_DIR$/views/showDigitalCoins.ejs" />
         <option value="$PROJECT_DIR$/views/showApis.ejs" />
         <option value="$PROJECT_DIR$/routes/analysis.js" />
-        <option value="$PROJECT_DIR$/api/values.js" />
         <option value="$PROJECT_DIR$/views/analysis.ejs" />
+        <option value="$PROJECT_DIR$/api/values.js" />
       </list>
     </option>
   </component>
@@ -376,6 +372,11 @@
     <property name="LayoutCode.rearrangeEntriesEJS" value="false" />
     <property name="SearchEverywhereHistory" value="" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/javascript" />
+    </key>
+  </component>
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
@@ -471,22 +472,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1857" height="957" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32906976" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32906976" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32906976" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3439353" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17250673" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2255814" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2255814" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -529,20 +530,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="356" column="20" selection-start="13552" selection-end="13552" vertical-scroll-proportion="0.0" vertical-offset="6273" max-vertical-offset="7650">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/updateApi.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="104" selection-start="2504" selection-end="2504" vertical-scroll-proportion="-14.666667" vertical-offset="378" max-vertical-offset="1368">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/adminLogin.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="612" />
@@ -784,8 +771,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="23" selection-start="1503" selection-end="1629" vertical-scroll-proportion="-15.111111" vertical-offset="258" max-vertical-offset="954">
           <folding>
-            <marker date="1400946234556" expanded="true" signature="971:1056" placeholder="{...}" />
-            <marker date="1400946234556" expanded="true" signature="1544:1626" placeholder="{...}" />
+            <marker date="1400946234556" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1400946234556" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -811,15 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/analysis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-          <folding>
-            <marker date="1400998046065" expanded="true" signature="179:431" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascript/javascript.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="323" column="21" selection-start="11397" selection-end="11544" vertical-scroll-proportion="-15.925926" vertical-offset="5384" max-vertical-offset="6750">
@@ -841,13 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="33" selection-start="6390" selection-end="6392" vertical-scroll-proportion="-0.70086956" vertical-offset="3427" max-vertical-offset="7650">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/analysis.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="32" selection-start="558" selection-end="558" vertical-scroll-proportion="21.333334" vertical-offset="810" max-vertical-offset="3690">
@@ -855,23 +826,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/values.js">
+    <entry file="file://$PROJECT_DIR$/public/javascript/jquery.datetimepicker.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="37" selection-start="2361" selection-end="2361" vertical-scroll-proportion="-12.333333" vertical-offset="657" max-vertical-offset="1962">
+        <state line="8" column="19" selection-start="266" selection-end="266" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5562">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/jquery.datetimepicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1315" column="72" selection-start="45499" selection-end="45499" vertical-scroll-proportion="0.0" vertical-offset="23499" max-vertical-offset="24084">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="168" column="33" selection-start="6390" selection-end="6392" vertical-scroll-proportion="0.0" vertical-offset="3427" max-vertical-offset="7650">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/analysis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/analysis.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="332" column="101" selection-start="13126" selection-end="13126" vertical-scroll-proportion="0.23018868" vertical-offset="5854" max-vertical-offset="6552">
+        <state line="49" column="22" selection-start="2436" selection-end="2436" vertical-scroll-proportion="-20.185184" vertical-offset="337" max-vertical-offset="6876">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#select#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#2;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/values.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="134" selection-start="4136" selection-end="4136" vertical-scroll-proportion="0.93322206" vertical-offset="899" max-vertical-offset="2322">
+          <folding />
         </state>
       </provider>
     </entry>

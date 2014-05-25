@@ -2,9 +2,11 @@
 <html>
     <head>
         <title><%= title %></title>
+        <link rel="stylesheet" type="text/css" href="/javascript/jquery.datetimepicker.css"/>
         <script type="text/javascript" src="/javascript/jquery-1.11.0.js"></script>
         <script language="javascript" type="text/javascript" src="/javascript/jquery.flot.js"></script>
         <script language="javascript" type="text/javascript" src="/javascript/jquery.flot.time.js"></script>
+        <script type="text/javascript" src="/javascript/jquery.datetimepicker.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <script type="text/javascript">
@@ -14,7 +16,8 @@
             var points;
             var monedaRef="";
             var apisGlobal;
-
+            var selectedTime;
+            var d;
             function getAllApis(digsname, callback) {
                 $.ajax({
                     url: "../api/coins/digital/" + digsname + "/apiTickers",
@@ -35,11 +38,22 @@
                 });
             }
             $(function () {
+                d = new Date(Date.now());
+                var timeFormated = d.getFullYear()+"/"+('0' +(d.getMonth()+1)).slice(-2)+"/"+('0' + d.getDate()).slice(-2)
+                        +" "+('0' + d.getHours()).slice(-2)+":"+('0' + d.getMinutes()).slice(-2);
+                $('#datetimepicker').datetimepicker().datetimepicker({value:timeFormated, step:10});
                 apiselectat=$("#selectApis option").eq(0).val();
                 digitalCoinSelectat=$("#selectDig option").eq(0).val();
                 hours=1;
                 points=25;
+                selectedTime=Date.now();
                 getAllApis($("#selectDig").val(),function(api){});
+                $('#datetimepicker').on('change', function (e) {
+                    d = new Date(this.value);
+                    selectedTime = d.getTime();
+                    console.log(selectedTime);
+                    update();
+                });
                 $('#hours').on('change', function (e) {
                     hours=this.value;
                     update();
@@ -289,7 +303,8 @@
                         url: "../api/coins/digital/"+digitalCoinSelectat+"/apiTIckers/"+apiselectat+"/"+"values",
                         data:{
                             hours:hours,
-                            numberPoints:points
+                            numberPoints:points,
+                            startTime:selectedTime
                         },
                         type: "GET",
                         dataType: "json",
@@ -350,6 +365,9 @@
                 <label>Points:</label>
                 <br>
                 <input id="points" style="width: 35px; background: rgb(224,224,224);" type="number" step="5" value="25" min="1"max="50">
+                <br>
+                <label>Start Date</label>
+                <input type="text" size=13 style="background: rgb(224,224,224)" id="datetimepicker"/><br><br>
             </div>
         </div>
     </main>
