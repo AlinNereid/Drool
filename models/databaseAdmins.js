@@ -7,7 +7,7 @@ exports.existsAdmin=function(user,password,callback){
     shasum = crypto.createHash('sha1');
     shasum.update(password);
     passSHA1 = shasum.digest('hex');
-    //console.log(passSHA1);
+   // console.log(passSHA1);
    /* database.getDatabase().collection("collectionAdmins").insert({user:"admin",password:passSHA1}, function (err, inserted) {
         console.log("insert");
         if(err)

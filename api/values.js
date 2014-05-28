@@ -114,10 +114,10 @@ var GETValues = function (req, res) {
                 res.send({error: "0603", errorMessage: errors[0603]});
             }
         } else {
-            res.send({error: "0602", errorMessage: errors[0602]});
+            res.send({error: "0604", errorMessage: errors[0604]});
         }
     } else {
-        res.send({error: "de modificat", errorMessage: errors[0602]});
+        res.send({error: "0602", errorMessage: errors[0602]});
     }
 
 };

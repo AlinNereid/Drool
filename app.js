@@ -7,6 +7,7 @@ var index = require('./routes/index');
 var http = require('http');
 var path = require('path');
 var analysis = require('./routes/analysis');
+var rates = require('./routes/rates');
 var adminRoute = require('./routes/admin');
 var database = require('./models/database');
 var apiRoute = require('./routes/apiTicker');
@@ -138,6 +139,7 @@ app.get('/logout', session, function (req, res) {
 app.get('/', index.get);
 app.get('/convertor', index.get);
 app.get('/analysis', analysis.get);
+app.get('/rates', rates.get);
 var getDate = function (send_json, lastDate, numar, delay, callback) {
     if (numar != 0) {
         database.getDatabase().collection("bitstamp").find({date: {$lt: lastDate - delay}}, {_id: 0}).sort({date: -1}).limit(1).toArray(function (err, results) {
