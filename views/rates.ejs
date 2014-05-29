@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <script type="text/javascript" src="/javascript/jquery-1.11.0.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/css/stylemedia.css">
+    <script type="text/javascript" src="/javascript/datejs.js"></script>
+    <script type="text/javascript" src="/javascript/javas.js"></script>
+    <!--<script type="text/javascript" src="/javascript/javascript.js"></script>-->
+</head>
+<body>
+<%- include layouts/headerUser.ejs%>
+<main>
+    <p class="subTitle">Rates between Apis</p>
+    <table id="ratesApi">
+        <tr>
+            <th></th>
+            <% for(var i=0; i<apis.length; i++) {%>
+            <th><%= apis[i] %></th>
+            <% } %>
+            <th>
+                <div style="width: 120px; display:block">
+                    <select id="selectApi" style="width: 81px">
+                        <option value="" disabled selected>Add api</option>
+                    </select>
+                    <button id="addApi" onclick="putColumn()">Add</button>
+                </div>
+            </th>
+        </tr>
+
+        <tr>
+            <td id="coin"><%= digitalCoins[0] %></td>
+        </tr>
+        <tr>
+            <td>
+                    <select id="changeCurrency">
+                        <option value="" disabled selected>Change currency</option>
+                    </select>
+                    <button id="changeDigital" onclick="changeRowCoin()">Change</button>
+            </td>
+        </tr>
+    </table>
+
+    <p class="subTitle">Rates between Coins</p>
+
+    <table id="ratesCoins">
+        <tr>
+            <th>Currency</th>
+            <% for(var i=0; i<realCoins.length; i++) {%>
+            <th><%= realCoins[i] %></th>
+            <% } %>
+            <th>
+                <div style="width: 110px">
+                    <select id="selectCoin">
+                        <option value="" disabled selected>Add a currency</option>
+                    </select>
+                    <button id="addCoins" onclick="addColumnCoin()">Add</button>
+                </div>
+            </th>
+        </tr>
+
+        <tr>
+            <td><%= digitalCoins[0] %></td>
+        </tr>
+        <tr>
+            <td>
+                <div style="width: 110px">
+                    <select id="selectDigital">
+                        <option value="" disabled selected>Add a currency</option>
+                    </select>
+                    <button id="addDigital" onclick="addRowCoin()">Add</button>
+                </div>
+
+            </td>
+        </tr>
+    </table>
+</main>
+<%- include layouts/footer.ejs%>
+</body>
+</html>

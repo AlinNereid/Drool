@@ -25,7 +25,8 @@ var errorsObj={
     0600:"The number of hours and the number of points must be positive.",
     0601:"Required parameters don't have a proper value.",
     0602:"Required parameters are not specified.",
-    0603:"Number of points exceeds the maximum number of points"
+    0603:"Number of points exceeds the maximum number of points",
+    0604:"Start date is not valid"
 }
 
 exports.errors=errorsObj;
