@@ -725,27 +725,22 @@ div.pencil:before {
     background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
 }
 
-#addCoins{
+#ratesApi button{
     border: 1px solid;
-    border-radius: 7px;
     margin-top: 2px;
+    border : solid 1px black;
+    border-radius : 3px;
+    color : #000000;
+    background-color: white;
+    padding: 2px;
 }
 
-#addDigital{
+#ratesCoins button{
     border: 1px solid;
-    border-radius: 7px;
     margin-top: 2px;
-}
-
-#changeDigital{
-    border: 1px solid;
-    border-radius: 7px;
-    margin-top: 2px;
-}
-
-
-#addApi{
-    border: 1px solid;
-    border-radius: 7px;
-    margin-top: 2px;
+    border : solid 1px black;
+    border-radius : 3px;
+    color : #000000;
+    background-color: white;
+    padding: 2px;
 }
