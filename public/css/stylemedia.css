@@ -240,7 +240,7 @@ ul li span{
 
 /* medium screens */
 
-@media all and (max-width: 600px) and (min-width: 390px){
+@media all and (max-width: 650px) and (min-width: 390px){
   header nav ul  {
     flex-direction: column;
   }

@@ -7,6 +7,7 @@
         <script language="javascript" type="text/javascript" src="/javascript/jquery.flot.js"></script>
         <script language="javascript" type="text/javascript" src="/javascript/jquery.flot.time.js"></script>
         <script type="text/javascript" src="/javascript/jquery.datetimepicker.js"></script>
+        <script type="text/javascript" src="/javascript/html2canvas.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <script type="text/javascript">
@@ -315,6 +316,18 @@
                 update();
                 updateTimeID=setInterval(update, updateInterval);
             });
+
+            function download123() {
+                html2canvas($('#placeholder'), {
+                    onrendered: function(canvas) {
+                        var img = canvas.toDataURL()
+                        $("#download").attr("href", img);
+                        $("#download").attr("download", "Drool___"+new Date(Date.now()));
+                    }
+                });
+            }
+           // document.getElementById('download').addEventListener('click', download, false);
+
         </script>
     </head>
     <body>
@@ -351,7 +364,7 @@
                     <% } %>
                 </select>
                 <br>
-                <label>Apis:</label>
+                <label>Api:</label>
                 <select id ="selectApis" style="float:right;width:150px; background: rgb(224,224,224);">
                     <% for(var i=0; i<apis.length; i++) {%>
                     <option value="<%=apis[i].sname%>"><%=apis[i].sname%></option>
@@ -368,6 +381,9 @@
                 <br>
                 <label>Start Date</label>
                 <input type="text" size=13 style="background: rgb(224,224,224)" id="datetimepicker"/><br><br>
+
+                <a id="download" download="name" title="DownloadImage" onclick="download123();">Download as image</a>
+
             </div>
         </div>
     </main>
