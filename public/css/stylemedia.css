@@ -565,6 +565,9 @@ table {
     -webkit-box-shadow: 0 1px 2px #d1d1d1;
     box-shadow: 0 1px 2px #d1d1d1;
 }
+#table{
+    width:auto;
+}
 
 table th {
     padding:21px 25px 22px 25px;
@@ -743,4 +746,44 @@ div.pencil:before {
     color : #000000;
     background-color: white;
     padding: 2px;
+}
+#changeDigital{
+    border: 1px solid;
+    margin-top: 2px;
+    border : solid 1px black;
+    border-radius : 3px;
+    color : #000000;
+    background-color: white;
+    padding: 2px;
+}
+
+#ratesApi td:first-child{
+    padding:21px 25px 22px 25px;
+    border-top:1px solid #fafafa;
+    border-bottom:1px solid #e0e0e0;
+
+    background: #ededed;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+    background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
+}
+
+#ratesCoins td:first-child{
+    padding:21px 25px 22px 25px;
+    border-top:1px solid #fafafa;
+    border-bottom:1px solid #e0e0e0;
+
+    background: #ededed;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+    background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
+}
+
+select{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#divSelect{
+    margin-left: 324px;
+    text-align: left;
+    width: 500px;
 }

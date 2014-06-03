@@ -51,7 +51,7 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 app.get('/login', session, adminRoute.getLoginPage);
-
+app.get('/logout', session, adminRoute.getLogoutPage);
 app.get('/controlpanel', session, adminRoute.getControlPanel);
 app.post('/controlpanel', session,adminRoute.postControlPanel);
 
@@ -132,10 +132,9 @@ app.put('/api/test', function (req, res) {
 
 app.get('/controlpanel/deleteApi/:name', apiRoute.postDeleteApiPage);
 app.post('/login', session, adminRoute.postLoginPage);
-app.get('/logout', session, function (req, res) {
+/*app.get('/logout', session, function (req, res) {
     req.session.name = null;
-    res.send("yee")
-});
+});*/
 app.get('/', index.get);
 app.get('/convertor', index.get);
 app.get('/analysis', analysis.get);
