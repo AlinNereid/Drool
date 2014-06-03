@@ -3,6 +3,35 @@
 <head>
     <%- include layouts/head.ejs%>
     <script type="text/javascript" src="/javascript/jsapi.js"></script>
+    <script type="text/javascript">
+        var uniqueApi=function(){
+            var valoare = $('input[name="sname"]').val();
+            var testUnique = function(){
+                $.ajax({
+                    url:"/api/uniqueApi",
+                    type : "POST",
+                    data : {name:valoare},
+                    dataType : "json",
+                    success: function(rasp){
+                        console.log(rasp);
+                        if(rasp){
+                            if(rasp.unique){
+                                if(rasp.unique==true){
+                                    $('label[for="sname"]').css("color","green");
+                                }
+                            }else{
+                                $('label[for="sname"]').css("color","red");
+                            }
+                        }
+                    },
+                    error:function(){
+                        console.log("error");
+                    }
+                });
+            }
+            testUnique();
+        }
+    </script>
 </head>
 <body>
     <%- include layouts/headerControlPanelElements.ejs%>
@@ -13,18 +42,18 @@
             <form id="formAddApi" action="./addApi" autocomplete="on"  method="post">
                 <div id="divForm">
                     <div id="labels">
-                        <label class="labelAddApi">Name*:</label>
-                        <label class="labelAddApi">URL*:</label>
-                        <label class="labelAddApi">Digital Coin*:</label>
-                        <label class="labelAddApi">Real Reference Coin*:</label>
-                        <label class="labelAddApi">Request Time(ms)*:</label>
-                        <label class="labelAddApi">Last*:</label>
-                        <label class="labelAddApi">Bid:</label> 
-                        <label class="labelAddApi">Avg 24h:</label>
-                        <label class="labelAddApi">Volume:</label> 
+                        <label class="labelAddApi" for="sname">Name*:</label>
+                        <label class="labelAddApi" for="urlTicker">URL*:</label>
+                        <label class="labelAddApi" for="digsname">Digital Coin*:</label>
+                        <label class="labelAddApi" for="realsname">Real Reference Coin*:</label>
+                        <label class="labelAddApi" for="requestTime">Request Time(ms)*:</label>
+                        <label class="labelAddApi" for="last">Last*:</label>
+                        <label class="labelAddApi" for="bid">Bid:</label>
+                        <label class="labelAddApi" for="avg_24h">Avg 24h:</label>
+                        <label class="labelAddApi" for="volume">Volume:</label>
                     </div>
                     <div id="inputs">
-                        <input class="addApiInputs" type="text" name="sname" value="<%= sname %>" required>
+                        <input class="addApiInputs" type="text" name="sname" value="<%= sname %>" required onchange="uniqueApi()">
                         <input  class="addApiInputs" type="url" name="urlTicker" value="<%= urlTicker %>" required>
                             <button name="parse" id="parse">Parse Api</button>  
                         <input class="addApiInputs" list="digsname" name="digsname" value="<%= digsname %>" required>

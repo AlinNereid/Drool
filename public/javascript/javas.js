@@ -260,6 +260,7 @@ $(document).ready(function () {
         for (var i = 0; i < apis.length; i++) {
             $("#selectApi").append('<option>' + apis[i] + '</option>')
         }
+        //console.log("marime api " + apis.length);
     });
 
     getDigital(function(snames){

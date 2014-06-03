@@ -289,6 +289,23 @@ var DELETEApi = function (req, res) {
         }
     });
 }
+var UniqueApi=function(req,res){
+    res.contentType('application/json');
+    var sname = req.param('name', "");
+    if(sname!="" && sname!=null){
+        dbAPITicker.getApiTicker(sname, function (api) {
+            if (api) {
+                res.send({unique:false});
+            }else{
+                res.send({unique:true});
+            }
+        });
+    }else{
+        res.send({error:"true"});
+    }
+
+}
+exports.POSTUniqueApi=UniqueApi;
 exports.GETallApiWithDigital = GETallApiWithDigital;
 exports.GETApiWithDigital = GETApiWithDigital;
 exports.POSTinROOT = function (req, res) {

@@ -2,6 +2,35 @@
 <html>
 <head>
     <%- include layouts/head.ejs%>
+    <script type="text/javascript">
+        var uniqueCoin=function(){
+            var valoare = $('input[name="sname"]').val();
+            var testUnique = function(){
+                $.ajax({
+                    url:"/api/uniqueCoin",
+                    type : "POST",
+                    data : {name:valoare},
+                    dataType : "json",
+                    success: function(rasp){
+                        console.log(rasp);
+                        if(rasp){
+                            if(rasp.unique){
+                                if(rasp.unique==true){
+                                    $('label[for="sname"]').css("color","green");
+                                }
+                            }else{
+                                $('label[for="sname"]').css("color","red");
+                            }
+                        }
+                    },
+                    error:function(){
+                        console.log("error");
+                    }
+                });
+            }
+            testUnique();
+        }
+    </script>
 </head>
 <body>
     <%- include layouts/headerControlPanelElements.ejs%>
@@ -10,7 +39,7 @@
     <form id="formAddDigital" action="./addDigitalCoin" autocomplete="on"  method="post">
        <p>
         <label class="labelAddDigital" for="sname">Short Name*:</label>
-        <input class="addDigitalInputs"type="text" name="sname" id="sname" value="<%= sname %>" required>
+        <input class="addDigitalInputs"type="text" name="sname" id="sname" value="<%= sname %>" required onchange="uniqueCoin()">
        </p> 
        <p>
         <label class="labelAddDigital" for="lname">Long Name:</label>

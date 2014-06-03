@@ -146,6 +146,30 @@ var DELETEByName = function (req, res) {
         });
     });
 }
+var UniqueName = function(req,res){
+    res.contentType('application/json');
+    var sname = req.param('name', "");
+    if(sname!="" && sname!=null){
+        sname = sname.toUpperCase();
+        existsDigitalCoin(sname, function (exits) {
+            if (exits == false) {
+                existsRealCoinSname(sname, function (existaRealSname) {
+                    if(existaRealSname==false){
+                        res.send({unique:true});
+                    }else{
+                        res.send({unique:false});
+                    }
+                })
+            }
+            else{
+                res.send({unique:false});
+            }
+        })
+    }else{
+        res.send({error:"true"});
+    }
+};
+exports.POSTUniqueName=UniqueName;
 exports.GETall = GETallDigitalCoin;
 exports.GETByNameDigital = GETByName;
 

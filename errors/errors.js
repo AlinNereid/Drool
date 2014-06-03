@@ -28,5 +28,4 @@ var errorsObj={
     0603:"Number of points exceeds the maximum number of points",
     0604:"Start date is not valid"
 }
-
 exports.errors=errorsObj;
