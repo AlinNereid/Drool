@@ -11,8 +11,13 @@ $(document).ready(function(){
                 type: "GET",
                 dataType: "json",
                 success: function(data){
-                    var str = JSON.stringify(data, undefined, 4);
-                    $("#prejSON").text(str);
+                    if(data != false){
+                        var str = JSON.stringify(data, undefined, 4);
+                        $("#prejSON").text(str);
+                    }else{
+                        $("#prejSON").text("Error, invalid link!");
+                    }
+
                 }
             });
         });

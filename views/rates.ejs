@@ -10,17 +10,35 @@
     <!--<script type="text/javascript" src="/javascript/javascript.js"></script>-->
 </head>
 <body>
-<%- include layouts/headerUser.ejs%>
+<%- include layouts/headerUser.ejs %>
 <main>
     <p class="subTitle">Rates between Apis</p>
+
+    <div id="divSelect">
+        <div style="margin-top: 10px">
+            <label>Select a reference currency</label>
+            <select id="selectCoinApi">
+                <option value="" disabled selected>Choose currency</option>
+            </select>
+        </div>
+        <div style="margin-top: 10px">
+            <label>Change the digital currency</label>
+            <select id="changeCurrency">
+                <option value="" disabled selected>Change currency</option>
+            </select>
+            <button id="changeDigital" onclick="changeRowCoin()">Change</button>
+        </div>
+        <p id="dateTime" style="margin-top: 5px">DateTime: <%=data%></p>
+    </div>
+
     <table id="ratesApi">
         <tr>
-            <th></th>
-            <% for(var i=0; i<apis.length; i++) {%>
+            <th>Apis</th>
+            <% for(var i = 0; i < apis.length; i++) { %>
             <th><%= apis[i] %></th>
             <% } %>
-            <th>
-                <div style="width: 120px; display:block">
+            <th id="api" style="width: 120px">
+                <div style="width: 110px">
                     <select id="selectApi" style="width: 81px">
                         <option value="" disabled selected>Add api</option>
                     </select>
@@ -30,22 +48,14 @@
         </tr>
 
         <tr>
-            <td id="coin"><%= digitalCoins[0] %></td>
-            <%if (apisVal.length == 1) { %>
-            <td><%=apisVal[0]%></td>
+            <td id="coin"><%=digitalCoins[0]%></td>
+            <% if (apisVal.length == 1) { %>
+            <td><%= apisVal[0] %> USD</td>
             <% } %>
-            <%if (apisVal.length == 2) { %>
-            <td><%=apisVal[0]%></td>
-            <td><%=apisVal[1]%></td>
+            <% if (apisVal.length == 2) { %>
+            <td><%= apisVal[0] %> USD</td>
+            <td><%= apisVal[1] %> USD</td>
             <% } %>
-        </tr>
-        <tr>
-            <td>
-                    <select id="changeCurrency">
-                        <option value="" disabled selected>Change currency</option>
-                    </select>
-                    <button id="changeDigital" onclick="changeRowCoin()">Change</button>
-            </td>
         </tr>
     </table>
 
@@ -54,11 +64,11 @@
     <table id="ratesCoins">
         <tr>
             <th>Currency</th>
-            <% for(var i=0; i<realCoins.length; i++) {%>
+            <% for(var i = 0; i < realCoins.length; i++) { %>
             <th><%= realCoins[i] %></th>
             <% } %>
             <th>
-                <div style="width: 110px">
+                <div style="width: 110px ">
                     <select id="selectCoin">
                         <option value="" disabled selected>Add a currency</option>
                     </select>
@@ -69,9 +79,9 @@
 
         <tr>
             <td><%= digitalCoins[0] %></td>
-            <td><%=usd%></td>
-            <td><%=eur%></td>
-            <td><%=ron%></td>
+            <td><%= usd %></td>
+            <td><%= eur %></td>
+            <td><%= ron %></td>
         </tr>
         <tr>
             <td>
@@ -86,6 +96,6 @@
         </tr>
     </table>
 </main>
-<%- include layouts/footer.ejs%>
+<%- include layouts/footer.ejs %>
 </body>
 </html>

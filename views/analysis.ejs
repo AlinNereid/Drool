@@ -47,9 +47,11 @@
                 digitalCoinSelectat=$("#selectDig option").eq(0).val();
                 hours=1;
                 points=25;
+                var wasSelected = false;
                 selectedTime=Date.now();
                 getAllApis($("#selectDig").val(),function(api){});
                 $('#datetimepicker').on('change', function (e) {
+                    wasSelected=true;
                     d = new Date(this.value);
                     selectedTime = d.getTime();
                     console.log(selectedTime);
@@ -90,7 +92,7 @@
                         }
                     })
                 });
-                var testPostToken = function(){
+                /*var testPostToken = function(){
                     $.ajax({
                         url:"../../api/generateToken",
                         type : "POST",
@@ -165,7 +167,7 @@
                             console.log("error");
                         }
                     });
-                };
+                };*/
                 //testdele();
                 /*var testpostAPI =function(){
                     $.ajax({
@@ -190,7 +192,7 @@
                     });
                 };
                 testpostAPI();*/
-                var testputAPI =function(){
+                /*var testputAPI =function(){
                  $.ajax({
                      url: "../../api/coins/digital/LTC/apiTickers/testLTC",
                      type: "PUT",
@@ -213,9 +215,9 @@
                      }
                      });
                  };
-                testputAPI();
+                testputAPI();*/
 
-                var testdeleAPI =function(){
+                /*var testdeleAPI =function(){
                     $.ajax({
                         url: "../../api/coins/digital/TESTCOIN/apiTickers/addApiAPI",
                         type: "DELETE",
@@ -228,7 +230,7 @@
                         }
                     });
                 };
-                testdeleAPI();
+                testdeleAPI();*/
                 var updateTimeOut;
                 var data = [],
                         totalPoints = 50;
@@ -300,6 +302,13 @@
                 }
 
                 function update() {
+                    if(wasSelected==false){
+                        selectedTime=Date.now();
+                        d = new Date(Date.now());
+                       var timeFormated = d.getFullYear()+"/"+('0' +(d.getMonth()+1)).slice(-2)+"/"+('0' + d.getDate()).slice(-2)
+                                +" "+('0' + d.getHours()).slice(-2)+":"+('0' + d.getMinutes()).slice(-2);
+                        $('#datetimepicker').datetimepicker({value:timeFormated, step:10});
+                    }
                     $.ajax({
                         url: "../api/coins/digital/"+digitalCoinSelectat+"/apiTIckers/"+apiselectat+"/"+"values",
                         data:{
@@ -316,15 +325,19 @@
                 update();
                 updateTimeID=setInterval(update, updateInterval);
             });
-
-            function download123() {
+            function clickAhref(){
+                var scroolTop = $(window).scrollTop();
+                console.log(scroolTop);
                 html2canvas($('#placeholder'), {
                     onrendered: function(canvas) {
+                        $(window).scrollTop(scroolTop);
                         var img = canvas.toDataURL()
                         $("#download").attr("href", img);
                         $("#download").attr("download", "Drool___"+new Date(Date.now()));
+                        $("#download")[0].click();
                     }
                 });
+
             }
            // document.getElementById('download').addEventListener('click', download, false);
 
@@ -354,6 +367,7 @@
         </nav>
     </header>
     <main>
+        <p id="subTitle">Analysis</p>
         <div id="content">
             <div class="demo-container">
                 <div id="placeholder" class="demo-placeholder" style="float:left;width: 700px;"></div>
@@ -377,12 +391,13 @@
                 <br>
                 <label>Points:</label>
                 <br>
-                <input id="points" style="width: 35px; background: rgb(224,224,224);" type="number" step="5" value="25" min="1"max="50">
+                <input id="points" style="width: 35px; background: rgb(224,224,224);" type="number" value="25" min="1"max="50">
                 <br>
                 <label>Start Date</label>
                 <input type="text" size=13 style="background: rgb(224,224,224)" id="datetimepicker"/><br><br>
 
-                <a id="download" download="name" title="DownloadImage" onclick="download123();">Download as image</a>
+                <button id="btnDownload" onclick="clickAhref();" style="border: solid 1px black; border-radius: 5px;">Download as image(PNG)</button>
+                <a id="download" download="name" title="DownloadImage" style="visibility: hidden">Download as image</a>
 
             </div>
         </div>

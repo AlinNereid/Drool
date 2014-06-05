@@ -51,7 +51,7 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 app.get('/login', session, adminRoute.getLoginPage);
-
+app.get('/logout', session, adminRoute.getLogoutPage);
 app.get('/controlpanel', session, adminRoute.getControlPanel);
 app.post('/controlpanel', session,adminRoute.postControlPanel);
 
@@ -133,9 +133,8 @@ app.put('/api/test', function (req, res) {
 
 app.get('/controlpanel/deleteApi/:name', apiRoute.postDeleteApiPage);
 app.post('/login', session, adminRoute.postLoginPage);
-app.get('/logout', session, function (req, res) {//de scos
+app.get('/logout', session, function (req, res) {
     req.session.name = null;
-    res.send("yee")
 });
 app.get('/', index.get);
 app.get('/convertor', index.get);
@@ -400,8 +399,6 @@ database.connect(function (err, db) {
         //setInterval(getCurrencyReal,timeRequest*3,"http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json","yahooFinance");
     }
 });
-
-
 /*
  MongoClient.connect("mongodb://localhost:27017/dbDrool", function(err, db) {
  if(err) throw err;

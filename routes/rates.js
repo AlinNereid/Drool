@@ -39,7 +39,7 @@ var get = function (req, res) {
                         convertorEngine.convert(1, digCoins[0], null, "EUR", null, function (valEur) {
                             convertorEngine.convert(1, digCoins[0], null, "RON", null, function (valRon) {
                                 console.log("val usd " + valUsd + " val eur " + valEur + " val ron " + valRon);
-                                res.render('rates', { title: 'Drool', apis: apisSname, digitalCoins: digCoins, realCoins: ['USD', 'EUR', 'RON'], usd: valUsd.toFixed(3), eur: valEur.toFixed(3), ron: valRon.toFixed(3), apisVal: apiVal});
+                                res.render('rates', { title: 'Drool', apis: apisSname, digitalCoins: digCoins, realCoins: ['USD', 'EUR', 'RON'], usd: valUsd.toFixed(3), eur: valEur.toFixed(3), ron: valRon.toFixed(3), apisVal: apiVal, data: new Date(Date.now())});
                             });
                         });
                     });
@@ -70,13 +70,13 @@ var get = function (req, res) {
                     break;
             }
             if(apisR.length==1){
-                convertorEngine.convert(1, digCoins[0], apisR[0].sname, apisR[0].realsname, null, function (valApi1) {
+                convertorEngine.convert(1, digCoins[0], apisR[0].sname, "USD", null, function (valApi1) {
                     getValuesRates(digCoins,valApi1, null);
                 });
             } else{
                 if(apisR.length==2){
-                    convertorEngine.convert(1, digCoins[0], apisR[0].sname, apisR[0].realsname, null, function (valApi1) {
-                        convertorEngine.convert(1, digCoins[0], apisR[1].sname, apisR[1].realsname, null, function (valApi2) {
+                    convertorEngine.convert(1, digCoins[0], apisR[0].sname, "USD", null, function (valApi1) {
+                        convertorEngine.convert(1, digCoins[0], apisR[1].sname, "USD", null, function (valApi2) {
                             getValuesRates(digCoins,valApi1, valApi2);
                         });
                     });
