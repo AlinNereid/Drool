@@ -8,7 +8,7 @@ $(document).ready(function(){
             var uriEncodat = encodeURIComponent($("input[name='urlTicker']").val());
             $.ajax({
                 url: "../../api/parse/?url="+uriEncodat,
-                type: "GET",
+                type: "POST",
                 dataType: "json",
                 success: function(data){
                     if(data != false){

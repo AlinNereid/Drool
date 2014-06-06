@@ -11,7 +11,7 @@ var getLoginPage = function (req, res) {
     req.session.error="";
 };
 
-var getLogoutPage = function(req, res){
+var postLogoutPage = function(req, res){
     req.session.name = null;
     res.redirect('/');
 };
@@ -83,7 +83,7 @@ var verifyCredentials=function (req, res, callback) {
     }
 };
 exports.getLoginPage=getLoginPage;
-exports.getLogoutPage=getLogoutPage;
+exports.postLogoutPage=postLogoutPage;
 exports.postLoginPage=postLoginPage;
 exports.getControlPanel=getControlPanel;
 exports.postControlPanel=postControlPanel;

@@ -28,4 +28,12 @@ var errorsObj={
     0603:"Number of points exceeds the maximum number of points",
     0604:"Start date is not valid"
 }
+/*var printInTable=function(){
+    console.log("<table><tr><th>Error Code</th><th>Message</th></tr>");
+    for(key in errorsObj){
+        console.log("<tr><td>"+String(key)+"</td><td>"+errorsObj[key]+"</td></tr>")
+    }
+    console.log("</table>");
+}
+printInTable();*/
 exports.errors=errorsObj;

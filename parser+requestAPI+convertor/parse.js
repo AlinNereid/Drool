@@ -24,8 +24,19 @@ var parse = function(obiect,callback){
     }
     return dateParsate;
 }
+exports.POSTparse=function (req, res) {
+    res.contentType('application/json');
+    var url = req.param('url', null);
+    console.log(url);
+    if (url !== null && url !== "") {
+        var dateParsate = parseUrl(url, function (dateParsate) {
+            console.log("dateParsate : " + dateParsate);
+            res.send(dateParsate)
+        });
 
-exports.parseUrl=function(url,callback){
+    }
+};
+var parseUrl=function(url,callback){
     allKeys=[];
     dateParsate={};
     request(url,function(err, resp, body){
@@ -46,3 +57,4 @@ exports.parseUrl=function(url,callback){
         }
     });
 };
+exports.parseUrl=parseUrl;

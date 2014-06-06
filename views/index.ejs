@@ -10,10 +10,10 @@
 </head>
 <body>
     <%- include layouts/headerUser.ejs%>
-<main>
+<main style="height: 65%">
     <p id="subTitle">Convertor</p>
     <div id="convertor">
-        <input placeholder="VAL" id="input1" type="text" name="val1" size="3">
+        <input placeholder="..." id="input1" type="text" name="val1" size="3">
         <div class="dropdown">
             <label id="search1" title="Select a digital coin"><%= digitalCoins[0] %></label>
             <ul class="menuSearch1">
@@ -27,7 +27,7 @@
         </div>
         <span id="plus1" title="Select an Api">+</span>
         <span>=</span>
-        <input id="input2" type="text" name="val2" size="3">
+        <input id="input2"  placeholder="..." type="text" name="val2" size="3">
         <div class="dropdown">
             <label id="search2" title="Select a coin">USD</label>
             <ul class="menuSearch2">

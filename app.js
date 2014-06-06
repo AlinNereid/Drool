@@ -12,13 +12,13 @@ var adminRoute = require('./routes/admin');
 var database = require('./models/database');
 var apiRoute = require('./routes/apiTicker');
 var digitalCoinRoute = require('./routes/digitalCoin');
-var dbDigitalCoins = require('./models/dbDigitalCoins');
+//var dbDigitalCoins = require('./models/dbDigitalCoins');
 var dbRealCoins = require('./models/dbRealCoins');
 var parser = require('./parser+requestAPI+convertor/parse');
 var realCoins = require('./parser+requestAPI+convertor/realCoins');
 var digitalCoins = require('./parser+requestAPI+convertor/digitalCoins');
 var intervalRequests = require('./parser+requestAPI+convertor/intervalRequests');
-var convertorEngine = require('./parser+requestAPI+convertor/convertor');
+//var convertorEngine = require('./parser+requestAPI+convertor/convertor');
 var apiConvertor = require('./api/convertor');
 var apiRealCoins = require('./api/realAPI');
 var apiDigitalCoin = require('./api/digitalCoinApi');
@@ -51,7 +51,7 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 app.get('/login', session, adminRoute.getLoginPage);
-app.get('/logout', session, adminRoute.getLogoutPage);
+app.post('/logout', session, adminRoute.postLogoutPage);
 app.get('/controlpanel', session, adminRoute.getControlPanel);
 app.post('/controlpanel', session,adminRoute.postControlPanel);
 
@@ -75,19 +75,8 @@ app.post('/controlpanel/editApi/:name', session,  apiRoute.postUpdatePage);
 app.get('/controlpanel/showApis', session, apiRoute.getPageShowApis);
 
 app.post('/api/generateToken', session, token.POSTtokenApi);
-//de modificat
-app.get('/api/parse', function (req, res) {
-    res.contentType('application/json');
-    var url = req.param('url', null);
-    console.log(url);
-    if (url !== null && url !== "") {
-        var dateParsate = parser.parseUrl(url, function (dateParsate) {
-            console.log("dateParsate : " + dateParsate);
-            res.send(dateParsate)
-        });
 
-    }
-});
+app.post('/api/parse',parser.POSTparse);
 app.post('/api/uniqueCoin',apiDigitalCoin.POSTUniqueName);
 app.post('/api/uniqueApi',apiTIcker.POSTUniqueApi);
 /*app.get('/api/real',function(req,res){
@@ -123,24 +112,22 @@ app.get('/api/coins/digital/:nameDigital/apiTickers/:nameApi/values', apiValues.
 app.post('/api/convert', apiConvertor.convertAPI);//convertor
 
 //de scos
-app.put('/api/test', function (req, res) {
+/*app.put('/api/test', function (req, res) {
 
     var p1 = req.param("p1", null);
     console.log("put " + p1);
     res.contentType('application/json');
     res.send({test: "123"});
-});
+});*/
 
 app.get('/controlpanel/deleteApi/:name', apiRoute.postDeleteApiPage);
 app.post('/login', session, adminRoute.postLoginPage);
-app.get('/logout', session, function (req, res) {
-    req.session.name = null;
-});
+app.post('/logout', session, adminRoute.postLogoutPage);
 app.get('/', index.get);
 app.get('/convertor', index.get);
 app.get('/analysis', analysis.get);
 app.get('/rates', rates.get);
-var getDate = function (send_json, lastDate, numar, delay, callback) {//de scos
+/*var getDate = function (send_json, lastDate, numar, delay, callback) {//de scos
     if (numar != 0) {
         database.getDatabase().collection("bitstamp").find({date: {$lt: lastDate - delay}}, {_id: 0}).sort({date: -1}).limit(1).toArray(function (err, results) {
             if (results != null) {
@@ -161,8 +148,8 @@ var getDate = function (send_json, lastDate, numar, delay, callback) {//de scos
     } else {
         callback(send_json)
     }
-}
-app.get('/api/bitcoin/:numeAPI/:numar', function (req, res) {//de scos
+}*/
+/*app.get('/api/bitcoin/:numeAPI/:numar', function (req, res) {//de scos
     if (req.params.numeAPI == "test") {
         var delay = 72000 * 12;
         var send_json = {};
@@ -200,9 +187,9 @@ app.get('/api/bitcoin/:numeAPI/:numar', function (req, res) {//de scos
             res.json(send_json);
         });
     }
-});
+});*/
 
-app.get('/api/currency/:m1', function (req, res) {//de scos
+/*app.get('/api/currency/:m1', function (req, res) {//de scos
     var m1 = req.params.m1;
     console.log(m1);
     var send_json = [];
@@ -229,8 +216,8 @@ app.get('/api/currency/:m1', function (req, res) {//de scos
             res.json(send_json);
         });
     }
-});
-app.get('/api/currency/:m1/:m2', function (req, res) {//de scos
+});*/
+/*app.get('/api/currency/:m1/:m2', function (req, res) {//de scos
     var m1 = req.params.m1;
     var m2 = req.params.m2;
     var val1;
@@ -279,9 +266,9 @@ app.get('/api/currency/:m1/:m2', function (req, res) {//de scos
             });
         }
     });
-});
+});*/
 
-var getCurrencyBitcoin = function (url, numeApi, callback) {//de scos
+/*var getCurrencyBitcoin = function (url, numeApi, callback) {//de scos
     request(url, function (err, resp, body) {
         if (err) return console.error(err)
         else {
@@ -316,7 +303,7 @@ var getCurrencyBitcoin = function (url, numeApi, callback) {//de scos
             }
         }
     });
-};
+};*/
 /*var getCurrencyReal=function(url,numeApi,callback){
  request(url,function(err, resp, body){
  if (err && resp.statusCode!=200) return console.error(err)
@@ -352,10 +339,15 @@ var getCurrencyBitcoin = function (url, numeApi, callback) {//de scos
  });
  };*/
 var timeRequest = 60000;
-/*app.use(function(req, res, next){
+app.use(function(req, res, next){
+    if(req.originalUrl.startsWith('/api')){
+        res.contentType('application/json');
+        res.send({error:"URL Invalid",documentationURL:"test.com"});
+    }else{
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     res.render('notFound', {title: "Drool", page: fullUrl});
-})*/
+    }
+})
 // Connect to the db
 database.connect(function (err, db) {
     if (err) throw err;
@@ -382,7 +374,7 @@ database.connect(function (err, db) {
 //            console.log("EUR " +value);
 //        });
         //
-        convertorEngine.convert(3, "LTC", null, "RON", null, function (value) {
+        /*convertorEngine.convert(3, "LTC", null, "RON", null, function (value) {
             console.log("VALOARE          " + value);
         });
 
@@ -392,7 +384,7 @@ database.connect(function (err, db) {
 
         token.verifyToken("88cdbdc7623faf4a008623ec8bbe3ecf8285e722", function (ok) {
             console.log("verify " + ok);
-        });
+        });*/
         /* setInterva(getCurrencyBitcoin,timeRequest,"https://api.bitcoinaverage.com/ticker/global/USD/","bitcoinaverageUSD");
          setInterval(getCurrencyBitcoin,timeRequest,"https://www.bitstamp.net/api/ticker/","bitstampUSD");
          setInterval(getCurrencyBitcoin,timeRequest,"https://btc-e.com/api/2/btc_usd/ticker","btc-eUSD");*/

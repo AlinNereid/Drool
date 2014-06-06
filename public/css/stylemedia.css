@@ -322,7 +322,9 @@ ul li span{
     display: block;
 
   }
-
+  footer{
+      font-size: 10px;
+  }
   #convertor > input[type="text"]{
     height: 26px;
   }
@@ -335,7 +337,7 @@ ul li span{
     margin-bottom: 1.5%;
   }
   p#subTitle{
-     font-size: 1em;
+     font-size: 0.9em;
   }
   header{
     font-size: 2ex;
@@ -793,4 +795,22 @@ select{
    margin:auto;
     text-align: left;
     width: 50%;
+}
+
+header nav ul li button{
+    display: inline;
+    font-size: 0.5em;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #000000;
+    background-color: #caccc4;
+    line-height: 1.35em;
+    padding: 0.5em;
+}
+
+header nav ul button:hover{
+    -webkit-box-shadow: 0px 0px 20px 8px rgba(255,251,240,1);
+    -moz-box-shadow: 0px 0px 20px 8px rgba(255,251,240,1);
+    box-shadow: 0px 0px 20px 8px rgba(255,251,240,1);
 }
