@@ -342,7 +342,7 @@ var timeRequest = 60000;
 app.use(function(req, res, next){
     if(req.originalUrl.startsWith('/api')){
         res.contentType('application/json');
-        res.send({error:"URL Invalid",documentationURL:"test.com"});
+        res.send({error:"URL Invalid",documentationURL:"http://students.info.uaic.ro/~elena.pascaru/documentatie.html#apiResources"});
     }else{
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     res.render('notFound', {title: "Drool", page: fullUrl});
