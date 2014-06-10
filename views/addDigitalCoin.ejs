@@ -36,7 +36,7 @@
     <%- include layouts/headerControlPanel.ejs%>
 <main>
     <p id="subTitle">Add Digital Coin</p>
-    <form id="formAddDigital" action="./addDigitalCoin" autocomplete="on"  method="post">
+    <form id="formAddDigital" action="/controlpanel/addDigitalCoin" autocomplete="on"  method="post">
        <p>
         <label class="labelAddDigital" for="sname">Short Name*:</label>
         <input class="addDigitalInputs"type="text" name="sname" id="sname" value="<%= sname %>" required onchange="uniqueCoin()">

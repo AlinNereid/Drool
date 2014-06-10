@@ -1,7 +1,7 @@
 /**
  * Created by alin on 5/23/14.
  */
-
+//errors for restful api
 var errorsObj={
     0100:"The api doesn't exist.",
     0101:"An api with this name already exists.",

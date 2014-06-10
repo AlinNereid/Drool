@@ -8,7 +8,7 @@
             var r= confirm("Are you sure you want to delete this coin including all the apis associated?");
             if(r==true){
                 $.ajax({
-                    url: "../../api/coins/digital/"+digitalName,
+                    url: "/api/coins/digital/"+digitalName,
                     type: "DELETE",
                     dataType: "json",
                     data :{
@@ -58,7 +58,7 @@
             <td><%= digitalCoins[i]["lname"]%></td>
             <td> <a href="<%= digitalCoins[i]["page"]%>"><%= digitalCoins[i]["page"]%></a></td>
             <td>
-                <a href="./editDigitalCoin/<%= digitalCoins[i]["sname"]%>"><div title="Edit" class="pencil"></div></a>
+                <a href="/controlpanel/editDigitalCoin/<%= digitalCoins[i]["sname"]%>"><div title="Edit" class="pencil"></div></a>
                 <div title="Delete" class="delete" onclick="deleteDigital('<%=digitalCoins[i]["sname"]%>',<%=i%>)"></div>
             </td>
         </tr>

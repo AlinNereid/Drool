@@ -5,10 +5,12 @@ var dbAPITicker = require('../models/dbAPITicker');
 var dbDigitalCoins = require('../models/dbDigitalCoins');
 var dbRealCoins = require('../models/dbRealCoins');
 
-var currency1 = "BTC";
+//for tests
+/*var currency1 = "BTC";
 var val1 = 2;
-var currency2 = "RON";
+var currency2 = "RON";*/
 
+//get lowerValue in usd for a digitalCoin
 var getLowerValueInUSD = function (val, currency, callback) {
     //console.log("getLowerValue");
     dbAPITicker.getAllApisWithDigSname(currency, function (apis) {
@@ -44,6 +46,7 @@ var getLowerValueInUSD = function (val, currency, callback) {
 
     });
 };
+//get value for a realCoin
 var getValueInUSDReal = function (realName, callback) {
     dbRealCoins.getValue(realName, function (value) {
         if (value == null) {
@@ -52,6 +55,7 @@ var getValueInUSDReal = function (realName, callback) {
             callback(value.price);
     });
 }
+//for a specific api get value in USD
 var getValueInUSD = function (val, currency, nameApi, callback) {
     dbAPITicker.getApiTicker(nameApi, function (api) {
         if (api != null) {
@@ -72,12 +76,14 @@ var getValueInUSD = function (val, currency, nameApi, callback) {
         }
     });
 };
+//get from database value in usd for a RealCoin and change currency
 var changeValueToUSD = function (currency, callback) {
     dbRealCoins.getValue(currency.ref, function (valueInUSD) {
         var priceInUSD = currency.value / valueInUSD.price;
         callback(priceInUSD);
     })
 };
+//get Type of currency(Real or Digital)
 var getTypeCurrency = function (name, callback) {
     dbDigitalCoins.getDigitalCoin(name, function (digitalCoin) {
         if (digitalCoin != null)

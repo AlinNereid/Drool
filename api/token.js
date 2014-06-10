@@ -3,12 +3,14 @@
  */
 var dbToken = require('../models/dbToken');
 var crypto = require('crypto');
+//create a token with sha1 on date.now()+"password"+hoursValability
 var getTokenID = function (hoursValability) {
     shasum = crypto.createHash('sha1');
     shasum.update(Date.now() + "password" + hoursValability);
     passSHA1 = shasum.digest('hex');
     return passSHA1;
 }
+//add a token in db
 var addNewToken = function (hoursValability, callback) {
     var TokenID = getTokenID(hoursValability);
     dbToken.addToken(new dbToken.Token(TokenID, 3600000 * hoursValability + Date.now()), function (added) {
@@ -19,6 +21,7 @@ var addNewToken = function (hoursValability, callback) {
         }
     });
 }
+//check if exists or is valid
 var verify = function (tokenID, callback) {
     dbToken.getToken(tokenID, function (token) {
         if (token) {
@@ -34,6 +37,7 @@ var verify = function (tokenID, callback) {
         }
     })
 }
+//get a token for an admin, non-restful.
 var GetTokenApi = function(req,res){
     res.contentType('application/json');
     if(req.session){

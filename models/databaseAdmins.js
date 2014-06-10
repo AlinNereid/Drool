@@ -3,6 +3,7 @@
  */
 var database=require('./database.js');
 var crypto = require('crypto');
+//check if an admin exists
 exports.existsAdmin=function(user,password,callback){
     shasum = crypto.createHash('sha1');
     shasum.update(password);

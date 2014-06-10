@@ -3,6 +3,7 @@
  */
 var nameCollection = "Tokens"
 var database = require('./database.js');
+//class for a token
 exports.Token = function DigitalCoin(tokenID, expiryDate) {
     this.tokenID = tokenID;
     this.expiryDate = expiryDate;

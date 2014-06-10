@@ -7,12 +7,16 @@ $(document).ready(function(){
         event.preventDefault(); // cancel default behavior
         var uriEncodat = encodeURIComponent($("input[name='urlTicker']").val());
         $.ajax({
-            url: "../../../api/parse/?url="+uriEncodat,
-            type: "GET",
+            url: "/api/parse/?url="+uriEncodat,
+            type: "POST",
             dataType: "json",
             success: function(data){
-                var str = JSON.stringify(data, undefined, 4);
-                $("#prejSON").text(str);
+                if(data != false){
+                    var str = JSON.stringify(data, undefined, 4);
+                    $("#prejSON").text(str);
+                }else{
+                    $("#prejSON").text("Error, invalid link!");
+                }
             }
         });
     });

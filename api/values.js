@@ -5,15 +5,14 @@ var database = require('../models/database.js');
 var dbAPITicker = require('../models/dbAPITicker');
 var errors = require('../errors/errors');
 errors = errors.errors;
+//get values for an api recursive with a number of points, and delay
 var getDate = function (nameApi, send_json, lastDate, numar, delay, maxTime, callback) {
     if (numar != 1) {
         database.getDatabase().collection(nameApi).find({date: {$lt: lastDate - delay}}, {_id: 0}).sort({date: -1}).limit(1).toArray(function (err, results) {
             if (results != null) {
                 try {
-                    //console.log(lastDate)
                     lastDate = results[0].date;
                     if (lastDate > maxTime) {
-                        // console.log(lastDate + ">" + maxTime)
                         send_json["date"].push(results[0]);
                         numar = numar - 1;
                         getDate(nameApi, send_json, lastDate, numar, delay, maxTime, callback);
@@ -36,6 +35,7 @@ var getDate = function (nameApi, send_json, lastDate, numar, delay, maxTime, cal
     }
 }
 var maxNumPoints = 50;
+//get values for an api, with hours, numberPoins, and opt startTime
 var GETValues = function (req, res) {
     res.contentType('application/json');
     var hours = req.param('hours', "");

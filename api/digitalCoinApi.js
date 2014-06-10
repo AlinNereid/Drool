@@ -10,6 +10,7 @@ errors=errors.errors;
 String.prototype.endsWith = function (suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
 };
+//verify if a realcoin with realsname exists and callback with true or false
 var existsRealCoinSname = function (digsname, callback) {
     dbRealCoins.getAllRealSymbolCoins(function (dname) {
         for (i = 0; i < dname.length; i++) {
@@ -24,6 +25,7 @@ var existsRealCoinSname = function (digsname, callback) {
         }
     });
 }
+//verify if a digitalcoin with digsname exists and callback with true or false
 var existsDigitalCoin = function (digsname, callback) {
     dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
         for (i = 0; i < snames.length; i++) {
@@ -39,7 +41,7 @@ var existsDigitalCoin = function (digsname, callback) {
         }
     });
 }
-
+//get all digitalCoins and respond  with JSON
 var GETallDigitalCoin = function (req, res) {
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     res.contentType('application/json');
@@ -53,6 +55,7 @@ var GETallDigitalCoin = function (req, res) {
         res.send(coins);
     });
 }
+//edit a digitalCoin, need sname, opt lname and page
 var PUTByName = function (req, res) {
     var sname = req.param('sname', "");
     var lname = req.param('lname', "");
@@ -86,6 +89,7 @@ var PUTByName = function (req, res) {
         res.send({error:"0403", errorMessage: errors[0403]});
     }
 }
+//add a digitalCoin, need sname, opt lname and page
 var POSTinROOT = function (req, res) {
     var sname = req.param('sname', "");
     var lname = req.param('lname', "");
@@ -115,6 +119,7 @@ var POSTinROOT = function (req, res) {
         res.send({error:"0403", errorMessage: errors[0403]});
     }
 }
+//get a specified digitalCoin with req.params.nameDigital
 var GETByName = function (req, res) {
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     res.contentType('application/json');
@@ -133,6 +138,7 @@ var GETByName = function (req, res) {
         }
     });
 }
+//delete a specified digitalCOin
 var DELETEByName = function (req, res) {
     res.contentType('application/json');
     var sname = req.params.nameDigital;
@@ -146,6 +152,7 @@ var DELETEByName = function (req, res) {
         });
     });
 }
+//check if a digitalCoin is unique, non-restful
 var UniqueName = function(req,res){
     res.contentType('application/json');
     var sname = req.param('name', "");
@@ -169,10 +176,11 @@ var UniqueName = function(req,res){
         res.send({error:"true"});
     }
 };
+//without credentials
 exports.POSTUniqueName=UniqueName;
 exports.GETall = GETallDigitalCoin;
 exports.GETByNameDigital = GETByName;
-
+//with credentials
 exports.POSTinROOT = function (req, res) {
     credential.verifyCredentials(req, res, POSTinROOT);
 };

@@ -13,7 +13,6 @@ var existsDigitalCoin = function (digsname, callback) {
         for (i = 0; i < snames.length; i++) {
             if (digsname == snames[i].sname) {
                 //console.log(snames[i] + " " + digsname);
-
                 callback(true);
                 break;
             }
@@ -288,7 +287,7 @@ var getPageShowApis = function (req, res) {
 
     });
 };
-var postDeleteApiPage = function (req, res) {
+/*var postDeleteApiPage = function (req, res) {
     var sname = req.params.name;
     if (sname !== "" && sname !== null) {
         intervalRequests.removeInterval(sname);
@@ -300,7 +299,7 @@ var postDeleteApiPage = function (req, res) {
             }
         });
     }
-}
+}*/
 
 exports.postPageDigital = function (req, res) {
     admin.verifyCredentials(req, res, postPageDigital);
@@ -317,6 +316,6 @@ exports.getAddApiPage = function (req, res) {
 exports.getPageShowApis = function (req, res) {
     admin.verifyCredentials(req, res, getPageShowApis);
 };
-exports.postDeleteApiPage = function (req, res) {
+/*exports.postDeleteApiPage = function (req, res) {
     admin.verifyCredentials(req, res, postDeleteApiPage);
-};
+};*/

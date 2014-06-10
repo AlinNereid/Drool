@@ -19,6 +19,7 @@ var removeInterval = function(sname){
         console.log("Am sters requestul Interval");
     }
 }
+//get all apis from db and start intervals
 var StartAllApi=function(){
     for(key in refreshIntervalID){
         removeInterval(key);

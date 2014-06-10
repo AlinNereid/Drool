@@ -3,7 +3,7 @@
  */
 var nameCollection="YahooFinanceCurrency";
 var database=require('./database.js');
-
+//class for realCoins
 exports.RealCoin = function RealCoin(symbol,price,utctime){
     this.symbol=symbol;
     this.price=price;
@@ -24,6 +24,7 @@ exports.getValue=function(realName,callback){
         callback(price);
     });
 }
+//get symbol and price for all realCoins
 exports.getAllRealSymbolPriceCoins = function(callback){
     database.getDatabase().collection(nameCollection).find({},{_id:0,symbol:1,price:1}).toArray(function(err, coins){
 //        console.log("retrieved records:");
@@ -31,6 +32,7 @@ exports.getAllRealSymbolPriceCoins = function(callback){
         callback(coins);
     });
 }
+//get symbol for all realCoins
 exports.getAllRealSymbolCoins = function(callback){
     database.getDatabase().collection(nameCollection).find({},{_id:0,symbol:1}).toArray(function(err, coins){
 //        console.log("retrieved records:");

@@ -4,6 +4,7 @@
 var convertorEngine = require('../parser+requestAPI+convertor/convertor');
 var errors=require('../errors/errors');
 errors=errors.errors;
+//convert val1 with currency c1 and opt api1 into c2 and opt api2
 exports.convertAPI = function (req, res) {
     var val1 = req.param('value', null);
     var c1 = req.param('currency1', null);

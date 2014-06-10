@@ -13,6 +13,7 @@ errors = errors.errors;
 String.prototype.endsWith = function (suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
 };
+//verify if a digitalcoin with digsname exists and callback with true or false
 var existsDigitalCoin = function (digsname, callback) {
     dbDigitalCoins.getAllDigitalSNameCoins(function (snames) {
         for (i = 0; i < snames.length; i++) {
@@ -28,6 +29,7 @@ var existsDigitalCoin = function (digsname, callback) {
         }
     });
 }
+//verify if a realcoin with realsname exists and callback with true or false
 var existsRealCoin = function (realsname, callback) {
     dbRealCoins.getAllRealSymbolCoins(function (symbols) {
         for (i = 0; i < symbols.length; i++) {
@@ -43,8 +45,9 @@ var existsRealCoin = function (realsname, callback) {
 
     });
 }
+//verify if urlTicker, last, bid, avg_24 and volume are valid
 var verificaParsareSiCampuriURL = function (urlTicker, last, bid, avg_24h, volume, callback) {
-    var dateParsate = parser.parseUrl(urlTicker, function (dateParsate) {
+    var dateParsate = parser.parseUrl(urlTicker, function (dateParsate) {//parse the url
         var ok_last = false;
         var ok_bid = false;
         var ok_avg_24h = false;
@@ -92,6 +95,7 @@ var verificaParsareSiCampuriURL = function (urlTicker, last, bid, avg_24h, volum
     });
 
 }
+//get all the apis in JSON for a specific digitalcoin req.params.nameDigital
 var GETallApiWithDigital = function (req, res) {
     res.contentType('application/json');
     dbAPITicker.getAllApisWithDigSname(req.params.nameDigital, function (apis) {
@@ -105,6 +109,7 @@ var GETallApiWithDigital = function (req, res) {
         res.send(apis);
     });
 }
+//get a specific api for a digitalCoin
 var GETApiWithDigital = function (req, res) {
     res.contentType('application/json');
     dbAPITicker.getApiTicker(req.params.nameApi, function (api) {
@@ -123,6 +128,7 @@ var GETApiWithDigital = function (req, res) {
         }
     })
 }
+//add a new api with sname, urlTicker, digsname, realsname, last, reaquestTime and optional bid, avg_24, volume
 var POSTinROOT = function (req, res) {
     res.contentType('application/json');
     var sname = req.param('sname', "");
@@ -155,7 +161,7 @@ var POSTinROOT = function (req, res) {
                                             if (okData == true) {
                                                 res.send({added: true, url: fullUrl + '/' + sname})
                                                 digitalCoins.getCurrency(sname);
-                                                intervalRequests.addInterval(sname, requestTime);
+                                                intervalRequests.addInterval(sname, requestTime);//set interval for api
                                             }
                                             else {
                                                 res.send({error: "0101", errorMessage: errors[0101]});
@@ -190,6 +196,7 @@ var POSTinROOT = function (req, res) {
 
     }
 }
+//edit an api with sname, urlTicker, digsname, realsname, last, reaquestTime and optional bid, avg_24, volume
 var PUTByDigNameApiName = function (req, res) {
     res.contentType('application/json');
     var sname = req.param('sname', "");
@@ -228,8 +235,8 @@ var PUTByDigNameApiName = function (req, res) {
                                                         res.send({updated: true,
                                                             url: fullUrl});
                                                         digitalCoins.getCurrency(sname);
-                                                        intervalRequests.removeInterval(sname);
-                                                        intervalRequests.addInterval(sname, requestTime);
+                                                        intervalRequests.removeInterval(sname);//delete old interval
+                                                        intervalRequests.addInterval(sname, requestTime);//set new interval
                                                     }
                                                     else {
                                                         res.send({error: "0107", errorMessage: errors[0107]});
@@ -267,6 +274,7 @@ var PUTByDigNameApiName = function (req, res) {
         res.send({error: "0106", errorMessage: errors[0106]});
     }
 };
+//deleate an api
 var DELETEApi = function (req, res) {
     res.contentType('application/json');
     var sname = req.params.nameApi;
@@ -289,6 +297,7 @@ var DELETEApi = function (req, res) {
         }
     });
 }
+//unique value for an api, non-restful
 var UniqueApi=function(req,res){
     res.contentType('application/json');
     var sname = req.param('name', "");
@@ -305,9 +314,11 @@ var UniqueApi=function(req,res){
     }
 
 }
+//without credentials
 exports.POSTUniqueApi=UniqueApi;
 exports.GETallApiWithDigital = GETallApiWithDigital;
 exports.GETApiWithDigital = GETApiWithDigital;
+//with credentials
 exports.POSTinROOT = function (req, res) {
     credential.verifyCredentials(req, res, POSTinROOT);
 };

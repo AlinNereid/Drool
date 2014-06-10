@@ -123,7 +123,7 @@ var postPageUpdateDigital = function (req, res) {
         res.render('updateDigitalCoin', {error: "Invalid data", title: 'Drool Admin', sname: sname, lname: lname, page: page});
     }
 }
-var postDeletePage = function (req, res) {
+/*var postDeletePage = function (req, res) {
     var sname = req.params.name;
     if (sname !== "" && sname !== null) {
         dbApiTicker.deleteAllApiWithDigital(sname, function (apisDeleted) {
@@ -140,7 +140,7 @@ var postDeletePage = function (req, res) {
         });
 
     }
-}
+}*/
 
 exports.getPageAddDigital=function(req,res){
     admin.verifyCredentials(req,res, getPageAddDigital);
@@ -157,8 +157,10 @@ exports.postPageDigital=function(req,res){
 exports.postPageUpdateDigital=function(req,res){
     admin.verifyCredentials(req,res, postPageUpdateDigital);
 };
+/*
 exports.postDeletePage=function(req,res){
     admin.verifyCredentials(req,res, postDeletePage);
 };
+*/
 
 

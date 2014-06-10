@@ -103,6 +103,7 @@ main{
     float: left;
     /* position: relative;*/
 }
+/*not used*/
 #convertor > select{
     padding:3px;
     margin: 0;
@@ -115,7 +116,6 @@ main{
     background: #f8f8f8;
     color:#888;
     border:none;
-    outline:none;
     display: inline-block;
     cursor:pointer;
     width: 130px;

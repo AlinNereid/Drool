@@ -5,25 +5,23 @@ var request = require('request');
 var allKeys=[];
 var dateParsate={};
 var type = Function.prototype.call.bind(Object.prototype.toString );
-
+//parser for json
 var parse = function(obiect,callback){
     for(key in obiect){
         if(type( obiect[key] ) === '[object Array]')
             allKeys.push('ArrayDrool'+key);
         else
             allKeys.push(key);
-        /*console.log(date[key]);*/
-        //console.log(type(obiect[key]));
         if( type( obiect[key] ) === '[object Object]' || type( obiect[key] ) === '[object Array]') {
             parse(obiect[key],callback);
         }else{
             dateParsate[allKeys]=obiect[key];
-            //console.log(allKeys+'    '+obiect[key]);
         }
         allKeys.pop();
     }
     return dateParsate;
 }
+//get parsed data JSON non-restful
 exports.POSTparse=function (req, res) {
     res.contentType('application/json');
     var url = req.param('url', null);
@@ -36,18 +34,18 @@ exports.POSTparse=function (req, res) {
 
     }
 };
+//make a request to url and parse it
 var parseUrl=function(url,callback){
     allKeys=[];
     dateParsate={};
     request(url,function(err, resp, body){
         if (err) {
             callback(false);
-            return console.error(err);
+            console.error(err);
         }
         else{
             try {
                 date=JSON.parse(body);
-                //console.log(date);
                 callback(parse(date));
             }
             catch (e) {

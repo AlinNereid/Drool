@@ -8,7 +8,7 @@
             var r= confirm("Are you sure you want to delete this api?");
             if(r==true){
                 $.ajax({
-                    url: "../../api/coins/digital/"+digitalName+"/apiTickers/"+apiName,
+                    url: "/api/coins/digital/"+digitalName+"/apiTickers/"+apiName,
                     type: "DELETE",
                     dataType: "json",
                     data :{
@@ -62,7 +62,7 @@
             <td><%= apis[i]["realsname"]%></td>
             <td><%= apis[i]["requestTime"]%></td>
             <td>
-                <a href="./editApi/<%= apis[i]["sname"]%>"><div title="Edit" class="pencil"></div></a>
+                <a href="/controlpanel/editApi/<%= apis[i]["sname"]%>"><div title="Edit" class="pencil"></div></a>
                 <div title="Delete" class="delete" onclick="deleteApi('<%=apis[i]["sname"]%>','<%=apis[i]["digsname"]%>',<%=i%>)"></div>
             </td>
         </tr>

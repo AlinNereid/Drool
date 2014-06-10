@@ -11,6 +11,7 @@ var myParseFloat=function(string){
 }
 var dbRealCoins = require('../models/dbRealCoins');
 var request = require('request');
+//make request for realCoin to yahooFinance
 var getCurrencyReal=function(url,numeApi,callback){
     request(url,function(err, resp, body){
         if (err) console.error("Error getCurrency" + err)

@@ -1,13 +1,14 @@
 /**
  * Created by alin on 5/17/14.
  */
+//for addApi
 $(document).ready(function(){
     $("#parse").click(function(event)
         {
             event.preventDefault(); // cancel default behavior
             var uriEncodat = encodeURIComponent($("input[name='urlTicker']").val());
             $.ajax({
-                url: "../../api/parse/?url="+uriEncodat,
+                url: "/api/parse/?url="+uriEncodat,
                 type: "POST",
                 dataType: "json",
                 success: function(data){

@@ -17,6 +17,7 @@ var myParseFloat=function(string){
       return x;
   }
 };
+//make request for an api and add in db
 var getCurrencyDigitalCoin = function (sname, callback) {
     dbAPITicker.getApiTicker(sname, function (apiTickerValue) {
         try {

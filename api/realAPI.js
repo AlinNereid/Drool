@@ -4,6 +4,7 @@
 var dbRealCoins = require('../models/dbRealCoins');
 var errors=require('../errors/errors');
 errors=errors.errors;
+//get all realCoins
 var GETallRealCoins = function (req, res) {
     res.contentType('application/json');
     dbRealCoins.getAllRealSymbolPriceCoins(function (realCoins) {
@@ -14,6 +15,7 @@ var GETallRealCoins = function (req, res) {
         res.send(dateSend);
     })
 }
+//get specified realCoin
 var GETByName = function (req, res) {
     res.contentType('application/json');
     dbRealCoins.getValue(req.params.name, function (value) {

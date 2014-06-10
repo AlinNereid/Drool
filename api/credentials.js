@@ -4,6 +4,7 @@
 var token = require('./token');
 var errors=require('../errors/errors');
 errors=errors.errors;
+//verify a token from db, if invalid response with error otherwise callback with req,res
 var verifyCredentials = function (req, res, callback) {
     res.contentType('application/json');
     var tokenID = req.param('token', null);

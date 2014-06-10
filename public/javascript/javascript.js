@@ -1,3 +1,4 @@
+//for convertor
 var valoarecurenta;
 var allSymbols = [];
 var allDigitalSnames = [];

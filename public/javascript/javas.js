@@ -1,3 +1,4 @@
+//for rates
 function getAllApis(digsname, callback) {
     $.ajax({
         url: "../api/coins/digital/" + digsname + "/apiTickers",

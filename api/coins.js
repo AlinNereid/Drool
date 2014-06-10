@@ -3,6 +3,7 @@
  */
 var dbDigitalCoins = require('../models/dbDigitalCoins');
 var dbRealCoins = require('../models/dbRealCoins');
+//get ALL coins from db and respond with a JSON
 var getCoins = function(req,res){
     res.contentType('application/json');
     var allCoins=[];
