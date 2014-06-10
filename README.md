@@ -7,6 +7,7 @@ This project will be developed using Nodejs, with the following modules: Express
 Drool is a project developed by Butnaru Alin and Pascaru Georgiana students at the Faculty of Computer Science Iasi for the Web Technologies Class.
 
 The documentation for the project can be found here: http://students.info.uaic.ro/~elena.pascaru/documentatie.html 
+The application demo can be found at the following link: https://www.youtube.com/watch?v=876PvO01CiI&feature=youtu.be
 
 License (The MIT License)
 
