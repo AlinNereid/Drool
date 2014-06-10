@@ -8,10 +8,7 @@ Drool is a project developed by Butnaru Alin and Pascaru Georgiana students at t
 
 The documentation for the project can be found here: http://students.info.uaic.ro/~elena.pascaru/documentatie.html 
 
-License
-(The MIT License)
-
-Copyright (c) 2009-2014 TJ Holowaychuk <tj@vision-media.ca>
+License (The MIT License)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
