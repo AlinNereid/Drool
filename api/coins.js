@@ -10,10 +10,16 @@ var getCoins = function(req,res){
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     dbRealCoins.getAllRealCoins(function(realcoins){
         for(var i=0;i<realcoins.length;i++)
-            allCoins.push({type:"real",coin : realcoins[i].symbol, url : fullUrl + "/real/"+ realcoins[i].symbol})
+            if (fullUrl.endsWith("/"))
+                allCoins.push({type:"real",coin : realcoins[i].symbol, url : fullUrl + "real/"+ realcoins[i].symbol})
+            else
+                allCoins.push({type:"real",coin : realcoins[i].symbol, url : fullUrl + "/real/"+ realcoins[i].symbol})
        dbDigitalCoins.getAllDigitalCoins(function(digitalCoins){
            for(var i=0;i<digitalCoins.length;i++)
-                allCoins.push({type:"digital",coin : digitalCoins[i].sname, url : fullUrl + "/digital/"+ digitalCoins[i].sname})
+               if (fullUrl.endsWith("/"))
+                   allCoins.push({type:"digital",coin : digitalCoins[i].sname, url : fullUrl + "digital/"+ digitalCoins[i].sname})
+                else
+                   allCoins.push({type:"digital",coin : digitalCoins[i].sname, url : fullUrl + "/digital/"+ digitalCoins[i].sname})
            res.send(allCoins);
        })
     });

@@ -23,56 +23,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="showDigitalCoins.ejs" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="showDigitalCoins.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/showDigitalCoins.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="27" selection-start="374" selection-end="374" vertical-scroll-proportion="-1.3103448" vertical-offset="864" max-vertical-offset="1386">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="updateApi.ejs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/updateApi.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="43" selection-start="1234" selection-end="1234" vertical-scroll-proportion="-18.0" vertical-offset="0" max-vertical-offset="1368">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="showApis.ejs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/showApis.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="26" selection-start="345" selection-end="345" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="1458">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addApi.ejs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/addApi.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="42" selection-start="1422" selection-end="1442" vertical-scroll-proportion="-27.333334" vertical-offset="0" max-vertical-offset="1854">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="analysis.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/analysis.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="31" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="apiTicker.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/apiTicker.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="263" column="0" selection-start="11785" selection-end="11785" vertical-scroll-proportion="-25.25926" vertical-offset="4052" max-vertical-offset="5886">
-              <folding />
+            <state line="59" column="16" selection-start="2108" selection-end="2108" vertical-scroll-proportion="-13.333333" vertical-offset="702" max-vertical-offset="1386">
+              <folding>
+                <marker date="1402397748463" expanded="true" signature="1875:2406" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,10 +91,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/admin.js">
+      <file leaf-file-name="apiTIcker.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/apiTIcker.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="38" selection-start="2493" selection-end="2493" vertical-scroll-proportion="-15.111111" vertical-offset="978" max-vertical-offset="1728">
+            <state line="106" column="60" selection-start="3348" selection-end="3507" vertical-scroll-proportion="0.0" vertical-offset="1728" max-vertical-offset="6066">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="coins.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/coins.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="52" selection-start="421" selection-end="421" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stylemedia.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/stylemedia.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="352" column="5" selection-start="7240" selection-end="7240" vertical-scroll-proportion="-25.11111" vertical-offset="5658" max-vertical-offset="15048">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="token.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/token.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="26" selection-start="1715" selection-end="1715" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1404">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="credentials.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/credentials.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="43" selection-start="362" selection-end="362" vertical-scroll-proportion="-1.8837209" vertical-offset="0" max-vertical-offset="540">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="errors.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/errors/errors.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="20" selection-start="612" selection-end="628" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="792">
               <folding />
             </state>
           </provider>
@@ -163,9 +165,7 @@
         <option value="$PROJECT_DIR$/routes/digitalCoin.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/api/apiTIcker.js" />
-        <option value="$PROJECT_DIR$/api/coins.js" />
         <option value="$PROJECT_DIR$/api/convertor.js" />
-        <option value="$PROJECT_DIR$/api/credentials.js" />
         <option value="$PROJECT_DIR$/api/digitalCoinApi.js" />
         <option value="$PROJECT_DIR$/api/realAPI.js" />
         <option value="$PROJECT_DIR$/api/token.js" />
@@ -182,7 +182,6 @@
         <option value="$PROJECT_DIR$/parser+requestAPI+convertor/intervalRequests.js" />
         <option value="$PROJECT_DIR$/parser+requestAPI+convertor/parse.js" />
         <option value="$PROJECT_DIR$/parser+requestAPI+convertor/realCoins.js" />
-        <option value="$PROJECT_DIR$/public/css/stylemedia.css" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/public/javascript/javas.js" />
         <option value="$PROJECT_DIR$/public/javascript/javascript.js" />
@@ -195,14 +194,17 @@
         <option value="$PROJECT_DIR$/views/showDigitalCoins.ejs" />
         <option value="$PROJECT_DIR$/views/showApis.ejs" />
         <option value="$PROJECT_DIR$/routes/apiTicker.js" />
+        <option value="$PROJECT_DIR$/api/coins.js" />
+        <option value="$PROJECT_DIR$/public/css/stylemedia.css" />
+        <option value="$PROJECT_DIR$/api/credentials.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="64" />
     <option name="y" value="-4" />
-    <option name="width" value="1857" />
-    <option name="height" value="957" />
+    <option name="width" value="871" />
+    <option name="height" value="939" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -286,6 +288,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="parser+requestAPI+convertor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -304,6 +338,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="errors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -313,6 +375,912 @@
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital/NEWDIG" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="432a6336446956931d77b728a9cb10f271c884c9" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital/NEWDIG" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital/NEWDIG/apiTickers/newapi/values" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="hours" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="numberPoints" />
+                <option name="value" value="49" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital/NEWDIG/apiTickers/values" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="hours" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="numberPoints" />
+                <option name="value" value="49" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital/NEWDIG/apiTickers" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newapi" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="2120d3d16674ec7e59a21444f7b7bfd2bc4b67e0" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="urlTicker" />
+                <option name="value" value="https://www.bitstamp.net/api/ticker/" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="digsname" />
+                <option name="value" value="NEWDIG" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="realsname" />
+                <option name="value" value="USD" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="last" />
+                <option name="value" value="last" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="requestTime" />
+                <option name="value" value="30123" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital/NEWDIG" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newapi" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="2120d3d16674ec7e59a21444f7b7bfd2bc4b67e0" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="urlTicker" />
+                <option name="value" value="https://www.bitstamp.net/api/ticker/" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="digsname" />
+                <option name="value" value="NEWDIG" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="realsname" />
+                <option name="value" value="USD" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="last" />
+                <option name="value" value="last" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="requestTime" />
+                <option name="value" value="30123" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital/NEWDIG" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newdig" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="2120d3d16674ec7e59a21444f7b7bfd2bc4b67e0" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lname" />
+                <option name="value" value="lnume" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital/BTC/apiTickers" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newdig" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="2120d3d16674ec7e59a21444f7b7bfd2bc4b67e0" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lname" />
+                <option name="value" value="lnume" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital/btc/apiTickers" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newdig" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="2120d3d16674ec7e59a21444f7b7bfd2bc4b67e0" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lname" />
+                <option name="value" value="lnume" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital/newdig" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newdig" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="2120d3d16674ec7e59a21444f7b7bfd2bc4b67e0" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lname" />
+                <option name="value" value="lnume" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital/newdig" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newdig" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="2120d3d16674ec7e59a21444f7b7bfd2bc4b67e" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newdig" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="2120d3d16674ec7e59a21444f7b7bfd2bc4b67e" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newdig" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="2120d3d16674ec7e59a21444f7b7bfd2bc4b67e0" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/real" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newDig" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="b8fc52d49d025143c82654941384e176ed76624c" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital/newDigitalCOin" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newDigitalCOin" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="21ebbd133ae3ae1ad1630606a4c5f352bdd1618b" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lname" />
+                <option name="value" value="lnamenow" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital/NEWDIGITALCOIN" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newDigitalCOin" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="21ebbd133ae3ae1ad1630606a4c5f352bdd1618b" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lname" />
+                <option name="value" value="lnamenow" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newDigitalCOin" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="21ebbd133ae3ae1ad1630606a4c5f352bdd1618b" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="lname" />
+                <option name="value" value="lnamenow" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newDigitalCOin" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="21ebbd133ae3ae1ad1630606a4c5f352bdd1618b" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newapi" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="0222ed7af10063b657fbb820c141ff8f7e86e591" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="tesadsa" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="0222ed7af10063b657fbb820c141ff8f7e86e591" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newapi" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="0222ed7af10063b657fbb820c141ff8f7e86e591" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newapi" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="tokenID" />
+                <option name="value" value="0222ed7af10063b657fbb820c141ff8f7e86e591" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newapi" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="token" />
+                <option name="value" value="d5a674230226fa41552ebf3c9ff99e451303df03" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/digital" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newapi" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="/api/coins/" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="sname" />
+                <option name="value" value="newapi" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Node.js.app.js">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
@@ -356,6 +1324,23 @@
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c95aeb85-5cc4-42c6-a02d-687656d5ae04" name="Default" comment="" />
@@ -365,18 +1350,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1857" height="957" extended-state="6" />
-    <editor active="true" />
+    <frame x="64" y="-4" width="871" height="939" extended-state="6" />
+    <editor active="false" />
     <layout>
+      <window_info id="REST Client" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.99168646" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19730458" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42117375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33023256" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33023256" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -437,126 +1423,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/credentials.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="133" selection-end="221" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/apiTIcker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1168" selection-end="1244" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="828">
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-            <element signature="e#581#653#0" expanded="false" />
-            <element signature="e#788#1167#0" expanded="false" />
-            <element signature="e#851#1163#0" expanded="false" />
-            <element signature="e#897#1084#0" expanded="false" />
-            <element signature="e#944#1074#0" expanded="false" />
-            <element signature="e#1117#1157#0" expanded="false" />
-            <element signature="e#1356#1615#0" expanded="false" />
-            <element signature="e#1403#1534#0" expanded="false" />
-            <element signature="e#1453#1524#0" expanded="false" />
-            <element signature="e#1568#1608#0" expanded="false" />
-            <element signature="e#1775#2963#0" expanded="false" />
-            <element signature="e#1849#2958#0" expanded="false" />
-            <element signature="e#2020#2060#0" expanded="false" />
-            <element signature="e#2074#2951#0" expanded="false" />
-            <element signature="e#2113#2496#0" expanded="false" />
-            <element signature="e#2148#2203#0" expanded="false" />
-            <element signature="e#2237#2291#0" expanded="false" />
-            <element signature="e#2329#2387#0" expanded="false" />
-            <element signature="e#2424#2481#0" expanded="false" />
-            <element signature="e#2524#2570#0" expanded="false" />
-            <element signature="e#2602#2653#0" expanded="false" />
-            <element signature="e#2684#2733#0" expanded="false" />
-            <element signature="e#2828#2875#0" expanded="false" />
-            <element signature="e#2893#2941#0" expanded="false" />
-            <element signature="e#3088#3551#0" expanded="false" />
-            <element signature="e#3210#3547#0" expanded="false" />
-            <element signature="e#3334#3517#0" expanded="false" />
-            <element signature="e#3635#4217#0" expanded="false" />
-            <element signature="e#3742#4214#0" expanded="false" />
-            <element signature="e#3761#4124#0" expanded="false" />
-            <element signature="e#3819#4022#0" expanded="false" />
-            <element signature="e#3854#3908#0" expanded="false" />
-            <element signature="e#3914#4008#0" expanded="false" />
-            <element signature="e#4028#4114#0" expanded="false" />
-            <element signature="e#4130#4208#0" expanded="false" />
-            <element signature="e#4367#7501#0" expanded="false" />
-            <element signature="e#5209#7418#0" expanded="false" />
-            <element signature="e#5244#7320#0" expanded="false" />
-            <element signature="e#5282#7206#0" expanded="false" />
-            <element signature="e#5353#7191#0" expanded="false" />
-            <element signature="e#5402#7045#0" expanded="false" />
-            <element signature="e#5476#7021#0" expanded="false" />
-            <element signature="e#5530#6843#0" expanded="false" />
-            <element signature="e#5652#6811#0" expanded="false" />
-            <element signature="e#5713#6601#0" expanded="false" />
-            <element signature="e#5905#6561#0" expanded="false" />
-            <element signature="e#5971#6319#0" expanded="false" />
-            <element signature="e#6369#6519#0" expanded="false" />
-            <element signature="e#6643#6777#0" expanded="false" />
-            <element signature="e#6877#6995#0" expanded="false" />
-            <element signature="e#7071#7173#0" expanded="false" />
-            <element signature="e#7224#7310#0" expanded="false" />
-            <element signature="e#7334#7412#0" expanded="false" />
-            <element signature="e#7428#7499#0" expanded="false" />
-            <element signature="e#7658#11547#0" expanded="false" />
-            <element signature="e#8540#11465#0" expanded="false" />
-            <element signature="e#8575#11367#0" expanded="false" />
-            <element signature="e#8636#11356#0" expanded="false" />
-            <element signature="e#8710#11242#0" expanded="false" />
-            <element signature="e#8776#11116#0" expanded="false" />
-            <element signature="e#8855#11093#0" expanded="false" />
-            <element signature="e#8912#10914#0" expanded="false" />
-            <element signature="e#8994#10882#0" expanded="false" />
-            <element signature="e#9056#10672#0" expanded="false" />
-            <element signature="e#9186#10632#0" expanded="false" />
-            <element signature="e#9255#10390#0" expanded="false" />
-            <element signature="e#9452#10342#0" expanded="false" />
-            <element signature="e#9526#10068#0" expanded="false" />
-            <element signature="e#9593#9682#0" expanded="false" />
-            <element signature="e#10126#10292#0" expanded="false" />
-            <element signature="e#10440#10590#0" expanded="false" />
-            <element signature="e#10714#10848#0" expanded="false" />
-            <element signature="e#10948#11067#0" expanded="false" />
-            <element signature="e#11122#11224#0" expanded="false" />
-            <element signature="e#11248#11342#0" expanded="false" />
-            <element signature="e#11381#11459#0" expanded="false" />
-            <element signature="e#11475#11545#0" expanded="false" />
-            <element signature="e#11602#12389#0" expanded="false" />
-            <element signature="e#11732#12385#0" expanded="false" />
-            <element signature="e#11751#12295#0" expanded="false" />
-            <element signature="e#11809#12193#0" expanded="false" />
-            <element signature="e#11927#12177#0" expanded="false" />
-            <element signature="e#12057#12159#0" expanded="false" />
-            <element signature="e#12199#12285#0" expanded="false" />
-            <element signature="e#12301#12379#0" expanded="false" />
-            <element signature="e#12460#12837#0" expanded="false" />
-            <element signature="e#12574#12789#0" expanded="false" />
-            <element signature="e#12631#12781#0" expanded="false" />
-            <element signature="e#12654#12711#0" expanded="false" />
-            <element signature="e#12715#12771#0" expanded="false" />
-            <element signature="e#12793#12834#0" expanded="false" />
-            <element signature="e#13053#13112#0" expanded="false" />
-            <element signature="e#13166#13234#0" expanded="false" />
-            <element signature="e#13278#13336#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/convertor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="65" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="576">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/coins.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="31" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
           <folding />
         </state>
       </provider>
@@ -578,23 +1447,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/token.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="40" selection-start="1225" selection-end="1225" vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="1404">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/values.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="67" selection-start="1419" selection-end="1419" vertical-scroll-proportion="0.42910448" vertical-offset="436" max-vertical-offset="2322">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/errors/errors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="24" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
           <folding />
         </state>
       </provider>
@@ -819,13 +1674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/stylemedia.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="16" selection-start="2684" selection-end="2684" vertical-scroll-proportion="378.92593" vertical-offset="12283" max-vertical-offset="14760">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascript/datejs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="549">
@@ -837,7 +1685,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="51714">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -880,9 +1728,7 @@
     <entry file="file://$PROJECT_DIR$/views/analysis.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="233" column="34" selection-start="10030" selection-end="10030" vertical-scroll-proportion="51.88889" vertical-offset="5595" max-vertical-offset="7434">
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -952,7 +1798,10 @@
     <entry file="file://$PROJECT_DIR$/views/addApi.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="42" selection-start="1422" selection-end="1442" vertical-scroll-proportion="-27.333334" vertical-offset="0" max-vertical-offset="1854">
-          <folding />
+          <folding>
+            <marker date="1402397137001" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1402397137001" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1030,7 +1879,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/showDigitalCoins.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="27" selection-start="374" selection-end="374" vertical-scroll-proportion="-1.3103448" vertical-offset="864" max-vertical-offset="1386">
+        <state line="59" column="16" selection-start="2108" selection-end="2108" vertical-scroll-proportion="-13.333333" vertical-offset="702" max-vertical-offset="1386">
+          <folding>
+            <marker date="1402397748463" expanded="true" signature="1875:2406" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/apiTIcker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="60" selection-start="3348" selection-end="3507" vertical-scroll-proportion="0.0" vertical-offset="1728" max-vertical-offset="6066">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/coins.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="52" selection-start="421" selection-end="421" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/stylemedia.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="352" column="5" selection-start="7240" selection-end="7240" vertical-scroll-proportion="-25.11111" vertical-offset="5658" max-vertical-offset="15048">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/errors/errors.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="20" selection-start="612" selection-end="628" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="792">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/token.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="26" selection-start="1715" selection-end="1715" vertical-scroll-proportion="0.0" vertical-offset="681" max-vertical-offset="1404">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/credentials.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="43" selection-start="362" selection-end="362" vertical-scroll-proportion="-1.8837209" vertical-offset="0" max-vertical-offset="540">
           <folding />
         </state>
       </provider>
